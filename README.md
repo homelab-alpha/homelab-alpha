@@ -4,7 +4,7 @@
 
 ## Hey there 👋
 
-Hey there! 👋 I'm GJS, a creative problem-solver with a passion for technology,
+I'm GJS, a creative problem-solver with a passion for technology,
 and I run my own homelab. I thrive on coming up with innovative solutions to
 various challenges. My Homelab is my playground where I test out new
 technologies, experiment with different setups, and continuously seek ways to
