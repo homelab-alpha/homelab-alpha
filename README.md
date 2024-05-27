@@ -139,4 +139,4 @@ learns in the realms of innovation and problem-solving.
 
 ## My Skills
 
-[![My Skills](https://skillicons.dev/icons?i=bash,debian,docker,git,github,githubactions,gitlab,linux,md,raspberrypi,redhat,ubuntu,visualstudio,vscode&perline=9)](https://github.com/homelab-alpha)
+[![My Skills](https://skillicons.dev/icons?i=bash,debian,docker,git,github,githubactions,gitlab,linux,md,raspberrypi,redhat,ubuntu,visualstudio,vscode&perline=14)](https://github.com/homelab-alpha)
