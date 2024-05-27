@@ -28,12 +28,12 @@ learns in the realms of innovation and problem-solving.
 <a href="https://github.com/homelab-alpha/docker">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=docker&description_lines_count=2&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=docker&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed"
       media="(prefers-color-scheme: dark)"
       alt="Docker Repo"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=docker&description_lines_count=2&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=docker&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Docker Repo"
     />
@@ -47,12 +47,12 @@ learns in the realms of innovation and problem-solving.
 <a href="https://github.com/homelab-alpha/dotfiles">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=dotfiles&description_lines_count=2&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=dotfiles&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed"
       media="(prefers-color-scheme: dark)"
       alt="Dotfiles Repo"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=dotfiles&description_lines_count=2&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=dotfiles&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Dotfiles Repo"
     />
@@ -66,12 +66,12 @@ learns in the realms of innovation and problem-solving.
 <a href="https://github.com/homelab-alpha/shell-script">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=shell-script&description_lines_count=2&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=shell-script&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed"
       media="(prefers-color-scheme: dark)"
       alt="Shell Script Repo"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=shell-script&description_lines_count=2&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=shell-script&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Shell Script Repo"
     />
@@ -85,12 +85,12 @@ learns in the realms of innovation and problem-solving.
 <a href="https://github.com/homelab-alpha/openssl">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=openssl&description_lines_count=2&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=openssl&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed"
       media="(prefers-color-scheme: dark)"
       alt="Shell Script Repo"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=openssl&description_lines_count=2&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=openssl&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Shell Script Repo"
     />
@@ -139,4 +139,4 @@ learns in the realms of innovation and problem-solving.
 
 ## My Skills
 
-[![My Skills](https://skillicons.dev/icons?i=bash,debian,docker,git,github,githubactions,gitlab,linux,md,raspberrypi,redhat,ubuntu,visualstudio,vscode&perline=14)](https://github.com/homelab-alpha)
+[![My Skills](https://skillicons.dev/icons?i=bash,debian,docker,git,github,githubactions,gitlab,linux,md,raspberrypi,redhat,ubuntu,visualstudio,vscode&perline=9)](https://github.com/homelab-alpha)
