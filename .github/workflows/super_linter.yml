@@ -33,7 +33,6 @@ jobs:
         uses: super-linter/super-linter@v7.2.1
         env:
           BASH_SEVERITY: warning
-          VALIDATE_ALL_CODEBASE: false
           VALIDATE_CSS_PRETTIER: false
           VALIDATE_GRAPHQL_PRETTIER: false
           VALIDATE_HTML_PRETTIER: false
