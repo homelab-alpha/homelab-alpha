@@ -28,8 +28,8 @@ jobs:
 
             We truly appreciate your effort!
 
-            [Code of Conduct]: https://github.com/homelab-alpha/template/blob/main/CODE_OF_CONDUCT.md
-            [Contribution Guidelines]: https://github.com/homelab-alpha/template/blob/main/CONTRIBUTING.md
+            [Code of Conduct]: https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md
+            [Contribution Guidelines]: https://github.com/homelab-alpha/homelab-alpha/blob/main/CONTRIBUTING.md
 
           pr-message: |
             ## Hello there! 👋
