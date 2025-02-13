@@ -4,10 +4,10 @@ name: Super Linter
 on:
   push:
     branches:
-      - mainn
+      - main
   pull_request:
     branches:
-      - mainn
+      - main
   workflow_dispatch:
 
 concurrency:
