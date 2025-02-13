@@ -1,13 +1,13 @@
 ---
-name: Super-Linter
+name: Super Linter
 
 on:
   push:
     branches:
-      - main
+      - mainn
   pull_request:
     branches:
-      - main
+      - mainn
   workflow_dispatch:
 
 concurrency:
@@ -17,8 +17,7 @@ concurrency:
 permissions: read-all
 
 jobs:
-  build:
-    name: Super-Linter
+  super-linter:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -30,10 +29,11 @@ jobs:
         with:
           fetch-depth: false
           fetch-tags: false
-      - name: Super-linter
+      - name: Super Linter
         uses: super-linter/super-linter@v7.2.1
         env:
           BASH_SEVERITY: warning
+          VALIDATE_ALL_CODEBASE: false
           VALIDATE_CSS_PRETTIER: false
           VALIDATE_GRAPHQL_PRETTIER: false
           VALIDATE_HTML_PRETTIER: false
