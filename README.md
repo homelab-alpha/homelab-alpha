@@ -108,12 +108,12 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&theme=radical&hide=stars&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=false&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed&card_width=400&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&theme=radical&hide=stars&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=false&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed&card_width=480&cache_seconds=3600"
       media="(prefers-color-scheme: dark)"
       alt="Homelab-Alpha"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&theme=radical&hide=stars&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=false&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed&card_width=400&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&theme=radical&hide=stars&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=false&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed&card_width=480&cache_seconds=3600"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Shell Script Repo"
     />
@@ -164,4 +164,4 @@ is constantly learning in the fields of innovation and problem solving.
 
 ## My Skills
 
-![My Skills](https://skillicons.dev/icons?i=bash,debian,docker,git,github,githubactions,gitlab,linux,md,raspberrypi,redhat,ubuntu,visualstudio,vscode&perline=15)
+[![My Skills](https://skillicons.dev/icons?i=bash,debian,docker,git,github,githubactions,gitlab,linux,md,raspberrypi,redhat,ubuntu,visualstudio,vscode&perline=15)](https://github.com/homelab-alpha)
