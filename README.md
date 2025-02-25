@@ -16,7 +16,7 @@ complex technical projects, I always feel at my best when I'm tinkering.
 In short, I'm a technology enthusiast who isn't afraid to get my hands dirty and
 is constantly learning in the fields of innovation and problem solving.
 
-## My Open Source Repositories
+## 🧑‍💻 My Open Source Repositories
 
 <p align="right">
  <a href="https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md">
@@ -103,7 +103,7 @@ is constantly learning in the fields of innovation and problem solving.
   </picture>
 </a>
 
-## My Statistics
+## 📊 My Statistics
 
 <a href="https://github.com/homelab-alpha/">
   <picture>
