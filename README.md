@@ -30,12 +30,12 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/docker">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=docker&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed&card_width=400&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
       alt="Docker Repo"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=docker&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed&card_width=400&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Docker Repo"
     />
@@ -49,12 +49,12 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/openssl">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=openssl&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed&card_width=400&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
       alt="OpenSSL Repo"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=openssl&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed&card_width=400&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="OpenSSL Repo"
     />
@@ -68,12 +68,12 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/shell-script">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=shell-script&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed&card_width=400&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
       alt="Shell Script Repo"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=shell-script&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed&card_width=400&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Shell Script Repo"
     />
@@ -87,12 +87,12 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/uptime-kuma">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=uptime-kuma&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed&card_width=400&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=uptime-kuma&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
       alt="Uptime Kuma Repo"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=uptime-kuma&description_lines_count=3&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=true&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed&card_width=400&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=uptime-kuma&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Uptime Kuma Repo"
     />
@@ -108,12 +108,12 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&theme=radical&hide=stars&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=false&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed&card_width=480&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=480&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
       alt="Homelab-Alpha GitHub Stats"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&theme=radical&hide=stars&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=false&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed&card_width=480&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=480&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Homelab-Alpha GitHub Stats"
     />
@@ -127,12 +127,12 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&layout=compact&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=false&icon_color=BA935B&show_icons=true&text_color=e4e2e2&title_color=2f80ed&card_width=480&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=480&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
       alt="Homelab-Alpha Language Stats"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&layout=compact&bg_color=00000000&border_color=BA935B&border_radius=12.5&count_private=false&icon_color=BA935B&show_icons=true&text_color=434d58&title_color=2f80ed&card_width=480&cache_seconds=3600"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=480&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Homelab-Alpha Language Stats"
     />
