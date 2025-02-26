@@ -143,7 +143,7 @@ is constantly learning in the fields of innovation and problem solving.
   </picture>
 </a>
 
-<a href="https://github.com/homelab-alpha/">
+<!-- <a href="https://github.com/homelab-alpha/">
   <picture>
     <source
       srcset="https://github-readme-streak-stats.herokuapp.com?user=homelab-alpha&border_radius=12.5&short_numbers=true&mode=weekly&card_width=480&card_height=180&dates=E4E2E2&background=00000000&border=BA935B&stroke=BA935B&ring=2F80ED&fire=BA935B&currStreakNum=E4E2E2&sideNums=E4E2E2&currStreakLabel=E4E2E2&sideLabels=E4E2E2&excludeDaysLabel=E4E2E2"
@@ -160,7 +160,7 @@ is constantly learning in the fields of innovation and problem solving.
       alt="Homelab-Alpha Streak Stats"
     />
   </picture>
-</a>
+</a> -->
 
 ## 🛠 My Skills
 
