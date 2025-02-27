@@ -146,12 +146,12 @@ is constantly learning in the fields of innovation and problem solving.
 <!-- <a href="https://github.com/homelab-alpha/">
   <picture>
     <source
-      srcset="https://github-readme-streak-stats.herokuapp.com?user=homelab-alpha&border_radius=12.5&short_numbers=true&mode=weekly&card_width=480&card_height=180&dates=E4E2E2&background=00000000&border=BA935B&stroke=BA935B&ring=2F80ED&fire=BA935B&currStreakNum=E4E2E2&sideNums=E4E2E2&currStreakLabel=E4E2E2&sideLabels=E4E2E2&excludeDaysLabel=E4E2E2"
+      srcset="https://github-readme-streak-stats.herokuapp.com?user=homelab-alpha&hide_total_contributions=false&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=true&card_width=480&card_height=180&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=E4E2E2&currStreakLabel=E4E2E2&sideNums=E4E2E2&sideLabels=E4E2E2&dates=E4E2E2"
       media="(prefers-color-scheme: dark)"
       alt="Homelab-Alpha Streak Stats"
     />
     <source
-      srcset="https://github-readme-streak-stats.herokuapp.com?user=homelab-alpha&border_radius=12.5&short_numbers=true&mode=weekly&card_width=480&card_height=180&dates=434D58&background=00000000&border=BA935B&stroke=BA935B&ring=2F80ED&fire=BA935B&currStreakNum=434D58&sideNums=434D58&currStreakLabel=434D58&sideLabels=434D58&excludeDaysLabel=434D58"
+      srcset="https://github-readme-streak-stats.herokuapp.com?user=homelab-alpha&hide_total_contributions=false&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=true&card_width=480&card_height=180&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Homelab-Alpha Streak Stats"
     />
