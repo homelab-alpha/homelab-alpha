@@ -1,6 +1,11 @@
 #
 
-![Eat Sleep Code Repeat](https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/images/eat_sleep_code_repeat.png)
+<a href="https://github.com/homelab-alpha">
+  <img
+    src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/images/eat_sleep_code_repeat.png"
+    alt="Eat Sleep Code Repeat"
+  />
+</a>
 
 ## Hey there 👋
 
@@ -18,30 +23,30 @@ is constantly learning in the fields of innovation and problem solving.
 
 ## 🧑‍💻 My Open Source Repositories
 
-<p align="right">
- <a href="https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md">
-  <img
-   src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg"
-   alt="Contributor Covenant"
-  />
- </a>
-</p>
+  <p align="right">
+    <a href="https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md">
+      <img
+        src="https://img.shields.io/badge/Contributor%20Covenant-2.1-BA935B"
+        alt="Read the Contributor Covenant Code of Conduct"
+      />
+    </a>
+  </p>
 
 <a href="https://github.com/homelab-alpha/docker">
   <picture>
     <source
       srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
-      alt="Docker Repo"
+      alt="Docker Repositorie"
     />
     <source
       srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-      alt="Docker Repo"
+      alt="Docker Repositorie"
     />
     <img
       src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=docker"
-      alt="Docker Repo"
+      alt="Docker Repositorie"
     />
   </picture>
 </a>
@@ -51,16 +56,16 @@ is constantly learning in the fields of innovation and problem solving.
     <source
       srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
-      alt="OpenSSL Repo"
+      alt="OpenSSL Repositorie"
     />
     <source
       srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-      alt="OpenSSL Repo"
+      alt="OpenSSL Repositorie"
     />
     <img
       src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=openssl"
-      alt="OpenSSL Repo"
+      alt="OpenSSL Repositorie"
     />
   </picture>
 </a>
@@ -70,16 +75,16 @@ is constantly learning in the fields of innovation and problem solving.
     <source
       srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
-      alt="Shell Script Repo"
+      alt="Shell Script Repositorie"
     />
     <source
       srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-      alt="Shell Script Repo"
+      alt="Shell Script Repositorie"
     />
     <img
       src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=shell-script"
-      alt="Shell Script Repo"
+      alt="Shell Script Repositorie"
     />
   </picture>
 </a>
@@ -89,16 +94,16 @@ is constantly learning in the fields of innovation and problem solving.
     <source
       srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=uptime-kuma&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
-      alt="Uptime Kuma Repo"
+      alt="Uptime Kuma Repositorie"
     />
     <source
       srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=uptime-kuma&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-      alt="Uptime Kuma Repo"
+      alt="Uptime Kuma Repositorie"
     />
     <img
       src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&repo=uptime-kuma"
-      alt="Uptime Kuma Repo"
+      alt="Uptime Kuma Repositorie"
     />
   </picture>
 </a>
@@ -108,18 +113,18 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=800&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
-      alt="Homelab-Alpha GitHub Stats"
+      alt="Homelab-Alpha GitHub Statistics"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=800&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-      alt="Homelab-Alpha GitHub Stats"
+      alt="Homelab-Alpha GitHub Statistics"
     />
     <img
       src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha"
-      alt="Homelab-Alpha GitHub Stats"
+      alt="Homelab-Alpha GitHub Statistics"
     />
   </picture>
 </a>
@@ -127,18 +132,18 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/">
   <picture>
     <source
-      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=daily&short_numbers=true&disable_animations=true&card_width=380&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=E4E2E2&currStreakLabel=E4E2E2&sideNums=E4E2E2&sideLabels=E4E2E2&dates=E4E2E2"
+      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=false&hide_current_streak=false&hide_longest_streak=false&mode=daily&short_numbers=false&disable_animations=true&card_width=800&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=E4E2E2&currStreakLabel=E4E2E2&sideNums=E4E2E2&sideLabels=E4E2E2&dates=E4E2E2"
       media="(prefers-color-scheme: dark)"
-      alt="Homelab-Alpha Streak Stats"
+      alt="Homelab-Alpha Streak Statistics"
     />
     <source
-      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=daily&short_numbers=true&disable_animations=true&card_width=380&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
+      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=false&hide_current_streak=false&hide_longest_streak=false&mode=daily&short_numbers=false&disable_animations=true&card_width=800&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-      alt="Homelab-Alpha Streak Stats"
+      alt="Homelab-Alpha Streak Statistics"
     />
     <img
       src="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha"
-      alt="Homelab-Alpha Streak Stats"
+      alt="Homelab-Alpha Streak Statistics"
     />
   </picture>
 </a>
@@ -146,22 +151,27 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=800&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
-      alt="Homelab-Alpha Language Stats"
+      alt="Homelab-Alpha Language Statistics"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=800&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-      alt="Homelab-Alpha Language Stats"
+      alt="Homelab-Alpha Language Statistics"
     />
     <img
       src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha"
-      alt="Homelab-Alpha Language Stats"
+      alt="Homelab-Alpha Language Statistics"
     />
   </picture>
 </a>
 
 ## 🛠 My Skills
 
-[![My Skills](https://skillicons.dev/icons?i=bash,debian,docker,git,github,githubactions,gitlab,linux,md,raspberrypi,redhat,ubuntu,visualstudio,vscode&perline=15)](https://github.com/homelab-alpha)
+<a href="https://github.com/homelab-alpha">
+  <img
+    src="https://skillicons.dev/icons?i=bash,debian,docker,git,github,githubactions,gitlab,linux,md,raspberrypi,redhat,ubuntu,visualstudio,vscode&perline=15"
+    alt="My Skills"
+  />
+</a>
