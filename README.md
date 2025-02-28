@@ -108,12 +108,12 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=480&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
       alt="Homelab-Alpha GitHub Stats"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=480&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Homelab-Alpha GitHub Stats"
     />
@@ -127,12 +127,31 @@ is constantly learning in the fields of innovation and problem solving.
 <a href="https://github.com/homelab-alpha/">
   <picture>
     <source
-      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=480&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
+      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=daily&short_numbers=true&disable_animations=true&card_width=380&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=E4E2E2&currStreakLabel=E4E2E2&sideNums=E4E2E2&sideLabels=E4E2E2&dates=E4E2E2"
+      media="(prefers-color-scheme: dark)"
+      alt="Homelab-Alpha Streak Stats"
+    />
+    <source
+      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=daily&short_numbers=true&disable_animations=true&card_width=380&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+      alt="Homelab-Alpha Streak Stats"
+    />
+    <img
+      src="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha"
+      alt="Homelab-Alpha Streak Stats"
+    />
+  </picture>
+</a>
+
+<a href="https://github.com/homelab-alpha/">
+  <picture>
+    <source
+      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
       alt="Homelab-Alpha Language Stats"
     />
     <source
-      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=480&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
       alt="Homelab-Alpha Language Stats"
     />
@@ -142,25 +161,6 @@ is constantly learning in the fields of innovation and problem solving.
     />
   </picture>
 </a>
-
-<!-- <a href="https://github.com/homelab-alpha/">
-  <picture>
-    <source
-      srcset="https://github-readme-streak-stats.herokuapp.com?user=homelab-alpha&hide_total_contributions=false&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=true&card_width=480&card_height=180&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=E4E2E2&currStreakLabel=E4E2E2&sideNums=E4E2E2&sideLabels=E4E2E2&dates=E4E2E2"
-      media="(prefers-color-scheme: dark)"
-      alt="Homelab-Alpha Streak Stats"
-    />
-    <source
-      srcset="https://github-readme-streak-stats.herokuapp.com?user=homelab-alpha&hide_total_contributions=false&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=true&card_width=480&card_height=180&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-      alt="Homelab-Alpha Streak Stats"
-    />
-    <img
-      src="https://github-readme-streak-stats.herokuapp.com?user=homelab-alpha"
-      alt="Homelab-Alpha Streak Stats"
-    />
-  </picture>
-</a> -->
 
 ## 🛠 My Skills
 
