@@ -12,29 +12,30 @@
 <h2>Hey there 👋</h2>
 
 <p>
-  Welcome to Homelab-Alpha GitHub pages! I'm GJS, a tech enthusiast with a passion
-  for technology, automation, and problem-solving. My homelab is my playground,
-  where I experiment with new technologies, test different configurations, and
-  constantly look for ways to make my environment smarter and more efficient.
+  Welcome to the Homelab-Alpha GitHub pages! I'm GJS, a tech enthusiast with a
+  passion for technology 🖥️, automation ⚙️, and problem-solving 🧩. My homelab
+  is my playground 🎮, where I experiment with new technologies, test different
+  configurations, and continuously seek ways to make my environment smarter and
+  more efficient. 🚀
 </p>
 
 <p>
-  I'm passionate about open-source, self-hosting, and making technology accessible
-  to everyone. Whether it's streamlining deployments, securing environments, or
-  optimizing performance, I'm always exploring new solutions.
+  I'm passionate about open-source 💡, self-hosting 🏠, and making technology
+  accessible to everyone. Whether it's streamlining deployments 🚢, securing
+  environments 🔒, or optimizing performance ⚡, I'm always looking for new solutions.
 </p>
 
 <p>
-  I thrive on solving complex challenges, automating processes, and diving into
-  cutting-edge tech. Whether it's exploring new gadgets or tackling advanced
-  technical projects, I'm at my best when I'm tinkering.
+  I thrive on solving complex challenges 🏗️, automating processes 🤖, and exploring
+  cutting-edge technology 🔬. Whether I’m discovering new gadgets 📱 or tackling
+  advanced technical projects 🛠️, I’m at my best when I’m tinkering.
 </p>
 
 <p>
-  My repositories focus on automation, security, and system optimization. From
-  Dockerized applications to OpenSSL integrations and monitoring tools like
-  Uptime Kuma, each project is designed to enhance self-hosted environments.
-  Check out my latest contributions and feel free to collaborate!
+  My repositories focus on automation ⚙️, security 🔐, and system optimization 📈.
+  From Dockerized applications 🐳 to OpenSSL integrations 🔑 and monitoring tools
+  like Uptime Kuma 🐻 each project is designed to enhance self-hosted environments.
+  Check out my latest contributions and feel free to collaborate! 🤝
 </p>
 
 <h2>🧑‍💻 My Open Source Repositories</h2>
@@ -240,7 +241,7 @@
 
 <ul>
   <li>
-    Check out my latest contributions and repositories on <a
+    🚀 Check out my latest contributions and repositories on <a
       href="https://github.com/homelab-alpha?tab=repositories&q=&type=&language=&sort=stargazers"
       target="_blank"
       rel="noopener noreferrer"
@@ -248,7 +249,7 @@
       alt="Homelab Alpha GitHub repositories page">GitHub</a>.
   </li>
   <li>
-    Read the documentation for all our repositories on <a
+    📚 Read the documentation for all our repositories on <a
       href="https://homelab-alpha.nl/docs"
       target="_blank"
       rel="noopener noreferrer"
@@ -260,20 +261,20 @@
 <h2>📝 Notes</h2>
 
 <ul>
-  <li>I'm always open to contributing to open-source projects. Feel free to reach out!</li>
-  <li>Having issues with one of my repositories? Don't hesitate to ask for help!</li>
-  <li>Follow me for more exciting projects and updates!</li>
-  <li>Remember to enjoy the process and have fun along the way!</li>
+  <li>💡 I'm always open to contributing to open-source projects. Feel free to reach out!</li>
+  <li>🐞 Having issues with one of my repositories? Don't hesitate to ask for help!</li>
+  <li>✨ Follow me for more exciting projects and updates!</li>
+  <li>😃 Remember to enjoy the process and have fun along the way!</li>
 </ul>
 
 <h2>❗ Disclaimer</h2>
 
 <p>
-  The content on the Homelab-Alpha website and GitHub repositories is based on my
+  ⚠️ The content on the Homelab-Alpha website and GitHub repositories is based on my
   personal experience and is provided "as-is." Use it at your own discretion and
   risk. For further details, please refer to the following sections in the repository:
-  README, CODE OF CONDUCT, CONTRIBUTING, CODE STYLE AND STANDARDS GUIDES, SECURITY,
-  and LICENSE.
+  <strong>README</strong>, <strong>CODE OF CONDUCT</strong>, <strong>CONTRIBUTING</strong>,
+  <strong>CODE STYLE AND STANDARDS GUIDES</strong>, <strong>SECURITY</strong>, and <strong>LICENSE</strong>.
 </p>
 
 <footer role="contentinfo">
@@ -283,18 +284,18 @@
       target="_blank"
       rel="noopener noreferrer"
       title="Visit Homelab Alpha website"
-      aria-label="Go to the Homelab Alpha homepage">Homelab-Alpha</a> 2024.
+      aria-label="Go to the Homelab Alpha homepage">Homelab-Alpha</a> 2024. 🏠
     Developed by <a
       href="https://github.com/homelab-alpha"
       target="_blank"
       rel="noopener noreferrer"
       title="Visit Homelab Alpha GitHub page"
-      aria-label="Visit the Homelab Alpha GitHub page">GJS</a>.
+      aria-label="Visit the Homelab Alpha GitHub page">GJS</a>. 💻
     Licensed under <a
       href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
       target="_blank"
       rel="noopener noreferrer"
       title="Learn about CC BY-NC-SA 4.0 license"
-      aria-label="Read more about the CC BY-NC-SA 4.0 license">CC BY-NC-SA 4.0</a>.
+      aria-label="Read more about the CC BY-NC-SA 4.0 license">CC BY-NC-SA 4.0</a>. 🔖
   </p>
 </footer>
