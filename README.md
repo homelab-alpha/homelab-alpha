@@ -139,7 +139,7 @@
 
 <h2>📊 My Statistics</h2>
 
-<a href="#" style="pointer-events: none;">
+<a href="#-my-statistics" style="pointer-events: none;">
   <picture>
     <source
       id="github-stats-dark"
@@ -160,7 +160,7 @@
   </picture>
 </a>
 
-<a href="#" style="pointer-events: none;">
+<a href="#-my-statistics" style="pointer-events: none;">
   <picture>
     <source
       id="streak-stats-dark"
@@ -181,7 +181,7 @@
   </picture>
 </a>
 
-<a href="#" style="pointer-events: none;">
+<a href="#-my-statistics" style="pointer-events: none;">
   <picture>
     <source
       id="lang-stats-dark"
@@ -204,7 +204,7 @@
 
 <h2>🛠 My Skills</h2>
 
-<a href="#" style="pointer-events: none;">
+<a href="#-my-skills" style="pointer-events: none;">
   <img
     id="my-skills"
     src="https://skillicons.dev/icons?i=bash,bitbucket,debian,docker,git,github,githubactions,gitlab,linux,markdown,raspberrypi,redhat,ubuntu,visualstudio,vscode&theme=dark&perline=15"
