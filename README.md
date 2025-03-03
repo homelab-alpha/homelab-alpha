@@ -74,7 +74,6 @@
     />
   </picture>
 </a>
-
 <a href="https://github.com/homelab-alpha/openssl" target="_blank" rel="noopener noreferrer">
   <picture>
     <source
@@ -116,7 +115,6 @@
     />
   </picture>
 </a>
-
 <a href="https://github.com/homelab-alpha/uptime-kuma" target="_blank" rel="noopener noreferrer">
   <picture>
     <source
@@ -160,7 +158,6 @@
     />
   </picture>
 </a>
-
 <a href="#-my-statistics" style="pointer-events: none;">
   <picture>
     <source
