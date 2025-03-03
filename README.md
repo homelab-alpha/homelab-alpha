@@ -270,11 +270,12 @@
 <h2>❗ Disclaimer</h2>
 
 <p>
-  ⚠️ The content on the Homelab-Alpha website and GitHub repositories is based on my
-  personal experience and is provided "as-is." Use it at your own discretion and
-  risk. For further details, please refer to the following sections in the repository:
-  <strong>README</strong>, <strong>CODE OF CONDUCT</strong>, <strong>CONTRIBUTING</strong>,
-  <strong>CODE STYLE AND STANDARDS GUIDES</strong>, <strong>SECURITY</strong>, and <strong>LICENSE</strong>.
+  ⚠️ The content on the Homelab-Alpha website and Homelab-Alpha GitHub repositories
+  is based on my personal experience and is provided "as-is." Use it at your own
+  discretion and risk. For further details, please refer to the following sections
+  in the repository: <strong>README</strong>, <strong>CODE OF CONDUCT</strong>,
+  <strong>CONTRIBUTING</strong>, <strong>CODE STYLE AND STANDARDS GUIDES</strong>,
+  <strong>SECURITY</strong>, and <strong>LICENSE</strong>.
 </p>
 
 <footer role="contentinfo">
