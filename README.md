@@ -1,6 +1,6 @@
 <h1></h1>
 
-<a href="#" style="pointer-events: none;">
+<a href="#" rel="noopener noreferrer">
   <img id="eat-sleep-code-repeat"
     src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/images/eat_sleep_code_repeat.png"
     title="Homelab-Alpha motto: Eat, Sleep, Code, Repeat"
@@ -41,9 +41,7 @@
 <h2>🧑‍💻 My Open Source Repositories</h2>
 
 <p align="right">
-  <a href="https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md"
-     target="_blank"
-     rel="noopener noreferrer">
+  <a href="https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer">
     <img
       id="contributor-covenant"
       src="https://img.shields.io/badge/Contributor%20Covenant-2.1-BA935B"
@@ -138,7 +136,7 @@
 
 <h2>📊 My Statistics</h2>
 
-<a href="#-my-statistics" style="pointer-events: none;">
+<a href="#-my-statistics" rel="noopener noreferrer">
   <picture>
     <source
       id="github-stats-dark"
@@ -152,13 +150,13 @@
     />
     <img
       src="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&cache_seconds=3600&card_width=440&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
-      title="Homelab-Alpha: GitHub Statistics"
+      title="Homelab-Alpha Statistics"
       alt="GitHub statistics for the Homelab-Alpha account, displaying contributions and other metrics."
       loading="lazy"
     />
   </picture>
 </a>
-<a href="#-my-statistics" style="pointer-events: none;">
+<a href="#-my-statistics" rel="noopener noreferrer">
   <picture>
     <source
       id="streak-stats-dark"
@@ -172,14 +170,14 @@
     />
     <img
       src="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=daily&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
-      title="Homelab-Alpha: Streak Statistics"
+      title="Homelab-Alpha Streak Statistics"
       alt="Streak statistics for the Homelab-Alpha GitHub account, showing current and longest streak."
       loading="lazy"
     />
   </picture>
 </a>
 
-<a href="#-my-statistics" style="pointer-events: none;">
+<a href="#-my-statistics" rel="noopener noreferrer">
   <picture>
     <source
       id="lang-stats-dark"
@@ -193,7 +191,7 @@
     />
     <img
       src="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&cache_seconds=3600&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
-      title="Homelab-Alpha: Programming Language Usage"
+      title="Homelab-Alpha Programming Language Usage"
       alt="Top programming languages used by Homelab-Alpha based on GitHub contributions."
       loading="lazy"
     />
@@ -202,18 +200,18 @@
 
 <h2>🛠 My Skills</h2>
 
-<a href="#-my-skills" style="pointer-events: none;">
+<a href="#-my-skills" rel="noopener noreferrer">
   <img
     id="my-skills"
     src="https://skillicons.dev/icons?i=bash,bitbucket,debian,docker,git,github,githubactions,gitlab,linux,markdown,raspberrypi,redhat,ubuntu,visualstudio,vscode&theme=dark&perline=15"
-    title="Homelab Alpha: Skills and Technologies"
-    alt="Homelab Alpha skills and technologies represented by badges"
+    title="Homelab-Alpha Skills and Technologies"
+    alt="Homelab-Alpha skills and technologies represented by badges"
     loading="lazy"
   />
 </a>
 
 <!-- Dark/Light Mode Version -->
-<!-- <a href="https://github.com/homelab-alpha/" target="_blank" rel="noopener noreferrer">
+<!-- <a href="#-my-skills/" rel="noopener noreferrer">
   <picture>
     <source
       id="my-skills-dark-mode"
@@ -227,8 +225,8 @@
     />
     <img
       src="https://skillicons.dev/icons?i=bash,bitbucket,debian,docker,git,github,githubactions,gitlab,linux,markdown,raspberrypi,redhat,ubuntu,visualstudio,vscode&theme=light&perline=15"
-      title="Homelab Alpha: Skills and Technologies"
-      alt="Homelab Alpha skills and technologies represented by badges"
+      title="Homelab-Alpha Skills and Technologies"
+      alt="Homelab-Alpha skills and technologies represented by badges"
       loading="lazy"
     />
   </picture>
@@ -242,16 +240,16 @@
       href="https://github.com/homelab-alpha?tab=repositories&q=&type=&language=&sort=stargazers"
       target="_blank"
       rel="noopener noreferrer"
-      title="Explore Homelab Alpha's repositories and contributions on GitHub"
-      alt="Homelab Alpha GitHub repositories page">GitHub</a>.
+      title="Explore Homelab-Alpha's repositories and contributions on GitHub"
+      alt="Homelab-Alpha GitHub repositories page">GitHub</a>.
   </li>
   <li>
     📚 Read the documentation for all our repositories on <a
       href="https://homelab-alpha.nl/docs"
       target="_blank"
       rel="noopener noreferrer"
-      title="Access comprehensive documentation for Homelab Alpha's projects and repositories"
-      alt="Homelab Alpha documentation page">Homelab-Alpha</a>.
+      title="Access comprehensive documentation for Homelab-Alpha's projects and repositories"
+      alt="Homelab-Alpha documentation page">Homelab-Alpha</a>.
   </li>
 </ul>
 
@@ -281,14 +279,14 @@
       href="https://homelab-alpha.nl"
       target="_blank"
       rel="noopener noreferrer"
-      title="Visit Homelab Alpha website"
-      aria-label="Go to the Homelab Alpha homepage">Homelab-Alpha</a> 2024. 🏠
+      title="Visit Homelab-Alpha website"
+      aria-label="Go to the Homelab-Alpha homepage">Homelab-Alpha</a> 2024. 🏠
     Developed by <a
       href="https://github.com/homelab-alpha"
       target="_blank"
       rel="noopener noreferrer"
-      title="Visit Homelab Alpha GitHub page"
-      aria-label="Visit the Homelab Alpha GitHub page">GJS</a>. 💻
+      title="Visit Homelab-Alpha GitHub page"
+      aria-label="Visit the Homelab-Alpha GitHub page">GJS</a>. 💻
     Licensed under <a
       href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
       target="_blank"
