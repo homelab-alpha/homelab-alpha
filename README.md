@@ -160,16 +160,16 @@
   <picture>
     <source
       id="streak-stats-dark"
-      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=daily&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=E4E2E2&currStreakLabel=E4E2E2&sideNums=E4E2E2&sideLabels=E4E2E2&dates=E4E2E2"
+      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=E4E2E2&currStreakLabel=E4E2E2&sideNums=E4E2E2&sideLabels=E4E2E2&dates=E4E2E2"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="streak-stats-light"
-      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=daily&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
+      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=daily&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
+      src="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
       title="Homelab-Alpha Streak Statistics"
       alt="Streak statistics for the Homelab-Alpha GitHub account, showing current and longest streak."
       loading="lazy"
