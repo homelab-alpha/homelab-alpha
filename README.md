@@ -113,26 +113,6 @@
     />
   </picture>
 </a>
-<a href="https://github.com/homelab-alpha/uptime-kuma" target="_blank" rel="noopener noreferrer">
-  <picture>
-    <source
-      id="uptime-kuma-repo-dark-mode"
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=uptime-kuma&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="uptime-kuma-repo-light-mode"
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=uptime-kuma&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=uptime-kuma&description_lines_count=3&card_width=400&cache_seconds=3600&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
-      title="Uptime Kuma: Self-hosted status monitoring solution for your services"
-      alt="Uptime Kuma repository for self-hosted service monitoring"
-      loading="lazy"
-    />
-  </picture>
-</a>
 
 <h2>📊 My Statistics</h2>
 
