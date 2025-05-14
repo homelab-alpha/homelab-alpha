@@ -1,7 +1,9 @@
+# GitLeaks ignore
 
-# Folders
+## GitHub Workspace
 
-# Files
+<!-- /github/workspace/examples/ -->
 
-# Temporary Files and Folders
-temp.md
+## Super Linter Local
+
+<!-- /tmp/lint/examples/ -->
