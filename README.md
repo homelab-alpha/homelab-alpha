@@ -50,16 +50,16 @@
   <picture>
     <source
       id="docker-repo-dark-mode"
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="docker-repo-light-mode"
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       title="Explore Dockerized applications and container management in this repository"
       alt="Docker repository showcasing containerized applications"
       loading="lazy"
@@ -70,16 +70,16 @@
   <picture>
     <source
       id="openssl-repo-dark-mode"
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="openssl-repo-light-mode"
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       title="Explore OpenSSL integrations for secure networking and configurations"
       alt="OpenSSL repository with networking security configurations"
       loading="lazy"
@@ -91,16 +91,16 @@
   <picture>
     <source
       id="shell-script-repo-dark-mode"
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="shell-script-repo-light-mode"
-      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      src="https://github-readme-stats.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       title="A collection of shell scripts for system automation and optimization"
       alt="Shell script repository for automation and system optimizations"
       loading="lazy"
@@ -113,16 +113,16 @@
   <picture>
     <source
       id="github-stats-dark-mode"
-      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="github-stats-light-mode"
-      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      src="https://github-readme-stats.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       title="Homelab-Alpha Statistics"
       alt="GitHub statistics for the Homelab-Alpha account, displaying contributions and other metrics."
       loading="lazy"
@@ -133,16 +133,16 @@
   <picture>
     <source
       id="streak-stats-weekly-dark-mode"
-      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=E4E2E2&currStreakLabel=E4E2E2&sideNums=E4E2E2&sideLabels=E4E2E2&dates=E4E2E2"
+      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=18&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=E4E2E2&currStreakLabel=E4E2E2&sideNums=E4E2E2&sideLabels=E4E2E2&dates=E4E2E2"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="streak-stats-weekly-light-mode"
-      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
+      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=18&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=12.5&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
+      src="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=18&border=BA935B&stroke=BA935B&fire=BA935B&ring=2F80ED&currStreakNum=434d58&currStreakLabel=434d58&sideNums=434d58&sideLabels=434d58&dates=434d58"
       title="Homelab-Alpha Streak Statistics"
       alt="Streak statistics for the Homelab-Alpha GitHub account, showing current and longest streak."
       loading="lazy"
@@ -154,16 +154,16 @@
   <picture>
     <source
       id="lang-stats-dark-mode"
-      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="lang-stats-light-mode"
-      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=12.5&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
+      src="https://github-readme-stats.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B"
       title="Homelab-Alpha Programming Language Usage"
       alt="Top programming languages used by Homelab-Alpha based on GitHub contributions."
       loading="lazy"
