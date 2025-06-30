@@ -238,6 +238,18 @@
 </p>
 <ul>
   <li>
+    <a href="https://github.com/AdguardTeam/AdGuardHome"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="Network-wide ads & trackers blocking DNS server.">
+      <img src="https://raw.githubusercontent.com/AdguardTeam/KnowledgeBase/refs/heads/master/static/img/favicon.ico"
+           style="width: 16px; height: 16px; vertical-align: text-bottom;"
+           alt="AdGuard Home logo">
+      <strong>AdGuard Home</strong>
+    </a>
+    - A powerful DNS server to block ads, trackers, and improve network privacy across all devices.
+  </li>
+  <li>
     <a href="https://github.com/amir20/dozzle"
        target="_blank"
        rel="noopener noreferrer"
@@ -260,6 +272,18 @@
       <strong>FreshRSS</strong>
     </a>
     – A self-hosted, lightweight RSS aggregator that helps you stay up to date with your favorite feeds, without the bloat.
+  </li>
+  <li>
+    <a href="https://github.com/home-assistant/operating-system"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts.">
+      <img src="https://raw.githubusercontent.com/home-assistant/home-assistant.io/refs/heads/current/source/images/favicon-192x192-full.png"
+           style="width: 16px; height: 16px; vertical-align: text-bottom;"
+           alt="Home Assistant logo">
+      <strong>Home Assistant OS</strong>
+    </a>
+    – A privacy first, open-source platform that puts your smart home automation at your fingertips.
   </li>
   <li>
     <a href="https://github.com/CorentinTh/it-tools"
