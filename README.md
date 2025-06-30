@@ -238,37 +238,37 @@
 </p>
 <ul>
   <li>
-    <img src="https://raw.githubusercontent.com/amir20/dozzle/refs/heads/master/docs/public/logo.svg" alt="Dozzle" style="width: 15px; height: 15px;">
+    <img src="https://raw.githubusercontent.com/amir20/dozzle/refs/heads/master/docs/public/logo.svg" alt="Dozzle" style="width: 16px; height: 16px;">
     <a href="https://github.com/amir20/dozzle" target="_blank" rel="noopener noreferrer">
       <strong>Dozzle</strong>
     </a> – Real-time Docker container log viewer, fast and incredibly helpful for live debugging.
   </li>
   <li>
-    <img src="https://raw.githubusercontent.com/FreshRSS/freshrss.org/refs/heads/main/static/images/icon.svg" alt="FreshRSS" style="width: 15px; height: 15px;">
+    <img src="https://raw.githubusercontent.com/FreshRSS/freshrss.org/refs/heads/main/static/images/icon.svg" alt="FreshRSS" style="width: 16px; height: 16px;">
     <a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">
       <strong>FreshRSS</strong>
     </a> – A self-hosted, lightweight RSS aggregator that helps you stay up to date with your favorite feeds, without the bloat.
   </li>
   <li>
-    <img src="https://raw.githubusercontent.com/CorentinTh/it-tools/refs/heads/main/public/safari-pinned-tab.svg" alt="IT-Tools" style="width: 15px; height: 15px;">
+    <img src="https://raw.githubusercontent.com/CorentinTh/it-tools/refs/heads/main/public/safari-pinned-tab.svg" alt="IT-Tools" style="width: 16px; height: 16px;">
     <a href="https://github.com/CorentinTh/it-tools" target="_blank" rel="noopener noreferrer">
       <strong>IT-Tools</strong>
     </a> – A browser-based collection of useful tools for developers, sysadmins, and power users.
   </li>
   <li>
-    <img src="https://raw.githubusercontent.com/colinwilson/lotusdocs/refs/heads/release/static/favicon.svg" alt="Lotus Docs" style="width: 15px; height: 15px;">
+    <img src="https://raw.githubusercontent.com/colinwilson/lotusdocs/refs/heads/release/static/favicon.svg" alt="Lotus Docs" style="width: 16px; height: 16px;">
     <a href="https://github.com/colinwilson/lotusdocs" target="_blank" rel="noopener noreferrer">
       <strong>Lotus Docs</strong>
     </a> – A fast, modern, and minimal documentation theme for Hugo — perfect for technical projects and clean documentation.
   </li>
   <li>
-    <img src="https://raw.githubusercontent.com/alexjustesen/speedtest-tracker/refs/heads/main/public/img/speedtest-tracker-icon.png" alt="Speedtest Tracker" style="width: 15px; height: 15px;">
+    <img src="https://raw.githubusercontent.com/alexjustesen/speedtest-tracker/refs/heads/main/public/img/speedtest-tracker-icon.png" alt="Speedtest Tracker" style="width: 16px; height: 16px;">
     <a href="https://github.com/alexjustesen/speedtest-tracker" target="_blank" rel="noopener noreferrer">
       <strong>Speedtest Tracker</strong>
     </a> – A self-hosted app that logs and visualizes your internet speed using Speedtest CLI.
   </li>
   <li>
-    <img src="https://raw.githubusercontent.com/louislam/uptime-kuma-website/refs/heads/master/html/img/icon.svg" alt="Uptime Kuma" style="width: 15px; height: 15px;">
+    <img src="https://raw.githubusercontent.com/louislam/uptime-kuma-website/refs/heads/master/html/img/icon.svg" alt="Uptime Kuma" style="width: 16px; height: 16px;">
     <a href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener noreferrer">
       <strong>Uptime Kuma</strong>
     </a> – A self-hosted monitoring tool with a slick UI and uptime tracking for your services.
