@@ -238,40 +238,76 @@
 </p>
 <ul>
   <li>
-    <img src="https://raw.githubusercontent.com/amir20/dozzle/refs/heads/master/docs/public/logo.svg" alt="Dozzle" style="width: 16px; height: 16px;">
-    <a href="https://github.com/amir20/dozzle" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/amir20/dozzle"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="Realtime log viewer for containers. Supports Docker, Swarm and K8s.">
+      <img src="https://raw.githubusercontent.com/amir20/dozzle/refs/heads/master/docs/public/logo.svg"
+           style="width: 16px; height: 16px; vertical-align: text-bottom;"
+           alt="Dozzle logo">
       <strong>Dozzle</strong>
-    </a> – Real-time Docker container log viewer, fast and incredibly helpful for live debugging.
+    </a>
+    – Real-time Docker container log viewer, fast and incredibly helpful for live debugging.
   </li>
   <li>
-    <img src="https://raw.githubusercontent.com/FreshRSS/freshrss.org/refs/heads/main/static/images/icon.svg" alt="FreshRSS" style="width: 16px; height: 16px;">
-    <a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/FreshRSS/FreshRSS"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="A free, self-hostable news aggregator…">
+      <img src="https://raw.githubusercontent.com/FreshRSS/freshrss.org/refs/heads/main/static/images/icon.svg"
+           style="width: 16px; height: 16px; vertical-align: text-bottom;"
+           alt="FreshRSS logo">
       <strong>FreshRSS</strong>
-    </a> – A self-hosted, lightweight RSS aggregator that helps you stay up to date with your favorite feeds, without the bloat.
+    </a>
+    – A self-hosted, lightweight RSS aggregator that helps you stay up to date with your favorite feeds, without the bloat.
   </li>
   <li>
-    <img src="https://raw.githubusercontent.com/CorentinTh/it-tools/refs/heads/main/public/safari-pinned-tab.svg" alt="IT-Tools" style="width: 16px; height: 16px;">
-    <a href="https://github.com/CorentinTh/it-tools" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/CorentinTh/it-tools"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="Collection of handy online tools for developers, with great UX.">
+      <img src="https://raw.githubusercontent.com/CorentinTh/it-tools/refs/heads/main/public/safari-pinned-tab.svg"
+           style="width: 16px; height: 16px; vertical-align: text-bottom;"
+           alt="IT-Tools logo">
       <strong>IT-Tools</strong>
-    </a> – A browser-based collection of useful tools for developers, sysadmins, and power users.
+    </a>
+    – A browser-based collection of useful tools for developers, sysadmins, and power users.
   </li>
   <li>
-    <img src="https://raw.githubusercontent.com/colinwilson/lotusdocs/refs/heads/release/static/favicon.svg" alt="Lotus Docs" style="width: 16px; height: 16px;">
-    <a href="https://github.com/colinwilson/lotusdocs" target="_blank" rel="noopener noreferrer">
-      <strong>Lotus Docs</strong>
-    </a> – A fast, modern, and minimal documentation theme for Hugo — perfect for technical projects and clean documentation.
+    <a href="https://github.com/colinwilson/lotusdocs"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="📖 A free, lightweight, modern documentation theme for Hugo">
+      <img src="https://raw.githubusercontent.com/colinwilson/lotusdocs/refs/heads/release/static/favicon.svg"
+           style="width: 16px; height: 16px; vertical-align: text-bottom;"
+           alt="Lotus Docs logo">
+      <strong>Lotus Docss</strong>
+    </a>
+    – A fast, modern, and minimal documentation theme for Hugo — perfect for technical projects and clean documentation.
   </li>
   <li>
-    <img src="https://raw.githubusercontent.com/alexjustesen/speedtest-tracker/refs/heads/main/public/img/speedtest-tracker-icon.png" alt="Speedtest Tracker" style="width: 16px; height: 16px;">
-    <a href="https://github.com/alexjustesen/speedtest-tracker" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/alexjustesen/speedtest-tracker"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="Speedtest Tracker is a self-hosted application that monitors the performance and uptime of your internet connection.">
+      <img src="https://raw.githubusercontent.com/alexjustesen/speedtest-tracker/refs/heads/main/public/img/speedtest-tracker-icon.png"
+           style="width: 16px; height: 16px; vertical-align: text-bottom;"
+           alt="Speedtest Tracker logo">
       <strong>Speedtest Tracker</strong>
-    </a> – A self-hosted app that logs and visualizes your internet speed using Speedtest CLI.
+    </a>
+    – A self-hosted app that logs and visualizes your internet speed using Speedtest CLI.
   </li>
   <li>
-    <img src="https://raw.githubusercontent.com/louislam/uptime-kuma-website/refs/heads/master/html/img/icon.svg" alt="Uptime Kuma" style="width: 16px; height: 16px;">
-    <a href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/louislam/uptime-kuma"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="A fancy self-hosted monitoring tool.">
+      <img src="https://raw.githubusercontent.com/louislam/uptime-kuma-website/refs/heads/master/html/img/icon.svg"
+           style="width: 16px; height: 16px; vertical-align: text-bottom;"
+           alt="Uptime Kuma logo">
       <strong>Uptime Kuma</strong>
-    </a> – A self-hosted monitoring tool with a slick UI and uptime tracking for your services.
+    </a>
+    – A self-hosted monitoring tool with a slick UI and uptime tracking for your services.
   </li>
 </ul>
 <p>
