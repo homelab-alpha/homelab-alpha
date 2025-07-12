@@ -325,7 +325,7 @@
       <img src="https://raw.githubusercontent.com/colinwilson/lotusdocs/refs/heads/release/static/favicon.svg"
            style="width: 16px; height: 16px; vertical-align: text-bottom;"
            alt="Lotus Docs logo">
-      <strong>Lotus Docss</strong>
+      <strong>Lotus Docs</strong>
     </a>
     – A fast, modern, and minimal documentation theme for Hugo — perfect for technical projects and clean documentation.
   </li>
