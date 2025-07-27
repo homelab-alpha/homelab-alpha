@@ -38,7 +38,7 @@
   <a href="https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer">
     <img
       id="contributor-covenant"
-      src="https://img.shields.io/badge/Contributor%20Covenant-2.1-313A41?style=flat&labelColor=313A41&color=BA935B"
+      src="https://img.shields.io/badge/Contributor%20Covenant-2.1-313A41?style=flat&logo=contributorcovenant&logoColor=96a1a9&&labelColor=313A41&color=BA935B"
       title="Click here to read the Contributor Covenant Code of Conduct"
       alt="Contributor Covenant 2.1 Badge"
       loading="lazy"
