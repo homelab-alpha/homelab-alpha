@@ -108,7 +108,7 @@
   </picture>
 </a>
 
-<h2>💾 My GitHub Gist Insights</h2>
+<h2>💾 My Gist Insights</h2>
 <a href="https://gist.github.com/homelab-alpha/e0f265a9c9b20ca786bce2327ce87060" rel="noopener noreferrer">
   <picture>
     <source
