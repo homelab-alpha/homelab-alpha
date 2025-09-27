@@ -108,21 +108,43 @@
   </picture>
 </a>
 
+<h2>💾 My Gist Insights</h2>
+<a href="https://gist.github.com/homelab-alpha/e0f265a9c9b20ca786bce2327ce87060" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="github-stats-dark-mode"
+      srcset="https://github-stats-ebon-three.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B&cache_seconds=43200"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="github-stats-light-mode"
+      srcset="https://github-stats-ebon-three.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B&cache_seconds=43200"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://github-stats-ebon-three.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B&cache_seconds=43200"
+      title="Homelab-Alpha Gist Statistics"
+      alt="GitHub Gist statistics for the Homelab-Alpha account, showing views, files, and recent activity."
+      loading="lazy"
+    />
+  </picture>
+</a>
+
 <h2>📊 My Statistics</h2>
 <a href="#-my-statistics" rel="noopener noreferrer">
   <picture>
     <source
       id="github-stats-dark-mode"
-      srcset="https://github-stats-ebon-three.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B&cache_seconds=43200"
+      srcset="https://github-stats-ebon-three.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha'%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=e4e2e2&icon_color=BA935B&cache_seconds=43200"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="github-stats-light-mode"
-      srcset="https://github-stats-ebon-three.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B&cache_seconds=43200"
+      srcset="https://github-stats-ebon-three.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha'%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B&cache_seconds=43200"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-stats-ebon-three.vercel.app/api?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B&cache_seconds=43200"
+      src="https://github-stats-ebon-three.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha'%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B&cache_seconds=43200"
       title="Homelab-Alpha Statistics"
       alt="GitHub statistics for the Homelab-Alpha account, displaying contributions and other metrics."
       loading="lazy"
@@ -221,6 +243,14 @@
       rel="noopener noreferrer"
       title="Access comprehensive documentation for Homelab-Alpha's projects and repositories"
       alt="Homelab-Alpha documentation page">Homelab-Alpha</a>.
+  </li>
+  <li>
+    💾 Explore code snippets and shared utilities on <a
+      href="https://gist.github.com/homelab-alpha"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="View Homelab-Alpha's code snippets and shared Gists on GitHub"
+      alt="Homelab-Alpha GitHub Gist page">GitHub Gist</a>.
   </li>
 </ul>
 
