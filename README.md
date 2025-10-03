@@ -123,8 +123,8 @@
     />
     <img
       src="https://github-stats-ebon-three.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=18&border_color=BA935B&title_color=2f80ed&text_color=434d58&icon_color=BA935B&cache_seconds=43200"
-      title="Homelab-Alpha Gist Statistics"
-      alt="GitHub Gist statistics for the Homelab-Alpha account, showing views, files, and recent activity."
+      title="How to remove GitHub notifications that won’t go away"
+      alt="Guide to clear hidden or stuck GitHub notifications."
       loading="lazy"
     />
   </picture>
