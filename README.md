@@ -316,18 +316,6 @@
     – A privacy first, open-source platform that puts your smart home automation at your fingertips.
   </li>
   <li>
-    <a href="https://github.com/CorentinTh/it-tools"
-       target="_blank"
-       rel="noopener noreferrer"
-       title="Collection of handy online tools for developers, with great UX.">
-      <img src="https://raw.githubusercontent.com/CorentinTh/it-tools/refs/heads/main/public/safari-pinned-tab.svg"
-           style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="IT-Tools logo">
-      <strong>IT-Tools</strong>
-    </a>
-    – A browser-based collection of useful tools for developers, sysadmins, and power users.
-  </li>
-  <li>
     <a href="https://github.com/colinwilson/lotusdocs"
        target="_blank"
        rel="noopener noreferrer"
