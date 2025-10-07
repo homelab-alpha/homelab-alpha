@@ -351,18 +351,6 @@
     </a>
     – A self-hosted app that logs and visualizes your internet speed using Speedtest CLI.
   </li>
-  <li>
-    <a href="https://github.com/louislam/uptime-kuma"
-       target="_blank"
-       rel="noopener noreferrer"
-       title="A fancy self-hosted monitoring tool.">
-      <img src="https://raw.githubusercontent.com/louislam/uptime-kuma-website/refs/heads/master/html/img/icon.svg"
-           style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="Uptime Kuma logo">
-      <strong>Uptime Kuma</strong>
-    </a>
-    – A self-hosted monitoring tool with a slick UI and uptime tracking for your services.
-  </li>
 </ul>
 <p>
   Found them interesting? Show your support by giving them a ⭐!
