@@ -1,4 +1,3 @@
-<h1></h1>
 <a href="#" rel="noopener noreferrer">
   <img id="eat-sleep-code-repeat"
     src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/images/eat_sleep_code_repeat.png"
