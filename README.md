@@ -1,6 +1,6 @@
 <a href="#" rel="noopener noreferrer">
   <img id="eat-sleep-code-repeat"
-    src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/images/eat_sleep_code_repeat.png"
+    src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/images/eat_sleep_code_repeat.webp"
     title="Homelab-Alpha motto: Eat, Sleep, Code, Repeat"
     alt="A visual representation of the Homelab-Alpha motto: Eat, Sleep, Code, Repeat"
     loading="lazy"
@@ -193,37 +193,336 @@
 </a>
 
 <h2>🛠 My Skills</h2>
-<a href="#-my-skills" rel="noopener noreferrer">
-  <img
-    id="my-skills"
-    src="https://skillicons.dev/icons?i=bash,bitbucket,debian,docker,git,github,githubactions,gitlab,linux,markdown,raspberrypi,redhat,ubuntu,visualstudio,vscode&theme=dark&perline=15"
-    title="Homelab-Alpha Skills and Technologies"
-    alt="Homelab-Alpha skills and technologies represented by badges"
-    loading="lazy"
-  />
-</a>
-
-<!-- Dark/Light Mode Version -->
-<!-- <a href="#-my-skills/" rel="noopener noreferrer">
+<a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener noreferrer">
   <picture>
     <source
-      id="my-skills-dark-mode"
-      srcset="https://skillicons.dev/icons?i=bash,bitbucket,debian,docker,git,github,githubactions,gitlab,linux,markdown,raspberrypi,redhat,ubuntu,visualstudio,vscode&theme=dark&perline=15"
+      id="bash-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bash_dark.svg"
       media="(prefers-color-scheme: dark)"
     />
     <source
-      id="my-skills-light-mode"
-      srcset="https://skillicons.dev/icons?i=bash,bitbucket,debian,docker,git,github,githubactions,gitlab,linux,markdown,raspberrypi,redhat,ubuntu,visualstudio,vscode&theme=light&perline=15"
+      id="bash-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bash_light.svg"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://skillicons.dev/icons?i=bash,bitbucket,debian,docker,git,github,githubactions,gitlab,linux,markdown,raspberrypi,redhat,ubuntu,visualstudio,vscode&theme=light&perline=15"
-      title="Homelab-Alpha Skills and Technologies"
-      alt="Homelab-Alpha skills and technologies represented by badges"
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bash_light.svg"
+      height="50"
+      width="50"
+      title="Bash"
+      alt="Bash icon"
       loading="lazy"
     />
   </picture>
-</a> -->
+</a>
+<a href="https://bitbucket.org/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="bitbucket-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bitbucket_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="bitbucket-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bitbucket_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bitbucket_light.svg"
+      height="50"
+      width="50"
+      title="Bitbucket"
+      alt="Bitbucket icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="debian-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/debian_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="debian-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/debian_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/debian_light.svg"
+      height="50"
+      width="50"
+      title="Debian"
+      alt="Debian icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="docker-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/docker.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="docker-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/docker.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/docker.svg"
+      height="50"
+      width="50"
+      title="Docker"
+      alt="Docker icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="git-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/git.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="git-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/git.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/git.svg"
+      height="50"
+      width="50"
+      title="Git"
+      alt="Git icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="github-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/github_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="github-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/github_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/github_light.svg"
+      height="50"
+      width="50"
+      title="GitHub"
+      alt="GitHub icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://github.com/features/actions/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="github-actions-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/githubactions_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="github-actions-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/githubactions_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/githubactions_light.svg"
+      height="50"
+      width="50"
+      title="GitHub Actions"
+      alt="GitHub Actions icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://gitlab.com/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="gitlab-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/gitlab_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="gitlab-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/gitlab_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/gitlab_light.svg"
+      height="50"
+      width="50"
+      title="GitLab"
+      alt="GitLab icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://kernel.org/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="linux-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/linux_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="linux-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/linux_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/linux_light.svg"
+      height="50"
+      width="50"
+      title="Linux"
+      alt="Linux icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="markdown-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/markdown_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="markdown-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/markdown_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/markdown_light.svg"
+      height="50"
+      width="50"
+      title="Markdown"
+      alt="Markdown icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://www.raspberrypi.com/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="raspberry-pi-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/raspberrypi_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="raspberry-pi-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/raspberrypi_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/raspberrypi_light.svg"
+      height="50"
+      width="50"
+      title="Raspberry Pi"
+      alt="Raspberry Pi icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://www.redhat.com/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="red-hat-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/redhat_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="red-hat-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/redhat_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/redhat_light.svg"
+      height="50"
+      width="50"
+      title="Red Hat"
+      alt="Red Hat icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="ubuntu-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/ubuntu_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="ubuntu-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/ubuntu_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/ubuntu_light.svg"
+      height="50"
+      width="50"
+      title="Ubuntu"
+      alt="Ubuntu icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="visual-studio-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/visualstudio_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="visual-studio-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/visualstudio_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/visualstudio_light.svg"
+      height="50"
+      width="50"
+      title="Microsoft Visual Studio"
+      alt="Microsoft Visual Studio icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
+<a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">
+  <picture>
+    <source
+      id="vscode-dark-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/vscode_dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="vscode-light-mode"
+      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/vscode_light.svg"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/vscode_light.svg"
+      height="50"
+      width="50"
+      title="Visual Studio Code"
+      alt="Visual Studio Code icon"
+      loading="lazy"
+    />
+  </picture>
+</a>
 
 <h2>💬 Let's connect</h2>
 <ul>
