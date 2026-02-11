@@ -49,16 +49,16 @@
   <picture>
     <source
       id="docker-repo-dark-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="docker-repo-light-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      src="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       title="Explore Dockerized applications and container management in this repository"
       alt="Docker repository showcasing containerized applications"
       loading="lazy"
@@ -69,16 +69,16 @@
   <picture>
     <source
       id="openssl-repo-dark-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="openssl-repo-light-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      src="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       title="Explore OpenSSL integrations for secure networking and configurations"
       alt="OpenSSL repository with networking security configurations"
       loading="lazy"
@@ -90,16 +90,16 @@
   <picture>
     <source
       id="shell-script-repo-dark-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="shell-script-repo-light-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      src="https://github-readme-stats-steel-omega.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       title="A collection of shell scripts for system automation and optimization"
       alt="Shell script repository for automation and system optimizations"
       loading="lazy"
@@ -112,16 +112,16 @@
   <picture>
     <source
       id="github-stats-dark-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="github-stats-light-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-steel-omega.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      src="https://github-readme-stats-steel-omega.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       title="How to remove GitHub notifications that won’t go away"
       alt="Guide to clear hidden or stuck GitHub notifications."
       loading="lazy"
@@ -134,16 +134,16 @@
   <picture>
     <source
       id="github-stats-dark-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha's%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha's%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="github-stats-light-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha's%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha's%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-steel-omega.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha's%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      src="https://github-readme-stats-steel-omega.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha's%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       title="Homelab-Alpha Statistics"
       alt="GitHub statistics for the Homelab-Alpha account, displaying contributions and other metrics."
       loading="lazy"
@@ -175,16 +175,16 @@
   <picture>
     <source
       id="lang-stats-dark-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="lang-stats-light-mode"
-      srcset="https://github-readme-stats-steel-omega.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      srcset="https://github-readme-stats-steel-omega.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-steel-omega.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD&cache_seconds=43200"
+      src="https://github-readme-stats-steel-omega.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
       title="Homelab-Alpha Programming Language Usage"
       alt="Top programming languages used by Homelab-Alpha based on GitHub contributions."
       loading="lazy"
