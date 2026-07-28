@@ -1,4 +1,4 @@
-<a href="#" rel="noopener noreferrer">
+<a id="homelab-alpha-motto" href="#homelab-alpha-motto" aria-label="Homelab-Alpha motto: Eat, Sleep, Code, Repeat">
   <img id="eat-sleep-code-repeat"
     src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/images/eat_sleep_code_repeat.webp"
     title="Homelab-Alpha motto: Eat, Sleep, Code, Repeat"
@@ -37,11 +37,11 @@
 </p>
 
 <h2>🧑‍💻 My Open Source Repositories</h2>
-<p style="text-align: right;">
+<p align="right">
   <a href="https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" aria-label="Read the Contributor Covenant Code of Conduct">
     <img
       id="contributor-covenant"
-      src="https://img.shields.io/badge/Contributor%20Covenant-3.0-313A41?style=flat&logo=contributorcovenant&logoColor=96a1a9&labelColor=313A41&color=3955CD"
+      src="https://img.shields.io/badge/Contributor%20Covenant-3.0-313A41?style=flat&amp;logo=contributorcovenant&amp;logoColor=96a1a9&amp;labelColor=313A41&amp;color=3955CD"
       title="Click here to read the Contributor Covenant Code of Conduct"
       alt="Contributor Covenant 3.0 Badge"
       loading="lazy"
@@ -53,16 +53,16 @@
   <picture>
     <source
       id="docker-repo-dark-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=docker&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=353A3F&amp;title_color=DFE2E6&amp;text_color=AEB5BC&amp;icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="docker-repo-light-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=docker&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=docker&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      src="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=docker&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       title="Explore Dockerized applications and container management in this repository"
       alt="Docker repository showcasing containerized applications"
       loading="lazy"
@@ -73,16 +73,16 @@
   <picture>
     <source
       id="openssl-repo-dark-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=openssl&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=353A3F&amp;title_color=DFE2E6&amp;text_color=AEB5BC&amp;icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="openssl-repo-light-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=openssl&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=openssl&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      src="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=openssl&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       title="Explore OpenSSL integrations for secure networking and configurations"
       alt="OpenSSL repository with networking security configurations"
       loading="lazy"
@@ -94,16 +94,16 @@
   <picture>
     <source
       id="shell-script-repo-dark-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=shell-script&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=353A3F&amp;title_color=DFE2E6&amp;text_color=AEB5BC&amp;icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="shell-script-repo-light-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=shell-script&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&count_private=false&show_icons=true&disable_animations=true&repo=shell-script&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      src="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=shell-script&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       title="A collection of shell scripts for system automation and optimization"
       alt="Shell script repository for automation and system optimizations"
       loading="lazy"
@@ -116,58 +116,58 @@
   <picture>
     <source
       id="gist-stats-dark-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&amp;disable_animations=true&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=353A3F&amp;title_color=DFE2E6&amp;text_color=AEB5BC&amp;icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="gist-stats-light-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&amp;disable_animations=true&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-eight-nu-30.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&disable_animations=true&description_lines_count=3&card_width=400&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
-      title="How to remove GitHub notifications that won’t go away"
+      src="https://github-readme-stats-eight-nu-30.vercel.app/api/gist?id=e0f265a9c9b20ca786bce2327ce87060&amp;disable_animations=true&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
+      title="How to remove GitHub notifications that won't go away"
       alt="Guide to clear hidden or stuck GitHub notifications."
       loading="lazy"
     />
   </picture>
 </a>
 
-<h2>📊 My Statistics</h2>
-<a href="#-my-statistics" rel="noopener noreferrer" aria-label="GitHub statistics for the Homelab-Alpha account, displaying contributions and other metrics">
+<h2 id="my-statistics">📊 My Statistics</h2>
+<a href="#my-statistics" aria-label="GitHub statistics for the Homelab-Alpha account, displaying contributions and other metrics">
   <picture>
     <source
       id="github-stats-dark-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha's%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api?username=homelab-alpha&amp;custom_title=Homelab-Alpha's%20GitHub%20Stats&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;card_width=440&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=353A3F&amp;title_color=DFE2E6&amp;text_color=AEB5BC&amp;icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="github-stats-light-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha's%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api?username=homelab-alpha&amp;custom_title=Homelab-Alpha's%20GitHub%20Stats&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;card_width=440&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-eight-nu-30.vercel.app/api?username=homelab-alpha&custom_title=Homelab-Alpha's%20GitHub%20Stats&count_private=false&show_icons=true&disable_animations=true&card_width=440&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      src="https://github-readme-stats-eight-nu-30.vercel.app/api?username=homelab-alpha&amp;custom_title=Homelab-Alpha's%20GitHub%20Stats&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;card_width=440&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       title="Homelab-Alpha Statistics"
       alt="GitHub statistics for the Homelab-Alpha account, displaying contributions and other metrics."
       loading="lazy"
     />
   </picture>
 </a>
-<a href="#-my-statistics" rel="noopener noreferrer" aria-label="Streak statistics for the Homelab-Alpha GitHub account, showing current and longest streak">
+<a href="#my-statistics" aria-label="Streak statistics for the Homelab-Alpha GitHub account, showing current and longest streak">
   <picture>
     <source
       id="streak-stats-weekly-dark-mode"
-      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=6&border=353A3F&stroke=353A3F&fire=3955CD&ring=AEB5BC&currStreakNum=AEB5BC&currStreakLabel=AEB5BC&sideNums=AEB5BC&sideLabels=AEB5BC&dates=AEB5BC"
+      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&amp;hide_total_contributions=true&amp;hide_current_streak=false&amp;hide_longest_streak=false&amp;mode=weekly&amp;short_numbers=false&amp;disable_animations=true&amp;card_width=385&amp;card_height=195&amp;background=00000000&amp;border_radius=6&amp;border=353A3F&amp;stroke=353A3F&amp;fire=3955CD&amp;ring=AEB5BC&amp;currStreakNum=AEB5BC&amp;currStreakLabel=AEB5BC&amp;sideNums=AEB5BC&amp;sideLabels=AEB5BC&amp;dates=AEB5BC"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="streak-stats-weekly-light-mode"
-      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=6&border=CFD4D9&stroke=CFD4D9&fire=3955CD&ring=6E757C&currStreakNum=6E757C&currStreakLabel=6E757C&sideNums=6E757C&sideLabels=6E757C&dates=6E757C"
+      srcset="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&amp;hide_total_contributions=true&amp;hide_current_streak=false&amp;hide_longest_streak=false&amp;mode=weekly&amp;short_numbers=false&amp;disable_animations=true&amp;card_width=385&amp;card_height=195&amp;background=00000000&amp;border_radius=6&amp;border=CFD4D9&amp;stroke=CFD4D9&amp;fire=3955CD&amp;ring=6E757C&amp;currStreakNum=6E757C&amp;currStreakLabel=6E757C&amp;sideNums=6E757C&amp;sideLabels=6E757C&amp;dates=6E757C"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&hide_total_contributions=true&hide_current_streak=false&hide_longest_streak=false&mode=weekly&short_numbers=false&disable_animations=true&card_width=385&card_height=195&background=00000000&border_radius=6&border=CFD4D9&stroke=CFD4D9&fire=3955CD&ring=6E757C&currStreakNum=6E757C&currStreakLabel=6E757C&sideNums=6E757C&sideLabels=6E757C&dates=6E757C"
+      src="https://github-readme-streak-stats-eight.vercel.app?user=homelab-alpha&amp;hide_total_contributions=true&amp;hide_current_streak=false&amp;hide_longest_streak=false&amp;mode=weekly&amp;short_numbers=false&amp;disable_animations=true&amp;card_width=385&amp;card_height=195&amp;background=00000000&amp;border_radius=6&amp;border=CFD4D9&amp;stroke=CFD4D9&amp;fire=3955CD&amp;ring=6E757C&amp;currStreakNum=6E757C&amp;currStreakLabel=6E757C&amp;sideNums=6E757C&amp;sideLabels=6E757C&amp;dates=6E757C"
       title="Homelab-Alpha Streak Statistics"
       alt="Streak statistics for the Homelab-Alpha GitHub account, showing current and longest streak."
       loading="lazy"
@@ -175,20 +175,20 @@
   </picture>
 </a>
 
-<a href="#-my-statistics" rel="noopener noreferrer" aria-label="Top programming languages used by Homelab-Alpha based on GitHub contributions">
+<a href="#my-statistics" aria-label="Top programming languages used by Homelab-Alpha based on GitHub contributions">
   <picture>
     <source
       id="lang-stats-dark-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=6&border_color=353A3F&title_color=DFE2E6&text_color=AEB5BC&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/top-langs/?username=homelab-alpha&amp;count_private=false&amp;card_width=440&amp;show_icons=true&amp;disable_animations=true&amp;layout=compact&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=353A3F&amp;title_color=DFE2E6&amp;text_color=AEB5BC&amp;icon_color=3955CD"
       media="(prefers-color-scheme: dark)"
     />
     <source
       id="lang-stats-light-mode"
-      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/top-langs/?username=homelab-alpha&amp;count_private=false&amp;card_width=440&amp;show_icons=true&amp;disable_animations=true&amp;layout=compact&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
     <img
-      src="https://github-readme-stats-eight-nu-30.vercel.app/api/top-langs/?username=homelab-alpha&count_private=false&card_width=440&show_icons=true&disable_animations=true&layout=compact&bg_color=00000000&border_radius=6&border_color=CFD4D9&title_color=3D4255&text_color=6E757C&icon_color=3955CD"
+      src="https://github-readme-stats-eight-nu-30.vercel.app/api/top-langs/?username=homelab-alpha&amp;count_private=false&amp;card_width=440&amp;show_icons=true&amp;disable_animations=true&amp;layout=compact&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
       title="Homelab-Alpha Programming Language Usage"
       alt="Top programming languages used by Homelab-Alpha based on GitHub contributions."
       loading="lazy"
@@ -532,7 +532,7 @@
 <ul>
   <li>
     🚀 Check out my latest contributions and repositories on <a
-      href="https://github.com/homelab-alpha?tab=repositories&q=&type=&language=&sort=stargazers"
+      href="https://github.com/homelab-alpha?tab=repositories&amp;q=&amp;type=&amp;language=&amp;sort=stargazers"
       target="_blank"
       rel="noopener noreferrer"
       title="Explore Homelab-Alpha's repositories and contributions on GitHub"
@@ -573,14 +573,15 @@
     <a href="https://github.com/AdguardTeam/AdGuardHome"
        target="_blank"
        rel="noopener noreferrer"
-       title="Network-wide ads & trackers blocking DNS server."
+       title="Network-wide ads &amp; trackers blocking DNS server."
        aria-label="AdGuard Home repository page">
       <img src="https://raw.githubusercontent.com/AdguardTeam/KnowledgeBase/refs/heads/master/static/img/favicon.ico"
            style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="AdGuard Home logo">
+           alt="AdGuard Home logo"
+           loading="lazy">
       <strong>AdGuard Home</strong>
     </a>
-    - A powerful DNS server to block ads, trackers, and improve network privacy across all devices.
+    – A powerful DNS server to block ads, trackers, and improve network privacy across all devices.
   </li>
   <li>
     <a href="https://github.com/amir20/dozzle"
@@ -590,7 +591,8 @@
        aria-label="Dozzle repository page">
       <img src="https://raw.githubusercontent.com/amir20/dozzle/refs/heads/master/docs/public/logo.svg"
            style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="Dozzle logo">
+           alt="Dozzle logo"
+           loading="lazy">
       <strong>Dozzle</strong>
     </a>
     – Real-time Docker container log viewer, fast and incredibly helpful for live debugging.
@@ -603,7 +605,8 @@
        aria-label="FreshRSS repository page">
       <img src="https://raw.githubusercontent.com/FreshRSS/freshrss.org/refs/heads/main/static/images/icon.svg"
            style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="FreshRSS logo">
+           alt="FreshRSS logo"
+           loading="lazy">
       <strong>FreshRSS</strong>
     </a>
     – A self-hosted, lightweight RSS aggregator that helps you stay up to date with your favorite feeds, without the bloat.
@@ -616,7 +619,8 @@
        aria-label="Home Assistant OS repository page">
       <img src="https://raw.githubusercontent.com/home-assistant/home-assistant.io/refs/heads/current/source/images/favicon-192x192-full.png"
            style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="Home Assistant logo">
+           alt="Home Assistant logo"
+           loading="lazy">
       <strong>Home Assistant OS</strong>
     </a>
     – A privacy first, open-source platform that puts your smart home automation at your fingertips.
@@ -629,7 +633,8 @@
        aria-label="Lotus Docs repository page">
       <img src="https://raw.githubusercontent.com/colinwilson/lotusdocs/refs/heads/release/static/favicon.svg"
            style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="Lotus Docs logo">
+           alt="Lotus Docs logo"
+           loading="lazy">
       <strong>Lotus Docs</strong>
     </a>
     – A fast, modern, and minimal documentation theme for Hugo — perfect for technical projects and clean documentation.
@@ -642,7 +647,8 @@
        aria-label="Speedtest Tracker repository page">
       <img src="https://raw.githubusercontent.com/alexjustesen/speedtest-tracker/refs/heads/main/public/img/speedtest-tracker-icon.png"
            style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="Speedtest Tracker logo">
+           alt="Speedtest Tracker logo"
+           loading="lazy">
       <strong>Speedtest Tracker</strong>
     </a>
     – A self-hosted app that logs and visualizes your internet speed using Speedtest CLI.
