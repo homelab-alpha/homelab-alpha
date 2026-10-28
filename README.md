@@ -110,6 +110,26 @@
     />
   </picture>
 </a>
+<a href="https://github.com/homelab-alpha/kairos" target="_blank" rel="noopener noreferrer" aria-label="Kairos repository, a Home Assistant card for day-ahead energy prices">
+  <picture>
+    <source
+      id="kairos-repo-dark-mode"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=kairos&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=353A3F&amp;title_color=DFE2E6&amp;text_color=AEB5BC&amp;icon_color=3955CD"
+      media="(prefers-color-scheme: dark)"
+    />
+    <source
+      id="kairos-repo-light-mode"
+      srcset="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=kairos&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
+      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+    />
+    <img
+      src="https://github-readme-stats-eight-nu-30.vercel.app/api/pin/?username=homelab-alpha&amp;count_private=false&amp;show_icons=true&amp;disable_animations=true&amp;repo=kairos&amp;description_lines_count=3&amp;card_width=400&amp;bg_color=00000000&amp;border_radius=6&amp;border_color=CFD4D9&amp;title_color=3D4255&amp;text_color=6E757C&amp;icon_color=3955CD"
+      title="A Home Assistant card for day-ahead energy prices"
+      alt="Kairos repository, a Home Assistant card for day-ahead energy prices"
+      loading="lazy"
+    />
+  </picture>
+</a>
 
 <h2>💾 My Gist Insights</h2>
 <a href="https://gist.github.com/homelab-alpha/e0f265a9c9b20ca786bce2327ce87060" rel="noopener noreferrer" aria-label="Guide to clear hidden or stuck GitHub notifications">
