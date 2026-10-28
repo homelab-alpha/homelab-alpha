@@ -317,6 +317,154 @@ export function renderBadgeHeading(name, badge, icons, theme, themeName, { compa
   ];
 }
 
+// Splits "text with **bold** words" into words. A word is a list of
+// { text, bold } pieces, because bold text can touch punctuation ("**Home**!").
+function toWords(paragraph) {
+  const words = [];
+  let current = [];
+
+  paragraph.split("**").forEach((part, index) => {
+    const bold = index % 2 === 1;
+
+    part.split(/(\s+)/).forEach((piece) => {
+      if (piece === "") {
+        return;
+      }
+
+      if (/^\s+$/.test(piece)) {
+        if (current.length > 0) {
+          words.push(current);
+          current = [];
+        }
+      } else {
+        current.push({ text: piece, bold });
+      }
+    });
+  });
+
+  if (current.length > 0) {
+    words.push(current);
+  }
+
+  return words;
+}
+
+// Wraps words into lines of at most `maxWidth` pixels; every line is a list of
+// words.
+function wrapWords(words, maxWidth, size) {
+  const lines = [];
+  let line = [];
+  let lineWidth = 0;
+  const widthOf = (word) => word.reduce((total, piece) => total + measureText(piece.text, size, piece.bold ? 600 : 400), 0);
+  const space = measureText(" ", size);
+
+  for (const word of words) {
+    const wordWidth = widthOf(word);
+
+    if (line.length > 0 && lineWidth + space + wordWidth > maxWidth) {
+      lines.push(line);
+      line = [];
+      lineWidth = 0;
+    }
+
+    lineWidth += (line.length > 0 ? space : 0) + wordWidth;
+    line.push(word);
+  }
+
+  if (line.length > 0) {
+    lines.push(line);
+  }
+
+  return lines;
+}
+
+function wordLine(x, y, line, theme, size) {
+  const spans = [];
+
+  line.forEach((word, index) => {
+    word.forEach((piece, pieceIndex) => {
+      const last = index === line.length - 1 && pieceIndex === word.length - 1;
+      const content = pieceIndex === word.length - 1 && !last ? `${piece.text} ` : piece.text;
+
+      spans.push(
+        piece.bold
+          ? `<tspan font-weight="600" fill="${theme.title}">${escapeXml(content)}</tspan>`
+          : escapeXml(content),
+      );
+    });
+  });
+
+  return `<text x="${x}" y="${y}" font-family="${FONT}" font-size="${size}" fill="${theme.text}" xml:space="preserve">${spans.join("")}</text>`;
+}
+
+// Introduction tile. The regular layout flows the paragraphs over two columns,
+// the compact layout uses one column.
+export function renderIntroCard(paragraphs, theme, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
+  const padding = compact ? 24 : 24;
+  const size = 13;
+  const lineHeight = 20;
+  const gap = 12;
+  const columnGap = 32;
+  const columns = compact ? 1 : 2;
+  const columnWidth = (width - padding * 2 - columnGap * (columns - 1)) / columns;
+  const blocks = paragraphs.map((paragraph) => wrapWords(toWords(paragraph), columnWidth, size));
+  const heightOf = (list) => list.reduce((total, lines) => total + lines.length * lineHeight, 0) + gap * Math.max(list.length - 1, 0);
+
+  // Put the paragraphs in the columns so that the columns are about as high.
+  let split = blocks.length;
+
+  if (columns === 2) {
+    let best = Infinity;
+
+    for (let index = 1; index < blocks.length; index += 1) {
+      const difference = Math.abs(heightOf(blocks.slice(0, index)) - heightOf(blocks.slice(index)));
+
+      if (difference < best) {
+        best = difference;
+        split = index;
+      }
+    }
+  }
+
+  const groups = columns === 2 ? [blocks.slice(0, split), blocks.slice(split)] : [blocks];
+  const body = [];
+
+  groups.forEach((group, columnIndex) => {
+    const x = padding + columnIndex * (columnWidth + columnGap);
+    let y = padding + 14;
+
+    for (const lines of group) {
+      for (const line of lines) {
+        body.push(wordLine(x, y, line, theme, size));
+        y += lineHeight;
+      }
+
+      y += gap;
+    }
+  });
+
+  return frame({
+    width,
+    height: padding * 2 + Math.max(...groups.map(heightOf)),
+    title: "About",
+    description: paragraphs.join(" ").replaceAll("**", ""),
+    theme,
+    body: body.join("\n  "),
+  });
+}
+
+// Thin line above the footer.
+export function renderFooterRule(theme, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
+  const total = width + INSET * 2;
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${total}" height="17" viewBox="0 0 ${total} 17" fill="none" role="img" aria-label="Divider">
+  <line x1="${INSET}" y1="8.5" x2="${width + INSET}" y2="8.5" stroke="${theme.line}"/>
+</svg>
+`;
+}
+
 // Card with the technologies of one group as chips. `icons` holds data URIs.
 export function renderSkillGroupCard(group, icons, theme, themeName) {
   const width = CARD_WIDTH.half;

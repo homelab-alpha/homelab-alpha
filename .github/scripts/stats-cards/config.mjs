@@ -55,6 +55,14 @@ export const config = {
     ],
   },
 
+  // Introduction below the terminal. Text between ** is printed bold.
+  intro: [
+    "Welcome to the **Homelab-Alpha**! I'm GJS, a tech enthusiast driven by a passion for automation, infrastructure, and creative problem solving. My homelab is my ultimate playground; a space where I experiment with emerging technologies, refine configurations, and constantly hunt for ways to make my digital environment smarter and more efficient.",
+    "I am a strong advocate for the open-source movement and the power of self-hosting. My goal is to make technology more accessible and robust for everyone. Whether I'm streamlining deployments, hardening environments, or squeezing out every bit of performance, I am always in pursuit of innovative solutions.",
+    "I thrive on tackling complex architectural challenges and automating the mundane. From discovering the latest gadgets to deep diving into advanced technical builds, I am at my best when I am tinkering under the hood.",
+    "My repositories focus on the pillars of modern self-hosting: automation, security, and system optimization. Featuring everything from Dockerized applications and OpenSSL implementations to monitoring setups like Uptime Kuma, each project is built to empower your home lab. Explore my work, and feel free to collaborate!",
+  ],
+
   // Badge in the "Repositories" heading that links to the code of conduct.
   // The compact label is used on narrow screens.
   codeOfConduct: {
