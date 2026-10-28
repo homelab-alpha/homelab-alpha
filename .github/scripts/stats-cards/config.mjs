@@ -63,6 +63,38 @@ export const config = {
     "My repositories focus on the pillars of modern self-hosting: automation, security, and system optimization. Featuring everything from Dockerized applications and OpenSSL implementations to monitoring setups like Uptime Kuma, each project is built to empower your home lab. Explore my work, and feel free to collaborate!",
   ],
 
+  // Text above the community project cards; the second line gets a star.
+  communityText: [
+    "I regularly draw inspiration from the open-source community. Here are some standout projects worth checking out:",
+    "Found them interesting? Show your support by giving them a star!",
+  ],
+
+  // Footer in three clickable pieces. `compactLines` is the text on two lines
+  // for narrow screens; `link` is the part of the text that looks like a link.
+  footer: [
+    {
+      text: "© Homelab-Alpha 2024.",
+      compactLines: ["© Homelab-Alpha", "2024."],
+      link: "Homelab-Alpha",
+      url: "https://homelab-alpha.nl",
+      label: "Go to the Homelab-Alpha homepage",
+    },
+    {
+      text: "Developed by GJS.",
+      compactLines: ["Developed by", "GJS."],
+      link: "GJS",
+      url: "https://github.com/homelab-alpha",
+      label: "Visit the Homelab-Alpha GitHub page",
+    },
+    {
+      text: "Licensed under CC BY-NC-SA 4.0.",
+      compactLines: ["Licensed under", "CC BY-NC-SA 4.0."],
+      link: "CC BY-NC-SA 4.0",
+      url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      label: "Read more about the CC BY-NC-SA 4.0 license",
+    },
+  ],
+
   // Badge in the "Repositories" heading that links to the code of conduct.
   // The compact label is used on narrow screens.
   codeOfConduct: {

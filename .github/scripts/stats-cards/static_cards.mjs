@@ -454,17 +454,6 @@ export function renderIntroCard(paragraphs, theme, { compact = false } = {}) {
   });
 }
 
-// Thin line above the footer.
-export function renderFooterRule(theme, { compact = false } = {}) {
-  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
-  const total = width + INSET * 2;
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${total}" height="17" viewBox="0 0 ${total} 17" fill="none" role="img" aria-label="Divider">
-  <line x1="${INSET}" y1="8.5" x2="${width + INSET}" y2="8.5" stroke="${theme.line}"/>
-</svg>
-`;
-}
-
 // Card with the technologies of one group as chips. `icons` holds data URIs.
 export function renderSkillGroupCard(group, icons, theme, themeName) {
   const width = CARD_WIDTH.half;
@@ -593,5 +582,102 @@ export function renderDisclaimerCard(disclaimer, theme, { compact = false } = {}
     description: `${disclaimer.title} ${disclaimer.text}`,
     theme,
     body: body.join("\n  "),
+  });
+}
+
+// Text above the community cards: a line, and a line with a gold star.
+export function renderCommunityTextCard(lines, theme, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
+  const padding = compact ? 20 : 24;
+  const size = 14;
+  const lineHeight = 22;
+  const starWidth = 20;
+  const body = [];
+  let y = padding + 15;
+
+  wrapText(lines[0], width - padding * 2, size, 6).forEach((line) => {
+    body.push(text(padding, y, line, { size, color: theme.text }));
+    y += lineHeight;
+  });
+
+  y += 8 - 0;
+
+  const starY = y - 12;
+
+  body.push(
+    `<path transform="translate(${padding} ${starY})" d="M6 0 7.8 4.2 12 4.6 8.8 7.4 9.8 12 6 9.6 2.2 12 3.2 7.4 0 4.6 4.2 4.2Z" fill="${theme.gold}"/>`,
+  );
+
+  wrapText(lines[1], width - padding * 2 - starWidth, size, 4).forEach((line) => {
+    body.push(text(padding + starWidth, y, line, { size, color: theme.muted }));
+    y += lineHeight;
+  });
+
+  return frame({
+    width,
+    height: y - lineHeight + padding - 3,
+    title: "Community projects",
+    description: lines.join(" "),
+    theme,
+    body: body.join("\n  "),
+  });
+}
+
+// Footer: one tile cut into three clickable pieces, side by side. Each piece is
+// a third of the width, so the README gives both layouts the same percentages.
+// The pieces are 136 pixels wide when compact and 272 when regular.
+export function renderFooterParts(footer, theme, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
+  const height = compact ? 72 : 56;
+  const total = width + INSET * 2;
+  const cuts = [-INSET, Math.round(total / 3) - INSET, Math.round((total * 2) / 3) - INSET, width + INSET];
+  const padding = 16;
+  const size = 12;
+  const anchors = [
+    { x: padding, anchor: "start" },
+    { x: width / 2, anchor: "middle" },
+    { x: width - padding, anchor: "end" },
+  ];
+
+  const lineOf = (content, link, x, anchor, y) => {
+    const at = link ? content.indexOf(link) : -1;
+    const spans =
+      at < 0
+        ? escapeXml(content)
+        : `${escapeXml(content.slice(0, at))}<tspan fill="${theme.blue}" text-decoration="underline">${escapeXml(link)}</tspan>${escapeXml(content.slice(at + link.length))}`;
+
+    return `<text x="${x}" y="${y}" font-family="${FONT}" font-size="${size}" fill="${theme.text}" text-anchor="${anchor}" xml:space="preserve">${spans}</text>`;
+  };
+
+  const body = [
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" fill="${theme.tile}" stroke="${theme.line}"/>`,
+  ];
+
+  footer.forEach((item, index) => {
+    const { x, anchor } = anchors[index];
+
+    if (compact) {
+      item.compactLines.forEach((line, lineIndex) => {
+        body.push(lineOf(line, item.link, x, anchor, 30 + lineIndex * 18));
+      });
+    } else {
+      body.push(lineOf(item.text, item.link, x, anchor, 33));
+    }
+  });
+
+  return footer.map((item, index) => {
+    const x0 = cuts[index];
+    const x1 = cuts[index + 1];
+
+    return {
+      name: `footer_${index + 1}`,
+      link: item,
+      svg: `<svg xmlns="http://www.w3.org/2000/svg" width="${x1 - x0}" height="${height + INSET * 2}" viewBox="${x0} ${-INSET} ${x1 - x0} ${height + INSET * 2}" preserveAspectRatio="none" fill="none" role="img" aria-labelledby="card-title card-description">
+  <title id="card-title">${escapeXml(item.text)}</title>
+  <desc id="card-description">${escapeXml(item.label)}</desc>
+  ${body.join("\n  ")}
+</svg>
+`,
+    };
   });
 }

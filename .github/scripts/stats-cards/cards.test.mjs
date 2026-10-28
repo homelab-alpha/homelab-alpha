@@ -186,7 +186,10 @@ describe("buildCards", () => {
       ...config.connect.map((item) => `connect_${slug(item.key)}`),
       ...config.community.map((item) => `community_${slug(item.key)}`),
       "badge_code_of_conduct",
-      "footer_rule",
+      "community_text",
+      "footer_1",
+      "footer_2",
+      "footer_3",
       "intro",
     ];
     const compact = [
@@ -202,7 +205,10 @@ describe("buildCards", () => {
       ...config.connect.map((item) => `connect_${slug(item.key)}`),
       ...config.community.map((item) => `community_${slug(item.key)}`),
       "badge_code_of_conduct",
-      "footer_rule",
+      "community_text",
+      "footer_1",
+      "footer_2",
+      "footer_3",
       "intro",
     ].map((name) => `${name}_compact`);
     names.push(...compact);

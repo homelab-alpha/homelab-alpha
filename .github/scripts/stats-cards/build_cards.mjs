@@ -6,7 +6,8 @@ import { renderActivitySideCard, renderGistCard, renderRepositoryCard, renderSta
 import {
   renderLinkCard,
   renderDisclaimerCard,
-  renderFooterRule,
+  renderCommunityTextCard,
+  renderFooterParts,
   renderIntroCard,
   renderNotesCard,
   renderBadgeHeading,
@@ -88,8 +89,17 @@ export function buildCards(data, config = defaultConfig) {
 
     add("intro", renderIntroCard(config.intro, theme));
     add("intro_compact", renderIntroCard(config.intro, theme, { compact: true }));
-    add("footer_rule", renderFooterRule(theme));
-    add("footer_rule_compact", renderFooterRule(theme, { compact: true }));
+
+    for (const compact of [false, true]) {
+      const suffix = compact ? "_compact" : "";
+
+      add(`community_text${suffix}`, renderCommunityTextCard(config.communityText, theme, { compact }));
+
+      for (const part of renderFooterParts(config.footer, theme, { compact })) {
+        add(`${part.name}${suffix}`, part.svg);
+      }
+    }
+
     add("notes", renderNotesCard(config.notes, theme));
     add("notes_compact", renderNotesCard(config.notes, theme, { compact: true }));
     add("disclaimer", renderDisclaimerCard(config.disclaimer, theme));
