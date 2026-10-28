@@ -11,8 +11,10 @@ export const config = {
   branch: "stats",
   outputDirectory: "cards",
 
-  // Folder with the technology icons, relative to the repository root.
+  // Folders with the technology icons and the community project logos,
+  // relative to the repository root.
   iconDirectory: "assets/icons",
+  logoDirectory: "assets/community",
 
   // Repositories shown as pinned cards (names without the owner).
   pinnedRepositories: ["docker", "openssl", "shell-script", "kairos"],
@@ -53,6 +55,57 @@ export const config = {
     ],
   },
 
+  // Introduction below the terminal. Text between ** is printed bold.
+  intro: [
+    "Welcome to **Homelab-Alpha**! I'm GJS, a tech enthusiast who loves automation, infrastructure, and creative problem solving. My homelab is my playground: a place to test emerging technologies, fine-tune configurations, and keep finding ways to make my setup smarter and more efficient.",
+    "I'm a strong believer in open source and self-hosting. My goal is to make technology more accessible and more robust for everyone. Whether I'm streamlining deployments, hardening environments, or squeezing out a little more performance, I'm always chasing a better solution.",
+    "I enjoy tackling complex architecture and automating the mundane. From trying the latest gadgets to deep dives into advanced builds, I'm at my best when I'm tinkering under the hood.",
+    "My repositories cover the pillars of modern self-hosting: automation, security, and system optimization. You'll find everything from Dockerized applications and OpenSSL setups to monitoring tools like Uptime Kuma, each built to power your own home lab. Have a look around, and feel free to collaborate!",
+  ],
+
+
+  // Text above the community project cards; the second line gets a star.
+  communityText: [
+    "I regularly draw inspiration from the open-source community. Here are some standout projects worth checking out:",
+    "Found them interesting? Show your support by giving them a star!",
+  ],
+
+  // Footer in three clickable pieces. `compactLines` is the text on two lines
+  // for narrow screens; `link` is the part of the text that looks like a link.
+  footer: [
+    {
+      text: "© Homelab-Alpha 2024.",
+      compactLines: ["© Homelab-Alpha", "2024."],
+      link: "Homelab-Alpha",
+      url: "https://homelab-alpha.nl",
+      label: "Go to the Homelab-Alpha homepage",
+    },
+    {
+      text: "Developed by GJS.",
+      compactLines: ["Developed by", "GJS."],
+      link: "GJS",
+      url: "https://github.com/homelab-alpha",
+      label: "Visit the Homelab-Alpha GitHub page",
+    },
+    {
+      text: "Licensed under CC BY-NC-SA 4.0.",
+      compactLines: ["Licensed under", "CC BY-NC-SA 4.0."],
+      link: "CC BY-NC-SA 4.0",
+      url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      label: "Read more about the CC BY-NC-SA 4.0 license",
+    },
+  ],
+
+  // Badge in the "Repositories" heading that links to the code of conduct.
+  // The compact label is used on narrow screens.
+  codeOfConduct: {
+    section: "Repositories",
+    label: "Contributor Covenant 3.0",
+    compactLabel: "Covenant 3.0",
+    icon: "contributorcovenant",
+    url: "https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md",
+  },
+
   // Section headings, in the order they appear in the README.
   sections: ["Repositories", "Activity", "Skills", "Connect", "Community projects", "Notes"],
 
@@ -62,36 +115,36 @@ export const config = {
     {
       name: "Operating systems",
       skills: [
-        { name: "Debian", icon: "debian", url: "https://www.debian.org/" },
-        { name: "Linux", icon: "linux", url: "https://kernel.org/" },
-        { name: "Raspberry Pi", icon: "raspberrypi", url: "https://www.raspberrypi.com/" },
-        { name: "Red Hat", icon: "redhat", url: "https://www.redhat.com/" },
-        { name: "Ubuntu", icon: "ubuntu", url: "https://ubuntu.com/" },
+        { name: "Debian", icon: "debian" },
+        { name: "Linux", icon: "linux" },
+        { name: "Raspberry Pi", icon: "raspberrypi" },
+        { name: "Red Hat", icon: "redhat" },
+        { name: "Ubuntu", icon: "ubuntu" },
       ],
     },
     {
       name: "Containers and automation",
       skills: [
-        { name: "Docker", icon: "docker", url: "https://www.docker.com/" },
-        { name: "GitHub Actions", icon: "githubactions", url: "https://github.com/features/actions/" },
-        { name: "Bash", icon: "bash", url: "https://www.gnu.org/software/bash/" },
+        { name: "Docker", icon: "docker" },
+        { name: "GitHub Actions", icon: "githubactions" },
+        { name: "Bash", icon: "bash" },
       ],
     },
     {
       name: "Version control",
       skills: [
-        { name: "Git", icon: "git", url: "https://git-scm.com/" },
-        { name: "GitHub", icon: "github", url: "https://github.com/" },
-        { name: "GitLab", icon: "gitlab", url: "https://gitlab.com/" },
-        { name: "Bitbucket", icon: "bitbucket", url: "https://bitbucket.org/" },
+        { name: "Git", icon: "git" },
+        { name: "GitHub", icon: "github" },
+        { name: "GitLab", icon: "gitlab" },
+        { name: "Bitbucket", icon: "bitbucket" },
       ],
     },
     {
       name: "Editors and documentation",
       skills: [
-        { name: "Visual Studio Code", icon: "vscode", url: "https://code.visualstudio.com/" },
-        { name: "Microsoft Visual Studio", icon: "visualstudio", url: "https://visualstudio.microsoft.com/" },
-        { name: "Markdown", icon: "markdown", url: "https://daringfireball.net/projects/markdown/" },
+        { name: "Visual Studio Code", icon: "vscode" },
+        { name: "Microsoft Visual Studio", icon: "visualstudio" },
+        { name: "Markdown", icon: "markdown" },
       ],
     },
   ],
@@ -101,18 +154,18 @@ export const config = {
     {
       key: "github",
       name: "GitHub",
-      description: "Contributions and repositories",
+      description: "Latest contributions and repositories",
       url: "https://github.com/homelab-alpha?tab=repositories&q=&type=&language=&sort=stargazers",
     },
     {
       key: "documentation",
       name: "Documentation",
-      description: "Documentation for all repositories",
+      description: "Docs for all repositories",
       url: "https://homelab-alpha.nl/docs",
     },
     {
       key: "gists",
-      name: "Gists",
+      name: "GitHub Gist",
       description: "Code snippets and shared utilities",
       url: "https://gist.github.com/homelab-alpha",
     },
@@ -122,18 +175,21 @@ export const config = {
   community: [
     {
       key: "adguard_home",
+      logo: "adguard_home.png",
       name: "AdGuard Home",
       description: "A powerful DNS server to block ads, trackers, and improve network privacy across all devices.",
       url: "https://github.com/AdguardTeam/AdGuardHome",
     },
     {
       key: "dozzle",
+      logo: "dozzle.svg",
       name: "Dozzle",
       description: "Real-time Docker container log viewer, fast and incredibly helpful for live debugging.",
       url: "https://github.com/amir20/dozzle",
     },
     {
       key: "freshrss",
+      logo: "freshrss.svg",
       name: "FreshRSS",
       description:
         "A self-hosted, lightweight RSS aggregator that helps you stay up to date with your favorite feeds, without the bloat.",
@@ -141,12 +197,14 @@ export const config = {
     },
     {
       key: "home_assistant_os",
+      logo: "home_assistant_os.png",
       name: "Home Assistant OS",
       description: "A privacy first, open-source platform that puts your smart home automation at your fingertips.",
       url: "https://github.com/home-assistant/operating-system",
     },
     {
       key: "lotus_docs",
+      logo: "lotus_docs.svg",
       name: "Lotus Docs",
       description:
         "A fast, modern, and minimal documentation theme for Hugo, perfect for technical projects and clean documentation.",
@@ -154,6 +212,7 @@ export const config = {
     },
     {
       key: "speedtest_tracker",
+      logo: "speedtest_tracker.png",
       name: "Speedtest Tracker",
       description: "A self-hosted app that logs and visualizes your internet speed using Speedtest CLI.",
       url: "https://github.com/alexjustesen/speedtest-tracker",
@@ -167,6 +226,12 @@ export const config = {
     "Follow me for more exciting projects and updates!",
     "Remember to enjoy the process and have fun along the way!",
   ],
+
+  // Disclaimer card at the bottom of the profile.
+  disclaimer: {
+    title: "Disclaimer.",
+    text: 'The content on the Homelab-Alpha website and Homelab-Alpha GitHub repositories is based on my personal experience and is provided "as-is." Use it at your own discretion and risk. For further details, please refer to the following sections in the repository: README, CODE OF CONDUCT, CONTRIBUTING, CODE STYLE AND STANDARDS GUIDES, SECURITY, and LICENSE.',
+  },
 };
 
 // Colors per color scheme. The cards have no page background, so they blend in

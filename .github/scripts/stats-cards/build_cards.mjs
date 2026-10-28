@@ -1,32 +1,23 @@
 // Turns collected GitHub data into SVG files. Pure: no network, no file system.
 
-import { DEFAULT_LANGUAGE_COLOR, aggregateLanguages, computeWeeklyStreaks } from "./calculations.mjs";
+import { DEFAULT_LANGUAGE_COLOR, aggregateLanguages, computeWeeklyStreaks, slug } from "./calculations.mjs";
 import { config as defaultConfig, themes } from "./config.mjs";
-import { pickIcon } from "./icons.mjs";
+import { renderSession } from "./terminal_session.mjs";
+import { renderActivitySideCard, renderGistCard, renderRepositoryCard, renderStatsCard } from "./svg_cards.mjs";
 import {
-  renderActivitySideCard,
-  renderGistCard,
-  renderRepositoryCard,
-  renderStatsCard,
-  renderTilesCard,
-} from "./svg_cards.mjs";
-import {
-  renderCommunityCard,
-  renderConnectCard,
+  renderLinkCard,
+  renderDisclaimerCard,
+  renderCommunityTextCard,
+  renderFooterParts,
+  renderIntroCard,
   renderNotesCard,
+  renderBadgeHeading,
   renderSectionHeading,
-  renderSkillChip,
-  renderSkillGroupLabel,
-  renderTerminalCard,
+  renderSkillGroupCard,
+  renderTerminalParts,
 } from "./static_cards.mjs";
 
-// "shell-script" -> "shell_script", used for file names.
-export function slug(value) {
-  return String(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "_")
-    .replace(/^_+|_+$/g, "");
-}
+export { slug };
 
 function toRepositoryItem(repository) {
   let badge = "Public";
@@ -62,7 +53,32 @@ function toGistItem(gist) {
   };
 }
 
-// data: { stats, repositories, pins, gists, days, icons }. Returns
+// The terminal session for one color scheme and layout; see terminal_session.mjs.
+export function buildSession(data, config, theme, { compact = false } = {}) {
+  const languages = aggregateLanguages(data.repositories, {
+    excludedRepositories: config.excludedRepositories,
+    excludedLanguages: config.excludedLanguages,
+    limit: config.languagesCount,
+  });
+
+  return renderSession(
+    {
+      config,
+      repositories: data.pins.map(toRepositoryItem),
+      gists: data.gists.map((gist) => ({
+        ...toGistItem(gist),
+        url: `https://gist.github.com/${config.username}/${config.gists.find((item) => item.key === gist.key)?.id ?? ""}`,
+      })),
+      stats: data.stats,
+      languages,
+      streak: computeWeeklyStreaks(data.days),
+    },
+    theme,
+    { compact },
+  );
+}
+
+// data: { stats, repositories, pins, gists, days, icons, logos }. Returns
 // [{ name, svg }].
 export function buildCards(data, config = defaultConfig) {
   const languages = aggregateLanguages(data.repositories, {
@@ -83,34 +99,78 @@ export function buildCards(data, config = defaultConfig) {
 
     for (const gist of data.gists) {
       add(`gist_${slug(gist.key)}`, renderGistCard(toGistItem(gist), theme));
+      add(`gist_${slug(gist.key)}_compact`, renderGistCard(toGistItem(gist), theme, { compact: true }));
     }
 
-    add("tiles", renderTilesCard(data.stats, streak, theme));
     add("stats", renderStatsCard(data.stats, theme, { title: config.statsTitle }));
     add("activity_side", renderActivitySideCard(streak, languages, theme, { title: config.languagesTitle }));
-    add("terminal", renderTerminalCard(config.terminal, theme));
-    add("notes", renderNotesCard(config.notes, theme));
 
-    for (const section of config.sections) {
-      add(`section_${slug(section)}`, renderSectionHeading(section, theme));
+    for (const part of renderTerminalParts(config.terminal, theme)) {
+      add(part.name, part.svg);
     }
 
-    for (const group of config.skillGroups) {
-      add(`skills_${slug(group.name)}`, renderSkillGroupLabel(group.name, theme));
+    for (const part of renderTerminalParts(config.terminal, theme, { compact: true })) {
+      add(`${part.name}_compact`, part.svg);
+    }
 
-      for (const skill of group.skills) {
-        const iconData = pickIcon(data.icons ?? {}, skill.icon, themeName);
+    add("intro", renderIntroCard(config.intro, theme));
+    add("intro_compact", renderIntroCard(config.intro, theme, { compact: true }));
 
-        add(`skill_${slug(skill.name)}`, renderSkillChip(skill, iconData, theme));
+    for (const compact of [false, true]) {
+      const suffix = compact ? "_compact" : "";
+
+      add(`community_text${suffix}`, renderCommunityTextCard(config.communityText, theme, { compact }));
+
+      for (const part of renderFooterParts(config.footer, theme, { compact })) {
+        add(`${part.name}${suffix}`, part.svg);
       }
     }
 
+    for (const compact of [false, true]) {
+      for (const band of buildSession(data, config, theme, { compact }).bands) {
+        for (const piece of band.pieces) {
+          add(`${piece.name}${compact ? "_compact" : ""}`, piece.svg);
+        }
+      }
+    }
+
+    add("notes", renderNotesCard(config.notes, theme));
+    add("notes_compact", renderNotesCard(config.notes, theme, { compact: true }));
+    add("disclaimer", renderDisclaimerCard(config.disclaimer, theme));
+    add("disclaimer_compact", renderDisclaimerCard(config.disclaimer, theme, { compact: true }));
+
+    for (const section of config.sections) {
+      if (section === config.codeOfConduct?.section) {
+        for (const compact of [false, true]) {
+          const options = { compact };
+
+          for (const part of renderBadgeHeading(section, config.codeOfConduct, data.icons ?? {}, theme, themeName, options)) {
+            add(compact ? `${part.name}_compact` : part.name, part.svg);
+          }
+        }
+
+        continue;
+      }
+
+      add(`section_${slug(section)}`, renderSectionHeading(section, theme));
+      add(`section_${slug(section)}_compact`, renderSectionHeading(section, theme, { compact: true }));
+    }
+
+    for (const group of config.skillGroups) {
+      add(`skills_${slug(group.name)}`, renderSkillGroupCard(group, data.icons ?? {}, theme, themeName));
+    }
+
     for (const item of config.connect) {
-      add(`connect_${slug(item.key)}`, renderConnectCard(item, theme));
+      add(`connect_${slug(item.key)}`, renderLinkCard(item, null, theme));
+      add(`connect_${slug(item.key)}_compact`, renderLinkCard(item, null, theme, { compact: true }));
     }
 
     for (const item of config.community) {
-      add(`community_${slug(item.key)}`, renderCommunityCard(item, theme));
+      add(`community_${slug(item.key)}`, renderLinkCard(item, data.logos?.[item.logo], theme));
+      add(
+        `community_${slug(item.key)}_compact`,
+        renderLinkCard(item, data.logos?.[item.logo], theme, { compact: true }),
+      );
     }
   }
 

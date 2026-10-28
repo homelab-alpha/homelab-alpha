@@ -8,7 +8,8 @@ import { formatDateRange, formatNumber } from "./calculations.mjs";
 
 export const INSET = 8;
 
-const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+export const FONT =
+  "-apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
 export const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace";
 
 // Rounds a coordinate to two decimals to keep the output compact and stable.
@@ -125,7 +126,7 @@ export function text(
 
 // Wraps a card of width x height pixels (without margin) in an SVG document.
 // `box` draws the card border, `fill` also fills it with the tile color.
-export function frame({ width, height, title, description, theme, body, box = true, fill = false, radius = 12 }) {
+export function frame({ width, height, title, description, theme, body, box = true, fill = true, radius = 14 }) {
   const outerWidth = width + INSET * 2;
   const outerHeight = height + INSET * 2;
   const border = box
@@ -143,7 +144,9 @@ export function frame({ width, height, title, description, theme, body, box = tr
 `;
 }
 
-export const CARD_WIDTH = { full: 800, half: 392, third: 256, quarter: 188 };
+// `compact` is the narrow layout: the full width cards use the width of a half
+// card and the README picks them for screens below 760 pixels.
+export const CARD_WIDTH = { full: 800, compact: 392, half: 392, third: 256, quarter: 188 };
 
 // Small uppercase label, used for tile titles, badges and group names.
 function label(x, y, content, { color, size = 11, anchor = "start", spacing = 0.08 }) {
@@ -209,32 +212,48 @@ export function renderRepositoryCard(item, theme, { descriptionLines = 2 } = {})
 }
 
 // Wide gist card without fill: title and description on the left, counters on
-// the right.
-export function renderGistCard(item, theme) {
-  const width = CARD_WIDTH.full;
-  const height = 88;
-  const paddingX = 24;
+// the right. The compact layout puts the counters on a line of their own.
+export function renderGistCard(item, theme, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
+  const height = compact ? 104 : 88;
+  const paddingX = compact ? 16 : 24;
   const counters = [
     `${formatNumber(item.stars)} ${item.stars === 1 ? "star" : "stars"}`,
     `${formatNumber(item.forks)} ${item.forks === 1 ? "fork" : "forks"}`,
   ];
   const meta = [item.badge, ...counters];
-
-  const parts = [];
-  let cursor = width - paddingX;
-
-  for (const content of [...meta].reverse()) {
-    parts.push(text(cursor, 49, content, { size: 12, color: theme.muted, anchor: "end" }));
-    cursor -= measureText(content, 12) + 16;
-  }
-
-  const textWidth = cursor - paddingX;
   const description = item.description?.trim() ? item.description : "No description provided.";
 
-  parts.push(
-    text(paddingX, 36, truncate(item.title, textWidth, 16, 600), { size: 16, weight: 600, color: theme.title }),
-  );
-  parts.push(text(paddingX, 58, truncate(description, textWidth, 13), { size: 13, color: theme.text }));
+  const parts = [];
+  let textWidth;
+
+  if (compact) {
+    let cursor = paddingX;
+
+    for (const content of meta) {
+      parts.push(text(cursor, 82, content, { size: 12, color: theme.muted }));
+      cursor += measureText(content, 12) + 16;
+    }
+
+    textWidth = width - paddingX * 2;
+    parts.push(
+      text(paddingX, 32, truncate(item.title, textWidth, 16, 600), { size: 16, weight: 600, color: theme.title }),
+      text(paddingX, 54, truncate(description, textWidth, 13), { size: 13, color: theme.text }),
+    );
+  } else {
+    let cursor = width - paddingX;
+
+    for (const content of [...meta].reverse()) {
+      parts.push(text(cursor, 49, content, { size: 12, color: theme.muted, anchor: "end" }));
+      cursor -= measureText(content, 12) + 16;
+    }
+
+    textWidth = cursor - paddingX;
+    parts.push(
+      text(paddingX, 36, truncate(item.title, textWidth, 16, 600), { size: 16, weight: 600, color: theme.title }),
+      text(paddingX, 58, truncate(description, textWidth, 13), { size: 13, color: theme.text }),
+    );
+  }
 
   return frame({
     width,
@@ -243,39 +262,6 @@ export function renderGistCard(item, theme) {
     description: `Gist ${item.title}. ${description}`,
     theme,
     body: parts.join("\n  "),
-  });
-}
-
-// Row of four tiles: stars, commits, pull requests and the weekly streak.
-export function renderTilesCard(stats, streak, theme) {
-  const tiles = [
-    ["Stars earned", stats.stars],
-    ["Commits", stats.commits],
-    ["Pull requests", stats.pullRequests],
-    ["Weekly streak", streak.current.length],
-  ];
-  const tileWidth = CARD_WIDTH.quarter;
-  const height = 96;
-  const parts = [];
-
-  tiles.forEach(([name, value], index) => {
-    const x = index * (tileWidth + 16);
-
-    parts.push(
-      `<rect x="${x + 0.5}" y="0.5" width="${tileWidth - 1}" height="${height - 1}" rx="12" fill="${theme.tile}" stroke="${theme.line}"/>`,
-      label(x + 20, 32, name, { color: theme.muted, spacing: 0.1 }),
-      text(x + 20, 72, formatNumber(value), { size: 28, weight: 600, color: theme.title }),
-    );
-  });
-
-  return frame({
-    width: CARD_WIDTH.full,
-    height,
-    title: "Profile numbers",
-    description: tiles.map(([name, value]) => `${name}: ${formatNumber(value)}`).join(". "),
-    theme,
-    body: parts.join("\n  "),
-    box: false,
   });
 }
 
@@ -342,7 +328,7 @@ function streakBody(streak, theme) {
   ];
 
   return [
-    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="12" stroke="${theme.line}"/>`,
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" fill="${theme.tile}" stroke="${theme.line}"/>`,
     `<line x1="${columnWidth}" y1="0.5" x2="${columnWidth}" y2="${height - 0.5}" stroke="${theme.line}"/>`,
     `<circle cx="${leftX}" cy="52" r="29.5" stroke="${theme.text}" stroke-width="5"/>`,
     text(leftX, 60, String(streak.current.length), { size: 22, weight: 700, color: theme.title, anchor: "middle" }),
@@ -361,7 +347,7 @@ function languagesBody(languages, theme, title) {
   const columnWidth = (barWidth - 20) / 3 + 10;
 
   const parts = [
-    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="12" stroke="${theme.line}"/>`,
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" fill="${theme.tile}" stroke="${theme.line}"/>`,
     text(paddingX, 36, truncate(title, barWidth, 14, 600), { size: 14, weight: 600, color: theme.title }),
     `<clipPath id="bar-clip"><rect x="${paddingX}" y="50" width="${barWidth}" height="8" rx="4"/></clipPath>`,
   ];

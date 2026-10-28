@@ -170,3 +170,11 @@ export function aggregateLanguages(
 
   return top.map((language) => ({ ...language, percent: total > 0 ? (language.size / total) * 100 : 0 }));
 }
+
+// "shell-script" -> "shell_script", used for file names.
+export function slug(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
