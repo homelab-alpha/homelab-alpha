@@ -133,6 +133,7 @@ export function renderSession(data, theme, { compact = false } = {}) {
   const { user, host } = config.terminal;
   const elements = [];
   const items = [];
+  const commands = [];
   let y = 50;
 
   const baseline = (top, index = 0) => top + 14 + index * lineHeight;
@@ -164,6 +165,10 @@ export function renderSession(data, theme, { compact = false } = {}) {
       elements.push(
         `<rect x="${pad + charWidth * 4}" y="${y + 15}" width="${n(charWidth * 0.9)}" height="15" fill="${theme.text}"/>`,
       );
+    }
+
+    if (command) {
+      commands.push(command);
     }
 
     add({ kind: "static", y0: y, y1: y + 31, alt: `$ ${command}` });
@@ -272,7 +277,6 @@ export function renderSession(data, theme, { compact = false } = {}) {
     }
 
     const barTop = top + row * lineHeight + 4;
-    const total = texts.join("\n\n");
 
     elements.push(
       `<rect x="${pad - 8}" y="${barTop}" width="${width - pad * 2 + 16}" height="${lineHeight}" rx="3" fill="${theme.line}"/>`,
@@ -281,8 +285,8 @@ export function renderSession(data, theme, { compact = false } = {}) {
       segmentsText(
         pad,
         barTop + lineHeight + 14,
-        [{ t: `"${fileName}" ${logical}L, ${Buffer.byteLength(total, "utf8")}B`, color: theme.muted }],
-        { size, color: theme.muted },
+        [{ t: ":q", color: theme.title }],
+        { size, color: theme.title },
       ),
     );
 
@@ -307,6 +311,40 @@ export function renderSession(data, theme, { compact = false } = {}) {
     );
     y = barTop + lineHeight + 2;
     add({ kind: "static", y0: top, y1: y, alt: lines.map((line) => line.map((word) => word.word).join(" ")).join(" ") });
+    y += 14;
+  }
+
+  // Output of `neofetch`: header, key/value rows and the color palette.
+  function neofetch() {
+    const { stats, languages } = data;
+    const top = y;
+    const rows = [
+      ["User", config.terminal.blocks[0].output],
+      ["Role", config.terminal.blocks[1].output.split("|")[0].trim()],
+      ["Repos", `${data.repositories.length} pinned`],
+      ["Stars", formatNumber(stats.stars)],
+      ["Languages", languages.slice(0, 3).map((language) => language.name).join(", ")],
+      ["Shell", "zsh"],
+      ["Editor", "vim"],
+    ];
+    const specs = [
+      [{ t: user, color: theme.title, bold: true }, { t: "@", color: theme.gold }, { t: host, color: theme.blue, bold: true }],
+      [muted("-".repeat(user.length + host.length + 1))],
+      ...rows.map(([key, value]) => [{ t: key, color: theme.blue, bold: true }, { t: `: ${value}`, color: theme.text }]),
+    ];
+
+    specs.forEach((segments, index) => {
+      elements.push(segmentsText(pad, baseline(top, index), segments, { size, color: theme.text }));
+    });
+
+    const paletteTop = top + specs.length * lineHeight + 8;
+
+    [theme.red, theme.gold, theme.green, theme.blue, theme.title, theme.muted].forEach((color, index) => {
+      elements.push(`<rect x="${pad + index * 22}" y="${paletteTop}" width="22" height="14" fill="${color}"/>`);
+    });
+
+    y = paletteTop + 14;
+    add({ kind: "static", y0: top, y1: y, alt: `${user}@${host}. ${rows.map(([key, value]) => `${key}: ${value}`).join(". ")}.` });
     y += 14;
   }
 
@@ -391,6 +429,17 @@ export function renderSession(data, theme, { compact = false } = {}) {
   const bold = (t) => ({ t, color: theme.title, bold: true });
 
   // --- the session -------------------------------------------------------
+  {
+    const first = new Date(Date.UTC(data.stats.year, 0, 1));
+    const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][first.getUTCDay()];
+    const login = `Last login: ${weekday} Jan  1 08:00:00 ${data.stats.year}${compact ? "" : " from 192.168.1.10"}`;
+
+    staticLines([[muted(login)]], login, { last: 12 });
+  }
+
+  prompt("neofetch");
+  neofetch();
+
   prompt("whoami");
   paragraphs([[[{ word: config.terminal.blocks[0].output, bold: false }]]]);
 
@@ -622,6 +671,16 @@ export function renderSession(data, theme, { compact = false } = {}) {
     THIRD_SHARES,
     { anchors: true },
   );
+
+  prompt("history | tail -n 5");
+  {
+    const list = commands.slice(-5);
+
+    staticLines(
+      list.map((command, index) => [muted(`${String(1000 + commands.length - list.length + index + 1).padStart(5)}  `), { t: command, color: theme.text }]),
+      `History: ${list.join(", ")}.`,
+    );
+  }
 
   prompt("", "~", true);
 
