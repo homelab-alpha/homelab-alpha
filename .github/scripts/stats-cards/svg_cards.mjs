@@ -8,7 +8,7 @@ import { formatDateRange, formatNumber } from "./calculations.mjs";
 
 export const INSET = 8;
 
-const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+export const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
 export const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace";
 
 // Rounds a coordinate to two decimals to keep the output compact and stable.

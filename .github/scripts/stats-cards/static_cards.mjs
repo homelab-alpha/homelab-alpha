@@ -1,12 +1,28 @@
 // SVG renderers for the parts of the profile that do not come from the GitHub
-// API: terminal, section headings, skills, connect and community cards. The
+// API: terminal, section headings, skills, connect, community, notes and
+// disclaimer cards. The
 // content is read from config.mjs.
 
 import { slug } from "./calculations.mjs";
-import { CARD_WIDTH, INSET, MONO, escapeXml, frame, measureText, text, truncate, wrapText } from "./svg_cards.mjs";
+import { pickIcon } from "./icons.mjs";
+import {
+  CARD_WIDTH,
+  FONT,
+  INSET,
+  MONO,
+  escapeXml,
+  frame,
+  measureText,
+  text,
+  truncate,
+  wrapText,
+} from "./svg_cards.mjs";
 
 // Width of one monospace character in em; a little wide on purpose.
 const MONO_EM = 0.62;
+
+// The window keeps some empty room below the last line, like a real terminal.
+const TERMINAL_MIN_HEIGHT = 280;
 
 function tspan(content, color) {
   return `<tspan fill="${color}">${escapeXml(content)}</tspan>`;
@@ -75,8 +91,8 @@ function drawTerminal(terminal, theme) {
     top = outputY - 15 + 20;
   });
 
-  // The window ends 22 pixels below the last line.
-  const height = top + 22;
+  // The window ends 22 pixels below the last line, with a minimum height.
+  const height = Math.max(top + 22, TERMINAL_MIN_HEIGHT);
 
   return { body: parts.join("\n  ").replace("HEIGHT", String(height - 1)), height, links };
 }
@@ -201,41 +217,49 @@ export function renderSectionHeading(name, theme) {
   });
 }
 
-// Group label above a row of skill chips.
-export function renderSkillGroupLabel(name, theme) {
-  return frame({
-    width: CARD_WIDTH.full,
-    height: 24,
-    title: name,
-    description: `Skills: ${name}`,
-    theme,
-    box: false,
-    body: text(0, 16, name.toUpperCase(), { size: 12, weight: 600, color: theme.muted, spacing: 0.96 }),
-  });
-}
+// Card with the technologies of one group as chips. `icons` holds data URIs.
+export function renderSkillGroupCard(group, icons, theme, themeName) {
+  const width = CARD_WIDTH.half;
+  const paddingX = 24;
+  const chipHeight = 32;
+  const gap = 8;
+  const parts = [
+    text(paddingX, 36, group.name.toUpperCase(), { size: 12, weight: 400, color: theme.muted, spacing: 0.96 }),
+  ];
 
-// Chip with a technology icon and name. `iconData` is a data URI.
-export function renderSkillChip(skill, iconData, theme) {
-  const height = 32;
-  const width = Math.ceil(8 + 16 + 8 + measureText(skill.name, 12) + 12);
-  const image = iconData ? `<image x="8" y="8" width="16" height="16" href="${iconData}"/>` : "";
+  let x = paddingX;
+  let y = 52;
+
+  for (const skill of group.skills) {
+    const chipWidth = Math.ceil(8 + 16 + 8 + measureText(skill.name, 12) * 0.92 + 12);
+
+    if (x + chipWidth > width - paddingX && x > paddingX) {
+      x = paddingX;
+      y += chipHeight + gap;
+    }
+
+    const iconData = pickIcon(icons, skill.icon, themeName);
+
+    parts.push(
+      `<rect x="${x + 0.5}" y="${y + 0.5}" width="${chipWidth - 1}" height="${chipHeight - 1}" rx="8" fill="${theme.tile}" stroke="${theme.line}"/>`,
+      iconData ? `<image x="${x + 8}" y="${y + 8}" width="16" height="16" href="${iconData}"/>` : "",
+      text(x + 32, y + 20, skill.name, { size: 12, color: theme.title }),
+    );
+    x += chipWidth + gap;
+  }
 
   return frame({
     width,
-    height,
-    title: skill.name,
-    description: `Skill: ${skill.name}`,
+    height: 150,
+    title: group.name,
+    description: `${group.name}: ${group.skills.map((skill) => skill.name).join(", ")}`,
     theme,
-    radius: 8,
-    fill: true,
-    body: [image, text(32, 20, skill.name, { size: 12, color: theme.title })].join("\n  "),
+    body: parts.join("\n  "),
   });
 }
 
-// Link card with a name and a one line description.
+// Link card with a name and a one line description, both underlined like a link.
 export function renderConnectCard(item, theme) {
-  const innerWidth = CARD_WIDTH.third - 40;
-
   return frame({
     width: CARD_WIDTH.third,
     height: 96,
@@ -244,13 +268,14 @@ export function renderConnectCard(item, theme) {
     theme,
     fill: true,
     body: [
-      text(20, 38, truncate(item.name, innerWidth, 15, 600), { size: 15, weight: 600, color: theme.title }),
-      text(20, 74, truncate(item.description, innerWidth, 12), { size: 12, color: theme.text }),
+      text(20, 38, item.name, { size: 15, weight: 600, color: theme.title, decoration: "underline" }),
+      text(20, 74, item.description, { size: 12, color: theme.text, decoration: "underline" }),
     ].join("\n  "),
   });
 }
 
-export function renderCommunityCard(item, theme) {
+// Project card with its logo, an underlined name and a short description.
+export function renderCommunityCard(item, logo, theme) {
   const innerWidth = CARD_WIDTH.third - 40;
   const lines = wrapText(item.description, innerWidth, 12, 4);
 
@@ -261,8 +286,61 @@ export function renderCommunityCard(item, theme) {
     description: `${item.name}. ${item.description}`,
     theme,
     body: [
-      text(20, 36, truncate(item.name, innerWidth, 14, 600), { size: 14, weight: 600, color: theme.blue }),
-      ...lines.map((line, index) => text(20, 62 + index * 18, line, { size: 12, color: theme.text })),
+      logo ? `<image x="20" y="16" width="16" height="16" href="${logo}"/>` : "",
+      text(44, 30, truncate(item.name, innerWidth - 24, 14, 600), {
+        size: 14,
+        weight: 600,
+        color: theme.blue,
+        decoration: "underline",
+      }),
+      ...lines.map((line, index) => text(20, 56 + index * 18, line, { size: 12, color: theme.text })),
     ].join("\n  "),
+  });
+}
+
+// Card with one bullet per note.
+export function renderNotesCard(notes, theme) {
+  return frame({
+    width: CARD_WIDTH.full,
+    height: 136,
+    title: "Notes",
+    description: notes.join(" "),
+    theme,
+    fill: true,
+    body: notes
+      .map((note, index) => {
+        const y = 38 + index * 24;
+
+        return `<circle cx="28" cy="${y - 4}" r="2" fill="${theme.text}"/>\n  ${text(40, y, truncate(note, CARD_WIDTH.full - 64, 14), { size: 14, color: theme.text })}`;
+      })
+      .join("\n  "),
+  });
+}
+
+// Disclaimer card: a bold title followed by wrapped text.
+export function renderDisclaimerCard(disclaimer, theme) {
+  const paddingX = 24;
+  const lines = wrapText(`${disclaimer.title} ${disclaimer.text}`, CARD_WIDTH.full - paddingX * 2, 12, 6);
+  const height = 32 + lines.length * 18;
+
+  const body = lines.map((line, index) => {
+    const y = 16 + 13 + index * 18;
+
+    if (index === 0 && line.startsWith(disclaimer.title)) {
+      const rest = line.slice(disclaimer.title.length);
+
+      return `<text x="${paddingX}" y="${y}" font-family="${FONT}" font-size="12" fill="${theme.muted}" xml:space="preserve"><tspan font-weight="600" fill="${theme.text}">${escapeXml(disclaimer.title)}</tspan>${escapeXml(rest)}</text>`;
+    }
+
+    return text(paddingX, y, line, { size: 12, color: theme.muted });
+  });
+
+  return frame({
+    width: CARD_WIDTH.full,
+    height,
+    title: disclaimer.title,
+    description: `${disclaimer.title} ${disclaimer.text}`,
+    theme,
+    body: body.join("\n  "),
   });
 }

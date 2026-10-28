@@ -11,8 +11,10 @@ export const config = {
   branch: "stats",
   outputDirectory: "cards",
 
-  // Folder with the technology icons, relative to the repository root.
+  // Folders with the technology icons and the community project logos,
+  // relative to the repository root.
   iconDirectory: "assets/icons",
+  logoDirectory: "assets/community",
 
   // Repositories shown as pinned cards (names without the owner).
   pinnedRepositories: ["docker", "openssl", "shell-script", "kairos"],
@@ -62,36 +64,36 @@ export const config = {
     {
       name: "Operating systems",
       skills: [
-        { name: "Debian", icon: "debian", url: "https://www.debian.org/" },
-        { name: "Linux", icon: "linux", url: "https://kernel.org/" },
-        { name: "Raspberry Pi", icon: "raspberrypi", url: "https://www.raspberrypi.com/" },
-        { name: "Red Hat", icon: "redhat", url: "https://www.redhat.com/" },
-        { name: "Ubuntu", icon: "ubuntu", url: "https://ubuntu.com/" },
+        { name: "Debian", icon: "debian" },
+        { name: "Linux", icon: "linux" },
+        { name: "Raspberry Pi", icon: "raspberrypi" },
+        { name: "Red Hat", icon: "redhat" },
+        { name: "Ubuntu", icon: "ubuntu" },
       ],
     },
     {
       name: "Containers and automation",
       skills: [
-        { name: "Docker", icon: "docker", url: "https://www.docker.com/" },
-        { name: "GitHub Actions", icon: "githubactions", url: "https://github.com/features/actions/" },
-        { name: "Bash", icon: "bash", url: "https://www.gnu.org/software/bash/" },
+        { name: "Docker", icon: "docker" },
+        { name: "GitHub Actions", icon: "githubactions" },
+        { name: "Bash", icon: "bash" },
       ],
     },
     {
       name: "Version control",
       skills: [
-        { name: "Git", icon: "git", url: "https://git-scm.com/" },
-        { name: "GitHub", icon: "github", url: "https://github.com/" },
-        { name: "GitLab", icon: "gitlab", url: "https://gitlab.com/" },
-        { name: "Bitbucket", icon: "bitbucket", url: "https://bitbucket.org/" },
+        { name: "Git", icon: "git" },
+        { name: "GitHub", icon: "github" },
+        { name: "GitLab", icon: "gitlab" },
+        { name: "Bitbucket", icon: "bitbucket" },
       ],
     },
     {
       name: "Editors and documentation",
       skills: [
-        { name: "Visual Studio Code", icon: "vscode", url: "https://code.visualstudio.com/" },
-        { name: "Microsoft Visual Studio", icon: "visualstudio", url: "https://visualstudio.microsoft.com/" },
-        { name: "Markdown", icon: "markdown", url: "https://daringfireball.net/projects/markdown/" },
+        { name: "Visual Studio Code", icon: "vscode" },
+        { name: "Microsoft Visual Studio", icon: "visualstudio" },
+        { name: "Markdown", icon: "markdown" },
       ],
     },
   ],
@@ -101,18 +103,18 @@ export const config = {
     {
       key: "github",
       name: "GitHub",
-      description: "Contributions and repositories",
+      description: "Latest contributions and repositories",
       url: "https://github.com/homelab-alpha?tab=repositories&q=&type=&language=&sort=stargazers",
     },
     {
       key: "documentation",
       name: "Documentation",
-      description: "Documentation for all repositories",
+      description: "Docs for all repositories",
       url: "https://homelab-alpha.nl/docs",
     },
     {
       key: "gists",
-      name: "Gists",
+      name: "GitHub Gist",
       description: "Code snippets and shared utilities",
       url: "https://gist.github.com/homelab-alpha",
     },
@@ -122,18 +124,21 @@ export const config = {
   community: [
     {
       key: "adguard_home",
+      logo: "adguard_home.png",
       name: "AdGuard Home",
       description: "A powerful DNS server to block ads, trackers, and improve network privacy across all devices.",
       url: "https://github.com/AdguardTeam/AdGuardHome",
     },
     {
       key: "dozzle",
+      logo: "dozzle.svg",
       name: "Dozzle",
       description: "Real-time Docker container log viewer, fast and incredibly helpful for live debugging.",
       url: "https://github.com/amir20/dozzle",
     },
     {
       key: "freshrss",
+      logo: "freshrss.svg",
       name: "FreshRSS",
       description:
         "A self-hosted, lightweight RSS aggregator that helps you stay up to date with your favorite feeds, without the bloat.",
@@ -141,12 +146,14 @@ export const config = {
     },
     {
       key: "home_assistant_os",
+      logo: "home_assistant_os.png",
       name: "Home Assistant OS",
       description: "A privacy first, open-source platform that puts your smart home automation at your fingertips.",
       url: "https://github.com/home-assistant/operating-system",
     },
     {
       key: "lotus_docs",
+      logo: "lotus_docs.svg",
       name: "Lotus Docs",
       description:
         "A fast, modern, and minimal documentation theme for Hugo, perfect for technical projects and clean documentation.",
@@ -154,11 +161,26 @@ export const config = {
     },
     {
       key: "speedtest_tracker",
+      logo: "speedtest_tracker.png",
       name: "Speedtest Tracker",
       description: "A self-hosted app that logs and visualizes your internet speed using Speedtest CLI.",
       url: "https://github.com/alexjustesen/speedtest-tracker",
     },
   ],
+
+  // Lines in the "Notes" card.
+  notes: [
+    "I'm always open to contributing to open-source projects. Feel free to reach out!",
+    "Having issues with one of my repositories? Don't hesitate to ask for help!",
+    "Follow me for more exciting projects and updates!",
+    "Remember to enjoy the process and have fun along the way!",
+  ],
+
+  // Disclaimer card at the bottom of the profile.
+  disclaimer: {
+    title: "Disclaimer.",
+    text: 'The content on the Homelab-Alpha website and Homelab-Alpha GitHub repositories is based on my personal experience and is provided "as-is." Use it at your own discretion and risk. For further details, please refer to the following sections in the repository: README, CODE OF CONDUCT, CONTRIBUTING, CODE STYLE AND STANDARDS GUIDES, SECURITY, and LICENSE.',
+  },
 };
 
 // Colors per color scheme. The cards have no page background, so they blend in

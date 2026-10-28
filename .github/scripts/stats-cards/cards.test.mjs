@@ -19,7 +19,7 @@ import {
 import { fetchContributionDays, fetchGists, fetchRepositories, graphql, request } from "./github_api.mjs";
 import { gitBlobSha, publishCards } from "./publish_branch.mjs";
 import { sampleData } from "./sample_data.mjs";
-import { escapeXml, truncate, wrapText } from "./svg_cards.mjs";
+import { escapeXml, measureText, truncate, wrapText } from "./svg_cards.mjs";
 
 // Builds a week of days (Sunday to Saturday) with one contribution on Tuesday
 // when the week is active.
@@ -168,7 +168,9 @@ describe("buildCards", () => {
   it("creates a dark and a light version of every card", () => {
     const names = [
       "activity_side",
+      "disclaimer",
       "gist_notifications",
+      "notes",
       "pin_docker",
       "pin_kairos",
       "pin_openssl",
@@ -181,7 +183,6 @@ describe("buildCards", () => {
       ),
       ...config.sections.map((section) => `section_${slug(section)}`),
       ...config.skillGroups.map((group) => `skills_${slug(group.name)}`),
-      ...config.skillGroups.flatMap((group) => group.skills.map((skill) => `skill_${slug(skill.name)}`)),
       ...config.connect.map((item) => `connect_${slug(item.key)}`),
       ...config.community.map((item) => `community_${slug(item.key)}`),
     ];
@@ -273,10 +274,28 @@ describe("buildCards", () => {
   });
 
   it("embeds the icon for the color scheme and falls back to the shared icon", () => {
-    assert.match(svgOf("skill_bash_dark.svg"), /base64,AAAA/);
-    assert.doesNotMatch(svgOf("skill_bash_light.svg"), /<image/);
-    assert.match(svgOf("skill_docker_light.svg"), /base64,BBBB/);
+    const group = svgOf("skills_containers_and_automation_dark.svg");
+
+    assert.match(group, /base64,AAAA/);
+    assert.match(group, /base64,BBBB/);
+    assert.doesNotMatch(svgOf("skills_containers_and_automation_light.svg"), /base64,AAAA/);
+    assert.match(svgOf("skills_containers_and_automation_light.svg"), /base64,BBBB/);
     assert.equal(pickIcon(icons, "docker", "dark"), icons["docker.svg"]);
+  });
+
+  it("embeds the logo of a community project", () => {
+    const withLogo = buildCards({ ...sampleData, icons, logos: { "dozzle.svg": "data:image/svg+xml;base64,CCCC" } });
+    const card = withLogo.find((item) => item.name === "community_dozzle_dark.svg").svg;
+
+    assert.match(card, /base64,CCCC/);
+    assert.match(card, /text-decoration="underline"/);
+  });
+
+  it("keeps the connect descriptions inside the card", () => {
+    for (const item of config.connect) {
+      // The estimate is conservative, so real text is narrower than this.
+      assert.ok(measureText(item.description, 12) < (256 - 40) * 1.25, item.name);
+    }
   });
 });
 

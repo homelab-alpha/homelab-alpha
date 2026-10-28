@@ -1,19 +1,19 @@
 // Turns collected GitHub data into SVG files. Pure: no network, no file system.
 
 import { DEFAULT_LANGUAGE_COLOR, aggregateLanguages, computeWeeklyStreaks, slug } from "./calculations.mjs";
-
-export { slug };
 import { config as defaultConfig, themes } from "./config.mjs";
-import { pickIcon } from "./icons.mjs";
 import { renderActivitySideCard, renderGistCard, renderRepositoryCard, renderStatsCard } from "./svg_cards.mjs";
 import {
   renderCommunityCard,
   renderConnectCard,
+  renderDisclaimerCard,
+  renderNotesCard,
   renderSectionHeading,
-  renderSkillChip,
-  renderSkillGroupLabel,
+  renderSkillGroupCard,
   renderTerminalParts,
 } from "./static_cards.mjs";
+
+export { slug };
 
 function toRepositoryItem(repository) {
   let badge = "Public";
@@ -49,7 +49,7 @@ function toGistItem(gist) {
   };
 }
 
-// data: { stats, repositories, pins, gists, days, icons }. Returns
+// data: { stats, repositories, pins, gists, days, icons, logos }. Returns
 // [{ name, svg }].
 export function buildCards(data, config = defaultConfig) {
   const languages = aggregateLanguages(data.repositories, {
@@ -79,18 +79,15 @@ export function buildCards(data, config = defaultConfig) {
       add(part.name, part.svg);
     }
 
+    add("notes", renderNotesCard(config.notes, theme));
+    add("disclaimer", renderDisclaimerCard(config.disclaimer, theme));
+
     for (const section of config.sections) {
       add(`section_${slug(section)}`, renderSectionHeading(section, theme));
     }
 
     for (const group of config.skillGroups) {
-      add(`skills_${slug(group.name)}`, renderSkillGroupLabel(group.name, theme));
-
-      for (const skill of group.skills) {
-        const iconData = pickIcon(data.icons ?? {}, skill.icon, themeName);
-
-        add(`skill_${slug(skill.name)}`, renderSkillChip(skill, iconData, theme));
-      }
+      add(`skills_${slug(group.name)}`, renderSkillGroupCard(group, data.icons ?? {}, theme, themeName));
     }
 
     for (const item of config.connect) {
@@ -98,7 +95,7 @@ export function buildCards(data, config = defaultConfig) {
     }
 
     for (const item of config.community) {
-      add(`community_${slug(item.key)}`, renderCommunityCard(item, theme));
+      add(`community_${slug(item.key)}`, renderCommunityCard(item, data.logos?.[item.logo], theme));
     }
   }
 

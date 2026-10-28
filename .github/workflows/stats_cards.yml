@@ -46,6 +46,7 @@ jobs:
           sparse-checkout: |
             .github/scripts/stats-cards
             assets/icons
+            assets/community
           persist-credentials: false
 
       - name: 🧪 Run unit tests
