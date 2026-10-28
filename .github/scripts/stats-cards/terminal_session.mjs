@@ -187,6 +187,86 @@ export function renderSession(data, theme, { compact = false } = {}) {
     y += last;
   }
 
+  // Lines made of segments, without a link.
+  function staticLines(lineSpecs, alt, { last = 14 } = {}) {
+    const top = y;
+
+    lineSpecs.forEach((segments, index) => {
+      elements.push(segmentsText(pad, baseline(top, index), segments, { size, color: theme.text }));
+    });
+    y = top + lineSpecs.length * lineHeight;
+    add({ kind: "static", y0: top, y1: y, alt });
+    y += last;
+  }
+
+  // Output of `ls -lah` for the home directory (sizes follow the real content).
+  function listing() {
+    const bytes = (text) => Buffer.byteLength(text, "utf8");
+    const human = (value) => (value < 1024 ? `${value}` : `${(value / 1024).toFixed(1)}K`).padStart(4);
+    const entries = [
+      [".", "d", 4096],
+      ["..", "d", 4096],
+      ["about.md", "f", bytes(config.intro.join("\n\n"))],
+      ["activity", "d", 4096],
+      ["community", "d", 4096],
+      ["connect", "d", 4096],
+      ["DISCLAIMER", "f", bytes(`${config.disclaimer.title} ${config.disclaimer.text}`)],
+      ["gists", "d", 4096],
+      ["LICENSE", "f", bytes(config.footer.map((item) => item.text).join("\n"))],
+      ["links", "d", 4096],
+      ["notes.txt", "f", bytes(config.notes.join("\n"))],
+      ["repos", "d", 4096],
+      ["skills", "d", 4096],
+    ];
+    const specs = [[muted(`total ${entries.length * 4}`)]];
+
+    for (const [name, type, value] of entries) {
+      const directory = type === "d";
+      const group = compact ? "" : ` ${user}`;
+      const date = compact ? "" : " Jan  1";
+
+      specs.push([
+        muted(`${directory ? "drwxr-xr-x" : "-rw-r--r--"} ${directory ? 2 : 1} ${user}${group} ${human(value)}${date} `),
+        directory ? { t: name, color: theme.blue, bold: true } : { t: name, color: theme.title },
+      ]);
+    }
+
+    staticLines(specs, `Home directory: ${entries.map(([name]) => name).join(", ")}.`);
+  }
+
+  // Output of `tree -L 2` for the skills.
+  function tree() {
+    const specs = [[{ t: ".", color: theme.blue, bold: true }]];
+    let files = 0;
+
+    config.skillGroups.forEach((group, groupIndex) => {
+      const lastGroup = groupIndex === config.skillGroups.length - 1;
+
+      specs.push([
+        muted(lastGroup ? "└── " : "├── "),
+        { t: group.name.toLowerCase().replaceAll(" ", "-"), color: theme.blue, bold: true },
+      ]);
+
+      group.skills.forEach((skill, skillIndex) => {
+        const lastSkill = skillIndex === group.skills.length - 1;
+
+        files += 1;
+        specs.push([
+          muted(`${lastGroup ? "    " : "│   "}${lastSkill ? "└── " : "├── "}`),
+          { t: skill.name, color: theme.title },
+        ]);
+      });
+    });
+
+    specs.push([]);
+    specs.push([muted(`${config.skillGroups.length} directories, ${files} files`)]);
+
+    staticLines(
+      specs,
+      config.skillGroups.map((group) => `${group.name}: ${group.skills.map((skill) => skill.name).join(", ")}`).join(". "),
+    );
+  }
+
   // A block of lines that is one link. `lineSpecs` are segment lists.
   function linkBlock(lineSpecs, { href, label, alt }) {
     const top = y;
@@ -241,6 +321,9 @@ export function renderSession(data, theme, { compact = false } = {}) {
   prompt("cat about.txt");
   paragraphs([plain(config.terminal.blocks[1].output, maxCharacters)]);
 
+  prompt("ls -lah");
+  listing();
+
   prompt("ls links/");
   inlineRow(
     config.terminal.blocks[2].links.map((item) => ({ lines: [[link(item.label)]], href: item.url, label: item.label })),
@@ -250,6 +333,7 @@ export function renderSession(data, theme, { compact = false } = {}) {
   prompt("cat about.md");
   paragraphs(config.intro.map((paragraph) => wrapWords(toWords(paragraph), maxCharacters)));
 
+  prompt("cd repos");
   prompt("gh repo list --pinned", "~/repos");
 
   for (const item of data.repositories) {
@@ -279,7 +363,8 @@ export function renderSession(data, theme, { compact = false } = {}) {
     alt: `Code of conduct: ${config.codeOfConduct.label}`,
   });
 
-  prompt("gh gist list", "~/repos");
+  prompt("cd ../gists", "~/repos");
+  prompt("gh gist list", "~/gists");
 
   for (const item of data.gists) {
     const description = plain(item.description?.trim() || "No description provided.", maxCharacters - 2, 3);
@@ -293,7 +378,8 @@ export function renderSession(data, theme, { compact = false } = {}) {
     );
   }
 
-  prompt(`gh stats --user ${config.username}`, "~/activity");
+  prompt("cd ../activity", "~/gists");
+  prompt(`gh stats --user ${config.username} --year ${data.stats.year}`, "~/activity");
 
   {
     const { stats, streak, languages } = data;
@@ -381,70 +467,40 @@ export function renderSession(data, theme, { compact = false } = {}) {
     y += legendLines.length * lineHeight + 14;
   }
 
-  prompt("ls skills/", "~/skills");
+  prompt("cd ../skills", "~/activity");
+  prompt("tree -L 2", "~/skills");
+  tree();
 
-  {
-    const top = y;
-    const alt = [];
-    let rowIndex = 0;
-
-    for (const group of config.skillGroups) {
-      elements.push(segmentsText(pad, baseline(top, rowIndex), [{ t: `${group.name.toLowerCase().replaceAll(" ", "-")}/`, color: theme.blue }], { size, color: theme.text }));
-      rowIndex += 1;
-
-      const lines = [];
-      let line = "";
-
-      for (const skill of group.skills) {
-        const candidate = line ? `${line}  ${skill.name}` : skill.name;
-
-        if (line && candidate.length > maxCharacters - 2) {
-          lines.push(line);
-          line = skill.name;
-        } else {
-          line = candidate;
-        }
-      }
-
-      lines.push(line);
-
-      for (const text of lines) {
-        elements.push(segmentsText(pad, baseline(top, rowIndex), [{ t: `  ${text}`, color: theme.title }], { size, color: theme.text }));
-        rowIndex += 1;
-      }
-
-      alt.push(`${group.name}: ${group.skills.map((skill) => skill.name).join(", ")}`);
-      rowIndex += 0.5;
-    }
-
-    add({ kind: "static", y0: top, y1: top + Math.ceil(rowIndex) * lineHeight, alt: alt.join(". ") });
-    y = top + Math.ceil(rowIndex) * lineHeight + 14;
-  }
-
-  prompt("ls connect/", "~/connect");
+  prompt("cd ../connect", "~/skills");
+  prompt("head -n 1 *", "~/connect");
 
   for (const item of config.connect) {
     linkBlock(
       [
-        [link(item.name)],
-        ...plain(item.description, maxCharacters - 2).map((line) => [muted(`  ${line.map((word) => word.word).join(" ")}`)]),
+        [{ t: "==> ", color: theme.muted }, link(item.key), { t: " <==", color: theme.muted }],
+        ...plain(item.description, maxCharacters).map((line) => [muted(line.map((word) => word.word).join(" "))]),
       ],
       { href: item.url, label: item.name, alt: `${item.name}. ${item.description}` },
     );
   }
 
-  prompt("cat community.md", "~/community");
+  prompt("cd ../community", "~/connect");
+  prompt("cat README.md", "~/community");
   paragraphs([plain(config.communityText[0], maxCharacters)]);
+
+  prompt("head -n 1 projects/*", "~/community");
 
   for (const item of config.community) {
     linkBlock(
       [
-        [link(item.name)],
-        ...plain(item.description, maxCharacters - 2, 4).map((line) => [muted(`  ${line.map((word) => word.word).join(" ")}`)]),
+        [{ t: "==> ", color: theme.muted }, link(item.key.replaceAll("_", "-")), { t: " <==", color: theme.muted }],
+        ...plain(item.description, maxCharacters, 4).map((line) => [muted(line.map((word) => word.word).join(" "))]),
       ],
       { href: item.url, label: `${item.name} repository page`, alt: `${item.name}. ${item.description}` },
     );
   }
+
+  prompt("tail -n 1 README.md", "~/community");
 
   {
     const lines = plain(config.communityText[1], maxCharacters - 2);
@@ -462,8 +518,9 @@ export function renderSession(data, theme, { compact = false } = {}) {
     y = top + lines.length * lineHeight + 14;
   }
 
-  prompt("cat notes.txt", "~");
-  paragraphs(config.notes.map((note) => plain(`- ${note}`, maxCharacters)), { gap: 4 });
+  prompt("cd ~", "~/community");
+  prompt("cat -n notes.txt", "~");
+  paragraphs(config.notes.map((note, index) => plain(`${index + 1}  ${note}`, maxCharacters)), { gap: 4 });
 
   prompt("cat DISCLAIMER");
   paragraphs([plain(`${config.disclaimer.title} ${config.disclaimer.text}`, maxCharacters)]);
