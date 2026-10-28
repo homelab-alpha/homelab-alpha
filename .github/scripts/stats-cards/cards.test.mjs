@@ -16,7 +16,7 @@ import {
   formatNumber,
   startOfWeek,
 } from "./calculations.mjs";
-import { fetchContributionDays, fetchGists, fetchRepositories } from "./github_api.mjs";
+import { fetchContributionDays, fetchGists, fetchRepositories, graphql, request } from "./github_api.mjs";
 import { gitBlobSha, publishCards } from "./publish_branch.mjs";
 import { sampleData } from "./sample_data.mjs";
 import { escapeXml, truncate, wrapText } from "./svg_cards.mjs";
@@ -269,7 +269,7 @@ describe("GitHub API", () => {
       const { pathname, search } = new URL(url);
       const body = init.body ? JSON.parse(init.body) : undefined;
 
-      calls.push({ method: init.method, path: pathname, search, body });
+      calls.push({ method: init.method, path: pathname, search, body, authorization: init.headers.Authorization });
 
       const handler = routes[`${init.method} ${pathname}`];
 
@@ -285,6 +285,28 @@ describe("GitHub API", () => {
 
   afterEach(() => {
     globalThis.fetch = originalFetch;
+    delete process.env.STATS_TOKEN;
+  });
+
+  it("reads with STATS_TOKEN but publishes with the workflow token", async () => {
+    process.env.STATS_TOKEN = "read-token";
+    routes["POST /graphql"] = () => ({ body: { data: {} } });
+    routes["GET /repos/o/r/git/ref/heads/stats"] = () => ({ status: 404, body: { message: "Not Found" } });
+
+    await graphql("query { viewer { login } }");
+    await request("GET", "/repos/o/r/git/ref/heads/stats", undefined, { write: true }).catch(() => {});
+
+    assert.equal(calls[0].authorization, "Bearer read-token");
+    assert.equal(calls[1].authorization, "Bearer test-token");
+  });
+
+  it("falls back to the workflow token and explains missing access", async () => {
+    routes["POST /graphql"] = () => ({
+      body: { errors: [{ message: "Resource not accessible by integration" }] },
+    });
+
+    await assert.rejects(() => graphql("query { viewer { login } }"), /STATS_TOKEN/);
+    assert.equal(calls[0].authorization, "Bearer test-token");
   });
 
   it("matches the git blob hash", () => {

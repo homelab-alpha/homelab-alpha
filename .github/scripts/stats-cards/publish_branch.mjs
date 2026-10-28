@@ -7,7 +7,12 @@
 
 import { createHash } from "node:crypto";
 
-import { graphql, request } from "./github_api.mjs";
+import { graphql as apiGraphql, request as apiRequest } from "./github_api.mjs";
+
+// Publishing always uses the workflow token, never the personal access token
+// that is only meant for reading.
+const request = (method, path, body) => apiRequest(method, path, body, { write: true });
+const graphql = (query, variables) => apiGraphql(query, variables, { write: true });
 
 const BRANCH_README = `# Stats branch
 
