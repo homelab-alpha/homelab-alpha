@@ -57,11 +57,12 @@ export const config = {
 
   // Introduction below the terminal. Text between ** is printed bold.
   intro: [
-    "Welcome to the **Homelab-Alpha**! I'm GJS, a tech enthusiast driven by a passion for automation, infrastructure, and creative problem solving. My homelab is my ultimate playground; a space where I experiment with emerging technologies, refine configurations, and constantly hunt for ways to make my digital environment smarter and more efficient.",
-    "I am a strong advocate for the open-source movement and the power of self-hosting. My goal is to make technology more accessible and robust for everyone. Whether I'm streamlining deployments, hardening environments, or squeezing out every bit of performance, I am always in pursuit of innovative solutions.",
-    "I thrive on tackling complex architectural challenges and automating the mundane. From discovering the latest gadgets to deep diving into advanced technical builds, I am at my best when I am tinkering under the hood.",
-    "My repositories focus on the pillars of modern self-hosting: automation, security, and system optimization. Featuring everything from Dockerized applications and OpenSSL implementations to monitoring setups like Uptime Kuma, each project is built to empower your home lab. Explore my work, and feel free to collaborate!",
+    "Welcome to **Homelab-Alpha**! I'm GJS, a tech enthusiast who loves automation, infrastructure, and creative problem solving. My homelab is my playground: a place to test emerging technologies, fine-tune configurations, and keep finding ways to make my setup smarter and more efficient.",
+    "I'm a strong believer in open source and self-hosting. My goal is to make technology more accessible and more robust for everyone. Whether I'm streamlining deployments, hardening environments, or squeezing out a little more performance, I'm always chasing a better solution.",
+    "I enjoy tackling complex architecture and automating the mundane. From trying the latest gadgets to deep dives into advanced builds, I'm at my best when I'm tinkering under the hood.",
+    "My repositories cover the pillars of modern self-hosting: automation, security, and system optimization. You'll find everything from Dockerized applications and OpenSSL setups to monitoring tools like Uptime Kuma, each built to power your own home lab. Have a look around, and feel free to collaborate!",
   ],
+
 
   // Text above the community project cards; the second line gets a star.
   communityText: [
