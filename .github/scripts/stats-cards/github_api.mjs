@@ -1,15 +1,18 @@
 // Thin GitHub API client and the data collectors for the cards.
 //
-// Only public data is requested, so the default GITHUB_TOKEN of a workflow is
-// sufficient. Uses the built-in fetch; no dependencies.
+// Only public data is requested. Reading user data (contributions, pull requests
+// and issues) is not allowed for the default GITHUB_TOKEN of a workflow, so the
+// reads use STATS_TOKEN (a personal access token) when it is set. Publishing
+// the cards always uses GH_TOKEN. Uses the built-in fetch; no dependencies.
 
 import { sumStars } from "./calculations.mjs";
 
 const API_URL = "https://api.github.com";
 const MAX_ATTEMPTS = 3;
 
-function getToken() {
-  const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+function getToken(write) {
+  const workflowToken = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+  const token = write ? workflowToken : process.env.STATS_TOKEN || workflowToken;
 
   if (!token) {
     throw new Error("No token found. Set GH_TOKEN (or GITHUB_TOKEN) in the environment.");
@@ -23,7 +26,7 @@ function sleep(milliseconds) {
 }
 
 // Low-level request with a small retry for transient errors.
-export async function request(method, path, body) {
+export async function request(method, path, body, { write = false } = {}) {
   const url = path.startsWith("http") ? path : `${API_URL}${path}`;
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
@@ -31,7 +34,7 @@ export async function request(method, path, body) {
       method,
       headers: {
         Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${getToken()}`,
+        Authorization: `Bearer ${getToken(write)}`,
         "Content-Type": "application/json",
         "User-Agent": "homelab-alpha-stats-cards",
         "X-GitHub-Api-Version": "2022-11-28",
@@ -62,11 +65,16 @@ export async function request(method, path, body) {
   throw new Error(`${method} ${path} failed after ${MAX_ATTEMPTS} attempts.`);
 }
 
-export async function graphql(query, variables = {}) {
-  const data = await request("POST", "/graphql", { query, variables });
+export async function graphql(query, variables = {}, options = {}) {
+  const data = await request("POST", "/graphql", { query, variables }, options);
 
   if (data.errors?.length) {
-    throw new Error(`GraphQL error: ${data.errors.map((error) => error.message).join("; ")}`);
+    const messages = data.errors.map((error) => error.message).join("; ");
+    const hint = messages.includes("Resource not accessible by integration")
+      ? " The workflow token cannot read this data; add a STATS_TOKEN secret with a personal access token."
+      : "";
+
+    throw new Error(`GraphQL error: ${messages}.${hint}`);
   }
 
   return data.data;
