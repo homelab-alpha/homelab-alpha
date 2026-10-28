@@ -6,6 +6,8 @@ import assert from "node:assert/strict";
 import { afterEach, beforeEach, describe, it } from "node:test";
 
 import { buildCards, slug } from "./build_cards.mjs";
+import { config } from "./config.mjs";
+import { pickIcon } from "./icons.mjs";
 import {
   addDays,
   aggregateLanguages,
@@ -159,24 +161,52 @@ describe("text helpers", () => {
 });
 
 describe("buildCards", () => {
-  const cards = buildCards(sampleData);
+  const icons = { "bash_dark.svg": "data:image/svg+xml;base64,AAAA", "docker.svg": "data:image/svg+xml;base64,BBBB" };
+  const cards = buildCards({ ...sampleData, icons });
+  const svgOf = (name) => cards.find((card) => card.name === name).svg;
 
   it("creates a dark and a light version of every card", () => {
+    const names = [
+      "activity_side",
+      "gist_notifications",
+      "notes",
+      "pin_docker",
+      "pin_kairos",
+      "pin_openssl",
+      "pin_shell_script",
+      "stats",
+      "terminal",
+      "tiles",
+      ...config.sections.map((section) => `section_${slug(section)}`),
+      ...config.skillGroups.map((group) => `skills_${slug(group.name)}`),
+      ...config.skillGroups.flatMap((group) => group.skills.map((skill) => `skill_${slug(skill.name)}`)),
+      ...config.connect.map((item) => `connect_${slug(item.key)}`),
+      ...config.community.map((item) => `community_${slug(item.key)}`),
+    ];
+
     assert.deepEqual(
       cards.map((card) => card.name).sort(),
-      [
-        "gist_notifications",
-        "pin_docker",
-        "pin_kairos",
-        "pin_openssl",
-        "pin_shell_script",
-        "stats",
-        "streak",
-        "top_languages",
-      ]
-        .flatMap((name) => [`${name}_dark.svg`, `${name}_light.svg`])
-        .sort(),
+      names.flatMap((name) => [`${name}_dark.svg`, `${name}_light.svg`]).sort(),
     );
+  });
+
+  it("keeps a transparent margin of 8 pixels around every card", () => {
+    const widths = new Map();
+
+    for (const card of cards) {
+      const [, width, height] = card.svg.match(/<svg [^>]*width="(\d+)" height="(\d+)"/);
+
+      widths.set(card.name.replace(/_(dark|light)\.svg$/, ""), Number(width));
+      assert.ok(Number(height) > 16, card.name);
+    }
+
+    // Two half cards or three third cards fill one 816 pixel row.
+    assert.equal(widths.get("pin_docker") * 2, 816);
+    assert.equal(widths.get("stats") + widths.get("activity_side"), 816);
+    assert.equal(widths.get("connect_github") * 3, 816);
+    assert.equal(widths.get("community_dozzle") * 3, 816);
+    assert.equal(widths.get("terminal"), 816);
+    assert.equal(widths.get("tiles"), 816);
   });
 
   it("uses only lowercase file names with underscores", () => {
@@ -195,18 +225,33 @@ describe("buildCards", () => {
   });
 
   it("escapes descriptions from the API", () => {
-    const kairos = cards.find((card) => card.name === "pin_kairos_dark.svg").svg;
+    const kairos = svgOf("pin_kairos_dark.svg");
 
     assert.match(kairos, /&amp;/);
     assert.doesNotMatch(kairos, /<off>/);
   });
 
   it("uses the color scheme of the theme", () => {
-    const dark = cards.find((card) => card.name === "stats_dark.svg").svg;
-    const light = cards.find((card) => card.name === "stats_light.svg").svg;
+    assert.match(svgOf("stats_dark.svg"), /#DFE2E6/);
+    assert.match(svgOf("stats_light.svg"), /#3D4255/);
+    assert.match(svgOf("terminal_dark.svg"), /#151b23/);
+    assert.match(svgOf("terminal_light.svg"), /#f6f8fa/);
+  });
 
-    assert.match(dark, /#DFE2E6/);
-    assert.match(light, /#3D4255/);
+  it("draws the terminal prompt and underlined links from the config", () => {
+    const terminal = svgOf("terminal_dark.svg");
+
+    assert.match(terminal, /┌──\(/);
+    assert.match(terminal, /github-server/);
+    assert.match(terminal, /whoami/);
+    assert.equal((terminal.match(/text-decoration="underline"/g) ?? []).length, 4);
+  });
+
+  it("embeds the icon for the color scheme and falls back to the shared icon", () => {
+    assert.match(svgOf("skill_bash_dark.svg"), /base64,AAAA/);
+    assert.doesNotMatch(svgOf("skill_bash_light.svg"), /<image/);
+    assert.match(svgOf("skill_docker_light.svg"), /base64,BBBB/);
+    assert.equal(pickIcon(icons, "docker", "dark"), icons["docker.svg"]);
   });
 });
 

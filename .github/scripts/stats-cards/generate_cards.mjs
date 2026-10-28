@@ -15,6 +15,7 @@ import { parseArgs } from "node:util";
 
 import { buildCards } from "./build_cards.mjs";
 import { config } from "./config.mjs";
+import { loadIcons } from "./icons.mjs";
 import { fetchContributionDays, fetchGists, fetchRepositories, fetchStats } from "./github_api.mjs";
 import { publishCards } from "./publish_branch.mjs";
 import { sampleData } from "./sample_data.mjs";
@@ -51,7 +52,8 @@ async function main() {
     throw new Error("Refusing to publish sample data. Use either --sample or --publish.");
   }
 
-  const data = values.sample ? sampleData : await collectData();
+  const icons = await loadIcons(process.cwd(), config);
+  const data = { ...(values.sample ? sampleData : await collectData()), icons };
   const cards = buildCards(data, config);
 
   await mkdir(values.out, { recursive: true });
@@ -62,7 +64,7 @@ async function main() {
 
   console.log(`Generated ${cards.length} cards in ${values.out}.`);
 
-  const summary = ["## 📊 Stats Cards", "", `Generated **${cards.length}** cards for \`${config.username}\`.`];
+  const summary = ["## Stats Cards", "", `Generated **${cards.length}** cards for \`${config.username}\`.`];
 
   if (values.publish) {
     const repository = process.env.GITHUB_REPOSITORY;

@@ -6,7 +6,10 @@
 
 import { formatDateRange, formatNumber } from "./calculations.mjs";
 
+export const INSET = 8;
+
 const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+export const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace";
 
 // Rounds a coordinate to two decimals to keep the output compact and stable.
 function n(value) {
@@ -107,170 +110,266 @@ export function wrapText(text, maxWidth, fontSize, maxLines) {
   return lines;
 }
 
-function text(x, y, content, { size = 13, weight = 400, color, anchor = "start" }) {
+export function text(
+  x,
+  y,
+  content,
+  { size = 13, weight = 400, color, anchor = "start", family = FONT, spacing, decoration },
+) {
   const anchorAttribute = anchor === "start" ? "" : ` text-anchor="${anchor}"`;
+  const spacingAttribute = spacing ? ` letter-spacing="${spacing}"` : "";
+  const decorationAttribute = decoration ? ` text-decoration="${decoration}"` : "";
 
-  return `<text x="${n(x)}" y="${n(y)}" font-family="${FONT}" font-size="${size}" font-weight="${weight}" fill="${color}"${anchorAttribute}>${escapeXml(content)}</text>`;
+  return `<text x="${n(x)}" y="${n(y)}" font-family="${family}" font-size="${size}" font-weight="${weight}" fill="${color}"${anchorAttribute}${spacingAttribute}${decorationAttribute}>${escapeXml(content)}</text>`;
 }
 
-function starPoints(centerX, centerY, outer, inner) {
-  const points = [];
+// Wraps a card of width x height pixels (without margin) in an SVG document.
+// `box` draws the card border, `fill` also fills it with the tile color.
+export function frame({ width, height, title, description, theme, body, box = true, fill = false, radius = 12 }) {
+  const outerWidth = width + INSET * 2;
+  const outerHeight = height + INSET * 2;
+  const border = box
+    ? `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="${radius}" fill="${fill ? theme.tile : "none"}" stroke="${theme.line}"/>`
+    : "";
 
-  for (let index = 0; index < 10; index += 1) {
-    const radius = index % 2 === 0 ? outer : inner;
-    const angle = (Math.PI / 5) * index - Math.PI / 2;
-
-    points.push(`${n(centerX + radius * Math.cos(angle))},${n(centerY + radius * Math.sin(angle))}`);
-  }
-
-  return points.join(" ");
-}
-
-// Line icons on a 16 x 16 grid, drawn with the current color.
-const ICONS = {
-  repo: `<path d="M3 12.5V3.5A1.5 1.5 0 0 1 4.5 2H13v9H4.5A1.5 1.5 0 0 0 3 12.5Z"/><path d="M3 12.5A1.5 1.5 0 0 0 4.5 14H13"/>`,
-  gist: `<path d="M5.5 4 1.5 8l4 4M10.5 4l4 4-4 4"/>`,
-  star: `<polygon points="${starPoints(8, 8.6, 7, 2.9)}"/>`,
-  commit: `<circle cx="8" cy="8" r="3"/><path d="M1 8h4M11 8h4"/>`,
-  pullRequest: `<circle cx="4" cy="3.5" r="1.75"/><circle cx="4" cy="12.5" r="1.75"/><circle cx="12" cy="12.5" r="1.75"/><path d="M4 5.25v5.5M12 10.75V6a2 2 0 0 0-2-2H8.5M10 2.5 8.5 4 10 5.5"/>`,
-  issue: `<circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="1" fill="currentColor"/>`,
-  fork: `<circle cx="4" cy="3" r="1.5"/><circle cx="12" cy="3" r="1.5"/><circle cx="8" cy="13" r="1.5"/><path d="M4 4.5v1.25A1.75 1.75 0 0 0 5.75 7.5h4.5A1.75 1.75 0 0 0 12 5.75V4.5M8 7.5v4"/>`,
-};
-
-function icon(name, x, y, color) {
-  return `<g transform="translate(${n(x)} ${n(y)})" color="${color}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${ICONS[name]}</g>`;
-}
-
-// Flame drawn on a 24 x 24 grid and centered on (centerX, centerY).
-function flame(centerX, centerY, size, color) {
-  const scale = size / 24;
-
-  return `<path transform="translate(${n(centerX - size / 2)} ${n(centerY - size / 2)}) scale(${n(scale)})" fill="${color}" d="M12 1.5C13.5 6 18.5 8.5 18.5 14.5a6.5 6.5 0 0 1-13 0c0-3 1.5-5 3-6.5.2 1.8 1 2.8 2.1 3C10 7.5 10.5 4.5 12 1.5Z"/>`;
-}
-
-function frame({ width, height, title, description, theme, body }) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" role="img" aria-labelledby="card-title card-description">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${outerWidth}" height="${outerHeight}" viewBox="0 0 ${outerWidth} ${outerHeight}" fill="none" role="img" aria-labelledby="card-title card-description">
   <title id="card-title">${escapeXml(title)}</title>
   <desc id="card-description">${escapeXml(description)}</desc>
-  <rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="6" stroke="${theme.border}"/>
+  <g transform="translate(${INSET} ${INSET})">
+  ${border}
   ${body}
+  </g>
 </svg>
 `;
 }
 
-// Repository and gist cards share one layout: title, badge, description and a
-// footer with language, stars and forks.
-export function renderRepositoryCard(item, theme, { descriptionLines = 3 } = {}) {
-  const width = 400;
-  const paddingX = 25;
-  const titleSize = 18;
-  const descriptionSize = 13;
-  const lineHeight = 18;
-  const firstLineY = 60;
-  const lastLineY = firstLineY + (descriptionLines - 1) * lineHeight;
-  const footerY = lastLineY + 26;
-  const height = footerY + 20;
+export const CARD_WIDTH = { full: 800, half: 392, third: 256, quarter: 188 };
 
-  const badgeSize = 11;
-  const badgeWidth = measureText(item.badge, badgeSize) + 16;
-  const titleX = paddingX + 25;
-  const titleWidth = width - paddingX - badgeWidth - 12 - titleX;
-  const title = truncate(item.title, titleWidth, titleSize, 600);
+// Small uppercase label, used for tile titles, badges and group names.
+function label(x, y, content, { color, size = 11, anchor = "start", spacing = 0.08 }) {
+  return text(x, y, content.toUpperCase(), {
+    size,
+    weight: 600,
+    color,
+    anchor,
+    spacing: n(size * spacing),
+  });
+}
+
+// Repository card: title, badge, description and a footer with language, stars
+// and forks.
+export function renderRepositoryCard(item, theme, { descriptionLines = 2 } = {}) {
+  const width = CARD_WIDTH.half;
+  const height = 128;
+  const paddingX = 24;
+  const lineHeight = 18;
+  const innerWidth = width - paddingX * 2;
   const description = item.description?.trim() ? item.description : "No description provided.";
-  const lines = wrapText(description, width - paddingX * 2, descriptionSize, descriptionLines);
+  const lines = wrapText(description, innerWidth, 13, descriptionLines);
+  const badgeWidth = measureText(item.badge.toUpperCase(), 11, 600) + 8;
 
   const parts = [
-    icon(item.icon, paddingX, 20, theme.icon),
-    text(titleX, 34, title, { size: titleSize, weight: 600, color: theme.title }),
-    `<rect x="${n(width - paddingX - badgeWidth)}" y="19" width="${n(badgeWidth)}" height="20" rx="10" stroke="${theme.text}" stroke-opacity="0.5"/>`,
-    text(width - paddingX - badgeWidth / 2, 33, item.badge, {
-      size: badgeSize,
-      weight: 500,
-      color: theme.text,
-      anchor: "middle",
+    text(paddingX, 41, truncate(item.title, innerWidth - badgeWidth - 12, 17, 600), {
+      size: 17,
+      weight: 600,
+      color: theme.title,
     }),
-    ...lines.map((line, index) =>
-      text(paddingX, firstLineY + index * lineHeight, line, { size: descriptionSize, color: theme.text }),
-    ),
+    label(width - paddingX, 40, item.badge, { color: theme.muted, anchor: "end" }),
+    ...lines.map((line, index) => text(paddingX, 66 + index * lineHeight, line, { size: 13, color: theme.text })),
   ];
 
+  const footerY = height - 22;
   let cursor = paddingX;
 
   if (item.language) {
-    parts.push(`<circle cx="${n(cursor + 6)}" cy="${n(footerY - 4)}" r="6" fill="${item.languageColor}"/>`);
-    parts.push(text(cursor + 18, footerY, item.language, { size: 12, color: theme.text }));
-    cursor += 18 + measureText(item.language, 12) + 22;
+    parts.push(`<circle cx="${n(cursor + 5)}" cy="${n(footerY - 4)}" r="5" fill="${item.languageColor}"/>`);
+    parts.push(text(cursor + 16, footerY, item.language, { size: 12, color: theme.muted }));
+    cursor += 16 + measureText(item.language, 12) + 16;
   }
 
-  for (const [name, value] of [
+  for (const [singular, value] of [
     ["star", item.stars],
     ["fork", item.forks],
   ]) {
-    const label = formatNumber(value);
+    const content = `${formatNumber(value)} ${singular}${value === 1 ? "" : "s"}`;
 
-    parts.push(icon(name, cursor, footerY - 12.5, theme.icon));
-    parts.push(text(cursor + 21, footerY, label, { size: 12, color: theme.text }));
-    cursor += 21 + measureText(label, 12) + 20;
+    parts.push(text(cursor, footerY, content, { size: 12, color: theme.muted }));
+    cursor += measureText(content, 12) + 16;
   }
 
   return frame({
     width,
     height,
     title: item.title,
-    description: `${item.icon === "gist" ? "Gist" : "Repository"} ${item.title}. ${description}`,
+    description: `Repository ${item.title}. ${description}`,
+    theme,
+    body: parts.join("\n  "),
+    fill: true,
+  });
+}
+
+// Wide gist card without fill: title and description on the left, counters on
+// the right.
+export function renderGistCard(item, theme) {
+  const width = CARD_WIDTH.full;
+  const height = 88;
+  const paddingX = 24;
+  const counters = [
+    `${formatNumber(item.stars)} ${item.stars === 1 ? "star" : "stars"}`,
+    `${formatNumber(item.forks)} ${item.forks === 1 ? "fork" : "forks"}`,
+  ];
+  const meta = [item.badge, ...counters];
+
+  const parts = [];
+  let cursor = width - paddingX;
+
+  for (const content of [...meta].reverse()) {
+    parts.push(text(cursor, 49, content, { size: 12, color: theme.muted, anchor: "end" }));
+    cursor -= measureText(content, 12) + 16;
+  }
+
+  const textWidth = cursor - paddingX;
+  const description = item.description?.trim() ? item.description : "No description provided.";
+
+  parts.push(
+    text(paddingX, 36, truncate(item.title, textWidth, 16, 600), { size: 16, weight: 600, color: theme.title }),
+  );
+  parts.push(text(paddingX, 58, truncate(description, textWidth, 13), { size: 13, color: theme.text }));
+
+  return frame({
+    width,
+    height,
+    title: item.title,
+    description: `Gist ${item.title}. ${description}`,
     theme,
     body: parts.join("\n  "),
   });
 }
 
+// Row of four tiles: stars, commits, pull requests and the weekly streak.
+export function renderTilesCard(stats, streak, theme) {
+  const tiles = [
+    ["Stars earned", stats.stars],
+    ["Commits", stats.commits],
+    ["Pull requests", stats.pullRequests],
+    ["Weekly streak", streak.current.length],
+  ];
+  const tileWidth = CARD_WIDTH.quarter;
+  const height = 96;
+  const parts = [];
+
+  tiles.forEach(([name, value], index) => {
+    const x = index * (tileWidth + 16);
+
+    parts.push(
+      `<rect x="${x + 0.5}" y="0.5" width="${tileWidth - 1}" height="${height - 1}" rx="12" fill="${theme.tile}" stroke="${theme.line}"/>`,
+      label(x + 20, 32, name, { color: theme.muted, spacing: 0.1 }),
+      text(x + 20, 72, formatNumber(value), { size: 28, weight: 600, color: theme.title }),
+    );
+  });
+
+  return frame({
+    width: CARD_WIDTH.full,
+    height,
+    title: "Profile numbers",
+    description: tiles.map(([name, value]) => `${name}: ${formatNumber(value)}`).join(". "),
+    theme,
+    body: parts.join("\n  "),
+    box: false,
+  });
+}
+
 export function renderStatsCard(stats, theme, { title }) {
-  const width = 440;
-  const height = 195;
+  const width = CARD_WIDTH.half;
+  const height = 316;
+  const paddingX = 24;
   const rows = [
-    ["star", "Total Stars Earned", stats.stars],
-    ["commit", `Total Commits (${stats.year})`, stats.commits],
-    ["pullRequest", "Total PRs", stats.pullRequests],
-    ["issue", "Total Issues", stats.issues],
-    ["repo", "Contributed to (last year)", stats.contributedTo],
+    ["Total Stars Earned", stats.stars],
+    [`Total Commits (${stats.year})`, stats.commits],
+    ["Total PRs", stats.pullRequests],
+    ["Total Issues", stats.issues],
+    ["Contributed to (last year)", stats.contributedTo],
   ];
 
-  const parts = [text(25, 35, truncate(title, width - 50, 18, 600), { size: 18, weight: 600, color: theme.title })];
+  const parts = [
+    text(paddingX, 46, truncate(title, width - paddingX * 2, 16, 600), { size: 16, weight: 600, color: theme.title }),
+  ];
 
-  rows.forEach(([name, label, value], index) => {
-    const y = 74 + index * 26;
+  rows.forEach(([name, value], index) => {
+    const top = 62 + index * 42;
 
-    parts.push(icon(name, 25, y - 12.5, theme.icon));
-    parts.push(text(53, y, label, { size: 14, color: theme.text }));
-    parts.push(text(width - 25, y, formatNumber(value), { size: 14, weight: 600, color: theme.title, anchor: "end" }));
+    parts.push(
+      `<line x1="${paddingX}" y1="${top + 0.5}" x2="${width - paddingX}" y2="${top + 0.5}" stroke="${theme.line}"/>`,
+      text(paddingX, top + 26, name, { size: 13, color: theme.text }),
+      text(width - paddingX, top + 26, formatNumber(value), {
+        size: 13,
+        weight: 600,
+        color: theme.title,
+        anchor: "end",
+      }),
+    );
   });
 
   return frame({
     width,
     height,
-    title: title,
-    description: rows.map(([, label, value]) => `${label}: ${formatNumber(value)}`).join(". "),
+    title,
+    description: rows.map(([name, value]) => `${name}: ${formatNumber(value)}`).join(". "),
     theme,
     body: parts.join("\n  "),
+    fill: true,
   });
 }
 
-export function renderLanguagesCard(languages, theme, { title }) {
-  const width = 440;
-  const paddingX = 25;
+const PANEL_HEIGHT = 150;
+
+// Two columns: a ring with the current streak and a number for the longest.
+function streakBody(streak, theme) {
+  const width = CARD_WIDTH.half;
+  const height = PANEL_HEIGHT;
+  const columnWidth = width / 2;
+  const leftX = columnWidth / 2;
+  const rightX = columnWidth + columnWidth / 2;
+  const rangeWidth = columnWidth - 24;
+
+  const column = (x, name, range) => [
+    text(x, 100, name, { size: 12, weight: 600, color: theme.text, anchor: "middle" }),
+    text(x, 120, truncate(formatDateRange(range.start, range.end), rangeWidth, 11), {
+      size: 11,
+      color: theme.muted,
+      anchor: "middle",
+    }),
+  ];
+
+  return [
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="12" stroke="${theme.line}"/>`,
+    `<line x1="${columnWidth}" y1="0.5" x2="${columnWidth}" y2="${height - 0.5}" stroke="${theme.line}"/>`,
+    `<circle cx="${leftX}" cy="52" r="29.5" stroke="${theme.text}" stroke-width="5"/>`,
+    text(leftX, 60, String(streak.current.length), { size: 22, weight: 700, color: theme.title, anchor: "middle" }),
+    ...column(leftX, "Current streak", streak.current),
+    text(rightX, 62, String(streak.longest.length), { size: 28, weight: 700, color: theme.title, anchor: "middle" }),
+    ...column(rightX, "Longest streak", streak.longest),
+  ].join("\n  ");
+}
+
+// Stacked bar plus a three column legend.
+function languagesBody(languages, theme, title) {
+  const width = CARD_WIDTH.half;
+  const height = PANEL_HEIGHT;
+  const paddingX = 24;
   const barWidth = width - paddingX * 2;
-  const columnWidth = barWidth / 2;
-  const rowCount = Math.max(1, Math.ceil(languages.length / 2));
-  const height = 94 + (rowCount - 1) * 22 + 24;
+  const columnWidth = (barWidth - 20) / 3 + 10;
 
   const parts = [
-    text(paddingX, 35, truncate(title, barWidth, 18, 600), { size: 18, weight: 600, color: theme.title }),
-    `<clipPath id="bar-clip"><rect x="${paddingX}" y="52" width="${barWidth}" height="8" rx="4"/></clipPath>`,
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="12" stroke="${theme.line}"/>`,
+    text(paddingX, 36, truncate(title, barWidth, 14, 600), { size: 14, weight: 600, color: theme.title }),
+    `<clipPath id="bar-clip"><rect x="${paddingX}" y="50" width="${barWidth}" height="8" rx="4"/></clipPath>`,
   ];
 
   let offset = paddingX;
   const segments = languages.map((language) => {
     const segmentWidth = (language.percent / 100) * barWidth;
-    const segment = `<rect x="${n(offset)}" y="52" width="${n(segmentWidth)}" height="8" fill="${language.color}"/>`;
+    const segment = `<rect x="${n(offset)}" y="50" width="${n(segmentWidth)}" height="8" fill="${language.color}"/>`;
 
     offset += segmentWidth;
     return segment;
@@ -279,73 +378,28 @@ export function renderLanguagesCard(languages, theme, { title }) {
   parts.push(`<g clip-path="url(#bar-clip)">${segments.join("")}</g>`);
 
   languages.forEach((language, index) => {
-    const columnX = paddingX + (index % 2) * columnWidth;
-    const y = 94 + Math.floor(index / 2) * 22;
-    const percent = `${language.percent.toFixed(1)}%`;
-    const nameWidth = columnWidth - 16 - 12 - measureText(percent, 12) - 8;
+    const x = paddingX + (index % 3) * columnWidth;
+    const y = 86 + Math.floor(index / 3) * 24;
 
-    parts.push(`<circle cx="${n(columnX + 5)}" cy="${n(y - 4)}" r="5" fill="${language.color}"/>`);
-    parts.push(text(columnX + 16, y, truncate(language.name, nameWidth, 12), { size: 12, color: theme.text }));
-    parts.push(
-      text(columnX + columnWidth - 12, y, percent, { size: 12, weight: 600, color: theme.title, anchor: "end" }),
-    );
+    parts.push(`<circle cx="${n(x + 4)}" cy="${n(y - 4)}" r="4" fill="${language.color}"/>`);
+    parts.push(text(x + 14, y, truncate(language.name, columnWidth - 24, 11), { size: 11, color: theme.text }));
   });
 
-  return frame({
-    width,
-    height,
-    title,
-    description: languages.map((language) => `${language.name} ${language.percent.toFixed(1)}%`).join(", "),
-    theme,
-    body: parts.join("\n  "),
-  });
+  return parts.join("\n  ");
 }
 
-function polar(centerX, centerY, radius, degrees) {
-  const radians = (degrees * Math.PI) / 180;
-
-  return [n(centerX + radius * Math.sin(radians)), n(centerY - radius * Math.cos(radians))];
-}
-
-export function renderStreakCard(streak, theme) {
-  const width = 385;
-  const height = 195;
-  const columnWidth = width / 2;
-  const leftX = columnWidth / 2;
-  const rightX = columnWidth + columnWidth / 2;
-  const ringY = 82;
-  const ringRadius = 40;
-
-  // The ring leaves a gap at the top where the flame sits.
-  const [startX, startY] = polar(leftX, ringY, ringRadius, 32);
-  const [endX, endY] = polar(leftX, ringY, ringRadius, 328);
-
-  const rangeWidth = columnWidth - 20;
-  const column = (x, value, label, range) => [
-    text(x, 90, String(value), { size: 32, weight: 700, color: theme.title, anchor: "middle" }),
-    text(x, 106, value === 1 ? "week" : "weeks", { size: 11, color: theme.text, anchor: "middle" }),
-    text(x, 148, label, { size: 14, weight: 600, color: theme.text, anchor: "middle" }),
-    text(x, 168, truncate(formatDateRange(range.start, range.end), rangeWidth, 11), {
-      size: 11,
-      color: theme.text,
-      anchor: "middle",
-    }),
-  ];
-
-  const parts = [
-    `<line x1="${n(columnWidth)}" y1="28" x2="${n(columnWidth)}" y2="${height - 28}" stroke="${theme.border}"/>`,
-    `<path d="M${startX} ${startY}A${ringRadius} ${ringRadius} 0 1 1 ${endX} ${endY}" stroke="${theme.ring}" stroke-width="5" stroke-linecap="round"/>`,
-    flame(leftX, ringY - ringRadius, 38, theme.fire),
-    ...column(leftX, streak.current.length, "Current Streak", streak.current),
-    ...column(rightX, streak.longest.length, "Longest Streak", streak.longest),
-  ];
+// Streak and language panels stacked in one image, next to the stats card.
+export function renderActivitySideCard(streak, languages, theme, { title }) {
+  const streakText = `Current streak: ${streak.current.length} weeks. Longest streak: ${streak.longest.length} weeks.`;
+  const languageText = languages.map((language) => `${language.name} ${language.percent.toFixed(1)}%`).join(", ");
 
   return frame({
-    width,
-    height,
-    title: "Weekly contribution streaks",
-    description: `Current streak: ${streak.current.length} weeks. Longest streak: ${streak.longest.length} weeks.`,
+    width: CARD_WIDTH.half,
+    height: PANEL_HEIGHT * 2 + 16,
+    title: "Streaks and languages",
+    description: `${streakText} ${title}: ${languageText}.`,
     theme,
-    body: parts.join("\n  "),
+    box: false,
+    body: `${streakBody(streak, theme)}\n  <g transform="translate(0 ${PANEL_HEIGHT + 16})">${languagesBody(languages, theme, title)}</g>`,
   });
 }

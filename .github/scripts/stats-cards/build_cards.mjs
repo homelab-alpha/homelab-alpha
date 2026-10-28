@@ -2,7 +2,23 @@
 
 import { DEFAULT_LANGUAGE_COLOR, aggregateLanguages, computeWeeklyStreaks } from "./calculations.mjs";
 import { config as defaultConfig, themes } from "./config.mjs";
-import { renderLanguagesCard, renderRepositoryCard, renderStatsCard, renderStreakCard } from "./svg_cards.mjs";
+import { pickIcon } from "./icons.mjs";
+import {
+  renderActivitySideCard,
+  renderGistCard,
+  renderRepositoryCard,
+  renderStatsCard,
+  renderTilesCard,
+} from "./svg_cards.mjs";
+import {
+  renderCommunityCard,
+  renderConnectCard,
+  renderNotesCard,
+  renderSectionHeading,
+  renderSkillChip,
+  renderSkillGroupLabel,
+  renderTerminalCard,
+} from "./static_cards.mjs";
 
 // "shell-script" -> "shell_script", used for file names.
 export function slug(value) {
@@ -22,7 +38,6 @@ function toRepositoryItem(repository) {
   }
 
   return {
-    icon: "repo",
     title: repository.name,
     description: repository.description,
     badge,
@@ -37,7 +52,6 @@ function toGistItem(gist) {
   const file = gist.files?.[0];
 
   return {
-    icon: "gist",
     title: file?.name ?? gist.name,
     description: gist.description,
     badge: gist.isPublic ? "Gist" : "Secret",
@@ -48,7 +62,8 @@ function toGistItem(gist) {
   };
 }
 
-// data: { stats, repositories, pins, gists, days }. Returns [{ name, svg }].
+// data: { stats, repositories, pins, gists, days, icons }. Returns
+// [{ name, svg }].
 export function buildCards(data, config = defaultConfig) {
   const languages = aggregateLanguages(data.repositories, {
     excludedRepositories: config.excludedRepositories,
@@ -67,12 +82,36 @@ export function buildCards(data, config = defaultConfig) {
     }
 
     for (const gist of data.gists) {
-      add(`gist_${slug(gist.key)}`, renderRepositoryCard(toGistItem(gist), theme, options));
+      add(`gist_${slug(gist.key)}`, renderGistCard(toGistItem(gist), theme));
     }
 
+    add("tiles", renderTilesCard(data.stats, streak, theme));
     add("stats", renderStatsCard(data.stats, theme, { title: config.statsTitle }));
-    add("streak", renderStreakCard(streak, theme));
-    add("top_languages", renderLanguagesCard(languages, theme, { title: config.languagesTitle }));
+    add("activity_side", renderActivitySideCard(streak, languages, theme, { title: config.languagesTitle }));
+    add("terminal", renderTerminalCard(config.terminal, theme));
+    add("notes", renderNotesCard(config.notes, theme));
+
+    for (const section of config.sections) {
+      add(`section_${slug(section)}`, renderSectionHeading(section, theme));
+    }
+
+    for (const group of config.skillGroups) {
+      add(`skills_${slug(group.name)}`, renderSkillGroupLabel(group.name, theme));
+
+      for (const skill of group.skills) {
+        const iconData = pickIcon(data.icons ?? {}, skill.icon, themeName);
+
+        add(`skill_${slug(skill.name)}`, renderSkillChip(skill, iconData, theme));
+      }
+    }
+
+    for (const item of config.connect) {
+      add(`connect_${slug(item.key)}`, renderConnectCard(item, theme));
+    }
+
+    for (const item of config.community) {
+      add(`community_${slug(item.key)}`, renderCommunityCard(item, theme));
+    }
   }
 
   return cards;

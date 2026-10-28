@@ -7,36 +7,37 @@
   />
 </a>
 
-<h2>Hey there! 👋</h2>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/terminal_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/terminal_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/terminal_light.svg" width="816" alt="Terminal: homelab-alpha, Tech Enthusiast, Open-Source Advocate, Homelab. Links: GitHub, Documentation, Gists and Website." loading="lazy"/></picture></div>
+<div><a href="#activity" target="_blank" rel="noopener noreferrer" aria-label="Profile numbers"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/tiles_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/tiles_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/tiles_light.svg" width="816" alt="Profile numbers: stars earned, commits, pull requests and weekly streak." loading="lazy"/></picture></a></div>
+
 <p>
   Welcome to the <strong>Homelab-Alpha</strong>! I'm GJS, a tech enthusiast
-  driven by a passion for automation ⚙️, infrastructure, and creative problem
-  solving 🧩. My homelab is my ultimate playground 🎮; a space where I
-  experiment with emerging technologies, refine configurations, and constantly
-  hunt for ways to make my digital environment smarter and more efficient. 🚀
+  driven by a passion for automation, infrastructure, and creative problem
+  solving. My homelab is my ultimate playground; a space where I experiment with
+  emerging technologies, refine configurations, and constantly hunt for ways to
+  make my digital environment smarter and more efficient.
 </p>
 <p>
-  I am a strong advocate for the open-source movement 💡 and the power of
-  self-hosting 🏠. My goal is to make technology more accessible and robust for
-  everyone. Whether I'm streamlining deployments 🚢, hardening environments 🔒,
-  or squeezing out every bit of performance ⚡, I am always in pursuit of
-  innovative solutions.
+  I am a strong advocate for the open-source movement and the power of
+  self-hosting. My goal is to make technology more accessible and robust for
+  everyone. Whether I'm streamlining deployments, hardening environments, or
+  squeezing out every bit of performance, I am always in pursuit of innovative
+  solutions.
 </p>
 <p>
-  I thrive on tackling complex architectural challenges 🏗️ and automating the
-  mundane 🤖. From discovering the latest gadgets 📱 to deep diving into
-  advanced technical builds 🛠️, I am at my best when I am tinkering under the
-  hood.
+  I thrive on tackling complex architectural challenges and automating the
+  mundane. From discovering the latest gadgets to deep diving into advanced
+  technical builds, I am at my best when I am tinkering under the hood.
 </p>
 <p>
-  My repositories focus on the pillars of modern self-hosting: automation ⚙️,
-  security 🔐, and system optimization 📈. Featuring everything from Dockerized
-  applications 🐳 and OpenSSL implementations 🔑 to monitoring setups like
-  Uptime Kuma 🐻, each project is built to empower your home lab. Explore my
-  work, and feel free to collaborate! 🤝
+  My repositories focus on the pillars of modern self-hosting: automation,
+  security, and system optimization. Featuring everything from Dockerized
+  applications and OpenSSL implementations to monitoring setups like Uptime
+  Kuma, each project is built to empower your home lab. Explore my work, and
+  feel free to collaborate!
 </p>
 
-<h2>🧑‍💻 My Open Source Repositories</h2>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_repositories_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_repositories_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_repositories_light.svg" width="816" alt="Repositories" loading="lazy"/></picture></div>
 <p align="right">
   <a href="https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" aria-label="Read the Contributor Covenant Code of Conduct">
     <img
@@ -48,642 +49,41 @@
     />
   </a>
 </p>
-
-<a href="https://github.com/homelab-alpha/docker" target="_blank" rel="noopener noreferrer" aria-label="Docker repository showcasing containerized applications">
-  <picture>
-    <source
-      id="docker-repo-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_docker_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="docker-repo-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_docker_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_docker_light.svg"
-      title="Explore Dockerized applications and container management in this repository"
-      alt="Docker repository showcasing containerized applications"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://github.com/homelab-alpha/openssl" target="_blank" rel="noopener noreferrer" aria-label="OpenSSL repository with networking security configurations">
-  <picture>
-    <source
-      id="openssl-repo-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_openssl_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="openssl-repo-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_openssl_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_openssl_light.svg"
-      title="Explore OpenSSL integrations for secure networking and configurations"
-      alt="OpenSSL repository with networking security configurations"
-      loading="lazy"
-    />
-  </picture>
-</a>
-
-<a href="https://github.com/homelab-alpha/shell-script" target="_blank" rel="noopener noreferrer" aria-label="Shell script repository for automation and system optimizations">
-  <picture>
-    <source
-      id="shell-script-repo-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_shell_script_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="shell-script-repo-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_shell_script_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_shell_script_light.svg"
-      title="A collection of shell scripts for system automation and optimization"
-      alt="Shell script repository for automation and system optimizations"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://github.com/homelab-alpha/kairos" target="_blank" rel="noopener noreferrer" aria-label="Kairos repository, a Home Assistant card for day-ahead energy prices">
-  <picture>
-    <source
-      id="kairos-repo-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_kairos_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="kairos-repo-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_kairos_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_kairos_light.svg"
-      title="A Home Assistant card for day-ahead energy prices"
-      alt="Kairos repository, a Home Assistant card for day-ahead energy prices"
-      loading="lazy"
-    />
-  </picture>
-</a>
-
-<h2>💾 My Gist Insights</h2>
-<a href="https://gist.github.com/homelab-alpha/e0f265a9c9b20ca786bce2327ce87060" rel="noopener noreferrer" aria-label="Guide to clear hidden or stuck GitHub notifications">
-  <picture>
-    <source
-      id="gist-stats-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/gist_notifications_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="gist-stats-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/gist_notifications_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/gist_notifications_light.svg"
-      title="How to remove GitHub notifications that won't go away"
-      alt="Guide to clear hidden or stuck GitHub notifications."
-      loading="lazy"
-    />
-  </picture>
-</a>
-
-<h2 id="my-statistics">📊 My Statistics</h2>
-<a href="#my-statistics" aria-label="GitHub statistics for the Homelab-Alpha account, displaying contributions and other metrics">
-  <picture>
-    <source
-      id="github-stats-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/stats_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="github-stats-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/stats_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/stats_light.svg"
-      title="Homelab-Alpha Statistics"
-      alt="GitHub statistics for the Homelab-Alpha account, displaying contributions and other metrics."
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="#my-statistics" aria-label="Streak statistics for the Homelab-Alpha GitHub account, showing current and longest streak">
-  <picture>
-    <source
-      id="streak-stats-weekly-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/streak_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="streak-stats-weekly-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/streak_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/streak_light.svg"
-      title="Homelab-Alpha Streak Statistics"
-      alt="Streak statistics for the Homelab-Alpha GitHub account, showing current and longest streak."
-      loading="lazy"
-    />
-  </picture>
-</a>
-
-<a href="#my-statistics" aria-label="Top programming languages used by Homelab-Alpha based on GitHub contributions">
-  <picture>
-    <source
-      id="lang-stats-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/top_languages_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="lang-stats-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/top_languages_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/top_languages_light.svg"
-      title="Homelab-Alpha Programming Language Usage"
-      alt="Top programming languages used by Homelab-Alpha based on GitHub contributions."
-      loading="lazy"
-    />
-  </picture>
-</a>
-
-<h2>🛠 My Skills</h2>
-<a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener noreferrer" aria-label="Bash icon">
-  <picture>
-    <source
-      id="bash-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bash_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="bash-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bash_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bash_light.svg"
-      height="50"
-      width="50"
-      title="Bash"
-      alt="Bash icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://bitbucket.org/" target="_blank" rel="noopener noreferrer" aria-label="Bitbucket icon">
-  <picture>
-    <source
-      id="bitbucket-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bitbucket_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="bitbucket-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bitbucket_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/bitbucket_light.svg"
-      height="50"
-      width="50"
-      title="Bitbucket"
-      alt="Bitbucket icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer" aria-label="Debian icon">
-  <picture>
-    <source
-      id="debian-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/debian_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="debian-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/debian_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/debian_light.svg"
-      height="50"
-      width="50"
-      title="Debian"
-      alt="Debian icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer" aria-label="Docker icon">
-  <picture>
-    <source
-      id="docker-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/docker.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="docker-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/docker.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/docker.svg"
-      height="50"
-      width="50"
-      title="Docker"
-      alt="Docker icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" aria-label="Git icon">
-  <picture>
-    <source
-      id="git-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/git.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="git-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/git.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/git.svg"
-      height="50"
-      width="50"
-      title="Git"
-      alt="Git icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub icon">
-  <picture>
-    <source
-      id="github-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/github_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="github-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/github_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/github_light.svg"
-      height="50"
-      width="50"
-      title="GitHub"
-      alt="GitHub icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://github.com/features/actions/" target="_blank" rel="noopener noreferrer" aria-label="GitHub Actions icon">
-  <picture>
-    <source
-      id="github-actions-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/githubactions_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="github-actions-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/githubactions_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/githubactions_light.svg"
-      height="50"
-      width="50"
-      title="GitHub Actions"
-      alt="GitHub Actions icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://gitlab.com/" target="_blank" rel="noopener noreferrer" aria-label="GitLab icon">
-  <picture>
-    <source
-      id="gitlab-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/gitlab_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="gitlab-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/gitlab_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/gitlab_light.svg"
-      height="50"
-      width="50"
-      title="GitLab"
-      alt="GitLab icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://kernel.org/" target="_blank" rel="noopener noreferrer" aria-label="Linux icon">
-  <picture>
-    <source
-      id="linux-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/linux_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="linux-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/linux_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/linux_light.svg"
-      height="50"
-      width="50"
-      title="Linux"
-      alt="Linux icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener noreferrer" aria-label="Markdown icon">
-  <picture>
-    <source
-      id="markdown-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/markdown_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="markdown-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/markdown_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/markdown_light.svg"
-      height="50"
-      width="50"
-      title="Markdown"
-      alt="Markdown icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://www.raspberrypi.com/" target="_blank" rel="noopener noreferrer" aria-label="Raspberry Pi icon">
-  <picture>
-    <source
-      id="raspberry-pi-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/raspberrypi_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="raspberry-pi-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/raspberrypi_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/raspberrypi_light.svg"
-      height="50"
-      width="50"
-      title="Raspberry Pi"
-      alt="Raspberry Pi icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://www.redhat.com/" target="_blank" rel="noopener noreferrer" aria-label="Red Hat icon">
-  <picture>
-    <source
-      id="red-hat-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/redhat_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="red-hat-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/redhat_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/redhat_light.svg"
-      height="50"
-      width="50"
-      title="Red Hat"
-      alt="Red Hat icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer" aria-label="Ubuntu icon">
-  <picture>
-    <source
-      id="ubuntu-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/ubuntu_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="ubuntu-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/ubuntu_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/ubuntu_light.svg"
-      height="50"
-      width="50"
-      title="Ubuntu"
-      alt="Ubuntu icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener noreferrer" aria-label="Microsoft Visual Studio icon">
-  <picture>
-    <source
-      id="visual-studio-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/visualstudio_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="visual-studio-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/visualstudio_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/visualstudio_light.svg"
-      height="50"
-      width="50"
-      title="Microsoft Visual Studio"
-      alt="Microsoft Visual Studio icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-<a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" aria-label="Visual Studio Code icon">
-  <picture>
-    <source
-      id="vscode-dark-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/vscode_dark.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <source
-      id="vscode-light-mode"
-      srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/vscode_light.svg"
-      media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-    />
-    <img
-      src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/main/assets/icons/vscode_light.svg"
-      height="50"
-      width="50"
-      title="Visual Studio Code"
-      alt="Visual Studio Code icon"
-      loading="lazy"
-    />
-  </picture>
-</a>
-
-<h2>💬 Let's connect</h2>
-<ul>
-  <li>
-    🚀 Check out my latest contributions and repositories on <a
-      href="https://github.com/homelab-alpha?tab=repositories&amp;q=&amp;type=&amp;language=&amp;sort=stargazers"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="Explore Homelab-Alpha's repositories and contributions on GitHub"
-      aria-label="Homelab-Alpha GitHub repositories page">GitHub</a>.
-  </li>
-  <li>
-    📚 Read the documentation for all our repositories on <a
-      href="https://homelab-alpha.nl/docs"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="Access comprehensive documentation for Homelab-Alpha's projects and repositories"
-      aria-label="Homelab-Alpha documentation page">Homelab-Alpha</a>.
-  </li>
-  <li>
-    💾 Explore code snippets and shared utilities on <a
-      href="https://gist.github.com/homelab-alpha"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="View Homelab-Alpha's code snippets and shared Gists on GitHub"
-      aria-label="Homelab-Alpha GitHub Gist page">GitHub Gist</a>.
-  </li>
-</ul>
-
-<h2>📝 Notes</h2>
-<ul>
-  <li>💡 I'm always open to contributing to open-source projects. Feel free to reach out!</li>
-  <li>🐞 Having issues with one of my repositories? Don't hesitate to ask for help!</li>
-  <li>✨ Follow me for more exciting projects and updates!</li>
-  <li>😃 Remember to enjoy the process and have fun along the way!</li>
-</ul>
-
-<h2>🌍 Awesome Projects from the Community</h2>
+<div><a href="https://github.com/homelab-alpha/docker" target="_blank" rel="noopener noreferrer" aria-label="Docker repository showcasing containerized applications"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_docker_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_docker_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_docker_light.svg" width="408" alt="Docker repository showcasing containerized applications" title="Explore Dockerized applications and container management in this repository" loading="lazy"/></picture></a><a href="https://github.com/homelab-alpha/openssl" target="_blank" rel="noopener noreferrer" aria-label="OpenSSL repository with networking security configurations"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_openssl_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_openssl_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_openssl_light.svg" width="408" alt="OpenSSL repository with networking security configurations" title="Explore OpenSSL integrations for secure networking and configurations" loading="lazy"/></picture></a></div>
+<div><a href="https://github.com/homelab-alpha/shell-script" target="_blank" rel="noopener noreferrer" aria-label="Shell script repository for automation and system optimizations"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_shell_script_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_shell_script_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_shell_script_light.svg" width="408" alt="Shell script repository for automation and system optimizations" title="A collection of shell scripts for system automation and optimization" loading="lazy"/></picture></a><a href="https://github.com/homelab-alpha/kairos" target="_blank" rel="noopener noreferrer" aria-label="Kairos repository, a Home Assistant card for day-ahead energy prices"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_kairos_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_kairos_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/pin_kairos_light.svg" width="408" alt="Kairos repository, a Home Assistant card for day-ahead energy prices" title="A Home Assistant card for day-ahead energy prices" loading="lazy"/></picture></a></div>
+<div><a href="https://gist.github.com/homelab-alpha/e0f265a9c9b20ca786bce2327ce87060" target="_blank" rel="noopener noreferrer" aria-label="Guide to clear hidden or stuck GitHub notifications"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/gist_notifications_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/gist_notifications_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/gist_notifications_light.svg" width="816" alt="Guide to clear hidden or stuck GitHub notifications" title="How to remove GitHub notifications that won't go away" loading="lazy"/></picture></a></div>
+<a id="activity"></a>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_activity_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_activity_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_activity_light.svg" width="816" alt="Activity" loading="lazy"/></picture></div>
+<div><a href="#activity" target="_blank" rel="noopener noreferrer" aria-label="GitHub statistics for the Homelab-Alpha account"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/stats_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/stats_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/stats_light.svg" width="408" alt="GitHub statistics for the Homelab-Alpha account, displaying contributions and other metrics." title="Homelab-Alpha Statistics" loading="lazy"/></picture></a><a href="#activity" target="_blank" rel="noopener noreferrer" aria-label="Streak statistics and top languages of the Homelab-Alpha account"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/activity_side_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/activity_side_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/activity_side_light.svg" width="408" alt="Current and longest weekly streak, and the most used programming languages." title="Homelab-Alpha streaks and languages" loading="lazy"/></picture></a></div>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_skills_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_skills_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_skills_light.svg" width="816" alt="Skills" loading="lazy"/></picture></div>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_operating_systems_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_operating_systems_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_operating_systems_light.svg" width="816" alt="Operating systems" loading="lazy"/></picture></div>
+<div><a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer" aria-label="Debian icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_debian_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_debian_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_debian_light.svg" width="102" alt="Debian icon" title="Debian" loading="lazy"/></picture></a><a href="https://kernel.org/" target="_blank" rel="noopener noreferrer" aria-label="Linux icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_linux_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_linux_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_linux_light.svg" width="94" alt="Linux icon" title="Linux" loading="lazy"/></picture></a><a href="https://www.raspberrypi.com/" target="_blank" rel="noopener noreferrer" aria-label="Raspberry Pi icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_raspberry_pi_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_raspberry_pi_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_raspberry_pi_light.svg" width="139" alt="Raspberry Pi icon" title="Raspberry Pi" loading="lazy"/></picture></a><a href="https://www.redhat.com/" target="_blank" rel="noopener noreferrer" aria-label="Red Hat icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_red_hat_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_red_hat_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_red_hat_light.svg" width="109" alt="Red Hat icon" title="Red Hat" loading="lazy"/></picture></a><a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer" aria-label="Ubuntu icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_ubuntu_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_ubuntu_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_ubuntu_light.svg" width="103" alt="Ubuntu icon" title="Ubuntu" loading="lazy"/></picture></a></div>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_containers_and_automation_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_containers_and_automation_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_containers_and_automation_light.svg" width="816" alt="Containers and automation" loading="lazy"/></picture></div>
+<div><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer" aria-label="Docker icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_docker_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_docker_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_docker_light.svg" width="103" alt="Docker icon" title="Docker" loading="lazy"/></picture></a><a href="https://github.com/features/actions/" target="_blank" rel="noopener noreferrer" aria-label="GitHub Actions icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_github_actions_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_github_actions_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_github_actions_light.svg" width="151" alt="GitHub Actions icon" title="GitHub Actions" loading="lazy"/></picture></a><a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener noreferrer" aria-label="Bash icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_bash_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_bash_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_bash_light.svg" width="91" alt="Bash icon" title="Bash" loading="lazy"/></picture></a></div>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_version_control_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_version_control_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_version_control_light.svg" width="816" alt="Version control" loading="lazy"/></picture></div>
+<div><a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" aria-label="Git icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_git_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_git_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_git_light.svg" width="78" alt="Git icon" title="Git" loading="lazy"/></picture></a><a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_github_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_github_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_github_light.svg" width="101" alt="GitHub icon" title="GitHub" loading="lazy"/></picture></a><a href="https://gitlab.com/" target="_blank" rel="noopener noreferrer" aria-label="GitLab icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_gitlab_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_gitlab_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_gitlab_light.svg" width="101" alt="GitLab icon" title="GitLab" loading="lazy"/></picture></a><a href="https://bitbucket.org/" target="_blank" rel="noopener noreferrer" aria-label="Bitbucket icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_bitbucket_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_bitbucket_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_bitbucket_light.svg" width="118" alt="Bitbucket icon" title="Bitbucket" loading="lazy"/></picture></a></div>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_editors_and_documentation_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_editors_and_documentation_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skills_editors_and_documentation_light.svg" width="816" alt="Editors and documentation" loading="lazy"/></picture></div>
+<div><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" aria-label="Visual Studio Code icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_visual_studio_code_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_visual_studio_code_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_visual_studio_code_light.svg" width="176" alt="Visual Studio Code icon" title="Visual Studio Code" loading="lazy"/></picture></a><a href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener noreferrer" aria-label="Microsoft Visual Studio icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_microsoft_visual_studio_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_microsoft_visual_studio_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_microsoft_visual_studio_light.svg" width="204" alt="Microsoft Visual Studio icon" title="Microsoft Visual Studio" loading="lazy"/></picture></a><a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener noreferrer" aria-label="Markdown icon"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_markdown_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_markdown_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/skill_markdown_light.svg" width="124" alt="Markdown icon" title="Markdown" loading="lazy"/></picture></a></div>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_connect_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_connect_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_connect_light.svg" width="816" alt="Connect" loading="lazy"/></picture></div>
+<div><a href="https://github.com/homelab-alpha?tab=repositories&amp;q=&amp;type=&amp;language=&amp;sort=stargazers" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/connect_github_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/connect_github_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/connect_github_light.svg" width="272" alt="GitHub. Contributions and repositories" title="Contributions and repositories" loading="lazy"/></picture></a><a href="https://homelab-alpha.nl/docs" target="_blank" rel="noopener noreferrer" aria-label="Documentation"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/connect_documentation_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/connect_documentation_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/connect_documentation_light.svg" width="272" alt="Documentation. Documentation for all repositories" title="Documentation for all repositories" loading="lazy"/></picture></a><a href="https://gist.github.com/homelab-alpha" target="_blank" rel="noopener noreferrer" aria-label="Gists"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/connect_gists_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/connect_gists_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/connect_gists_light.svg" width="272" alt="Gists. Code snippets and shared utilities" title="Code snippets and shared utilities" loading="lazy"/></picture></a></div>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_community_projects_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_community_projects_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_community_projects_light.svg" width="816" alt="Community projects" loading="lazy"/></picture></div>
 <p>
-  I regularly draw inspiration from the open-source community. Here are some standout projects worth checking out:
+  I regularly draw inspiration from the open-source community. Here are some
+  standout projects worth checking out:
 </p>
-<ul>
-  <li>
-    <a href="https://github.com/AdguardTeam/AdGuardHome"
-       target="_blank"
-       rel="noopener noreferrer"
-       title="Network-wide ads &amp; trackers blocking DNS server."
-       aria-label="AdGuard Home repository page">
-      <img src="https://raw.githubusercontent.com/AdguardTeam/KnowledgeBase/refs/heads/master/static/img/favicon.ico"
-           style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="AdGuard Home logo"
-           loading="lazy">
-      <strong>AdGuard Home</strong>
-    </a>
-    – A powerful DNS server to block ads, trackers, and improve network privacy across all devices.
-  </li>
-  <li>
-    <a href="https://github.com/amir20/dozzle"
-       target="_blank"
-       rel="noopener noreferrer"
-       title="Realtime log viewer for containers. Supports Docker, Swarm and K8s."
-       aria-label="Dozzle repository page">
-      <img src="https://raw.githubusercontent.com/amir20/dozzle/refs/heads/master/docs/public/logo.svg"
-           style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="Dozzle logo"
-           loading="lazy">
-      <strong>Dozzle</strong>
-    </a>
-    – Real-time Docker container log viewer, fast and incredibly helpful for live debugging.
-  </li>
-  <li>
-    <a href="https://github.com/FreshRSS/FreshRSS"
-       target="_blank"
-       rel="noopener noreferrer"
-       title="A free, self-hostable news aggregator…"
-       aria-label="FreshRSS repository page">
-      <img src="https://raw.githubusercontent.com/FreshRSS/freshrss.org/refs/heads/main/static/images/icon.svg"
-           style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="FreshRSS logo"
-           loading="lazy">
-      <strong>FreshRSS</strong>
-    </a>
-    – A self-hosted, lightweight RSS aggregator that helps you stay up to date with your favorite feeds, without the bloat.
-  </li>
-  <li>
-    <a href="https://github.com/home-assistant/operating-system"
-       target="_blank"
-       rel="noopener noreferrer"
-       title="Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts."
-       aria-label="Home Assistant OS repository page">
-      <img src="https://raw.githubusercontent.com/home-assistant/home-assistant.io/refs/heads/current/source/images/favicon-192x192-full.png"
-           style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="Home Assistant logo"
-           loading="lazy">
-      <strong>Home Assistant OS</strong>
-    </a>
-    – A privacy first, open-source platform that puts your smart home automation at your fingertips.
-  </li>
-  <li>
-    <a href="https://github.com/colinwilson/lotusdocs"
-       target="_blank"
-       rel="noopener noreferrer"
-       title="📖 A free, lightweight, modern documentation theme for Hugo"
-       aria-label="Lotus Docs repository page">
-      <img src="https://raw.githubusercontent.com/colinwilson/lotusdocs/refs/heads/release/static/favicon.svg"
-           style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="Lotus Docs logo"
-           loading="lazy">
-      <strong>Lotus Docs</strong>
-    </a>
-    – A fast, modern, and minimal documentation theme for Hugo — perfect for technical projects and clean documentation.
-  </li>
-  <li>
-    <a href="https://github.com/alexjustesen/speedtest-tracker"
-       target="_blank"
-       rel="noopener noreferrer"
-       title="Speedtest Tracker is a self-hosted application that monitors the performance and uptime of your internet connection."
-       aria-label="Speedtest Tracker repository page">
-      <img src="https://raw.githubusercontent.com/alexjustesen/speedtest-tracker/refs/heads/main/public/img/speedtest-tracker-icon.png"
-           style="width: 16px; height: 16px; vertical-align: text-bottom;"
-           alt="Speedtest Tracker logo"
-           loading="lazy">
-      <strong>Speedtest Tracker</strong>
-    </a>
-    – A self-hosted app that logs and visualizes your internet speed using Speedtest CLI.
-  </li>
-</ul>
+<div><a href="https://github.com/AdguardTeam/AdGuardHome" target="_blank" rel="noopener noreferrer" aria-label="AdGuard Home repository page"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_adguard_home_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_adguard_home_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_adguard_home_light.svg" width="272" alt="AdGuard Home. A powerful DNS server to block ads, trackers, and improve network privacy across all devices." title="A powerful DNS server to block ads, trackers, and improve network privacy across all devices." loading="lazy"/></picture></a><a href="https://github.com/amir20/dozzle" target="_blank" rel="noopener noreferrer" aria-label="Dozzle repository page"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_dozzle_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_dozzle_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_dozzle_light.svg" width="272" alt="Dozzle. Real-time Docker container log viewer, fast and incredibly helpful for live debugging." title="Real-time Docker container log viewer, fast and incredibly helpful for live debugging." loading="lazy"/></picture></a><a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer" aria-label="FreshRSS repository page"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_freshrss_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_freshrss_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_freshrss_light.svg" width="272" alt="FreshRSS. A self-hosted, lightweight RSS aggregator that helps you stay up to date with your favorite feeds, without the bloat." title="A self-hosted, lightweight RSS aggregator that helps you stay up to date with your favorite feeds, without the bloat." loading="lazy"/></picture></a></div>
+<div><a href="https://github.com/home-assistant/operating-system" target="_blank" rel="noopener noreferrer" aria-label="Home Assistant OS repository page"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_home_assistant_os_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_home_assistant_os_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_home_assistant_os_light.svg" width="272" alt="Home Assistant OS. A privacy first, open-source platform that puts your smart home automation at your fingertips." title="A privacy first, open-source platform that puts your smart home automation at your fingertips." loading="lazy"/></picture></a><a href="https://github.com/colinwilson/lotusdocs" target="_blank" rel="noopener noreferrer" aria-label="Lotus Docs repository page"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_lotus_docs_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_lotus_docs_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_lotus_docs_light.svg" width="272" alt="Lotus Docs. A fast, modern, and minimal documentation theme for Hugo, perfect for technical projects and clean documentation." title="A fast, modern, and minimal documentation theme for Hugo, perfect for technical projects and clean documentation." loading="lazy"/></picture></a><a href="https://github.com/alexjustesen/speedtest-tracker" target="_blank" rel="noopener noreferrer" aria-label="Speedtest Tracker repository page"><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_speedtest_tracker_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_speedtest_tracker_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/community_speedtest_tracker_light.svg" width="272" alt="Speedtest Tracker. A self-hosted app that logs and visualizes your internet speed using Speedtest CLI." title="A self-hosted app that logs and visualizes your internet speed using Speedtest CLI." loading="lazy"/></picture></a></div>
 <p>
-  Found them interesting? Show your support by giving them a ⭐!
+  Found them interesting? Show your support by giving them a star!
 </p>
-
-<h2>❗ Disclaimer</h2>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_notes_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_notes_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/section_notes_light.svg" width="816" alt="Notes" loading="lazy"/></picture></div>
+<div><picture><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/notes_dark.svg" media="(prefers-color-scheme: dark)"/><source srcset="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/notes_light.svg" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/><img src="https://raw.githubusercontent.com/homelab-alpha/homelab-alpha/stats/cards/notes_light.svg" width="816" alt="I'm always open to contributing to open-source projects. Feel free to reach out! Having issues with one of my repositories? Don't hesitate to ask for help! Follow me for more exciting projects and updates! Remember to enjoy the process and have fun along the way!" loading="lazy"/></picture></div>
 <p>
-  ⚠️ The content on the Homelab-Alpha website and Homelab-Alpha GitHub repositories
-  is based on my personal experience and is provided "as-is." Use it at your own
-  discretion and risk. For further details, please refer to the following sections
-  in the repository: <strong>README</strong>, <strong>CODE OF CONDUCT</strong>,
+  <strong>Disclaimer.</strong> The content on the Homelab-Alpha website and
+  Homelab-Alpha GitHub repositories is based on my personal experience and is
+  provided "as-is." Use it at your own discretion and risk. For further details,
+  please refer to the following sections in the repository:
+  <strong>README</strong>, <strong>CODE OF CONDUCT</strong>,
   <strong>CONTRIBUTING</strong>, <strong>CODE STYLE AND STANDARDS GUIDES</strong>,
   <strong>SECURITY</strong>, and <strong>LICENSE</strong>.
 </p>
@@ -695,18 +95,18 @@
       target="_blank"
       rel="noopener noreferrer"
       title="Visit Homelab-Alpha website"
-      aria-label="Go to the Homelab-Alpha homepage">Homelab-Alpha</a> 2024. 🏠
+      aria-label="Go to the Homelab-Alpha homepage">Homelab-Alpha</a> 2024.
     Developed by <a
       href="https://github.com/homelab-alpha"
       target="_blank"
       rel="noopener noreferrer"
       title="Visit Homelab-Alpha GitHub page"
-      aria-label="Visit the Homelab-Alpha GitHub page">GJS</a>. 💻
+      aria-label="Visit the Homelab-Alpha GitHub page">GJS</a>.
     Licensed under <a
       href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
       target="_blank"
       rel="noopener noreferrer"
       title="Learn about CC BY-NC-SA 4.0 license"
-      aria-label="Read more about the CC BY-NC-SA 4.0 license">CC BY-NC-SA 4.0</a>. 🔖
+      aria-label="Read more about the CC BY-NC-SA 4.0 license">CC BY-NC-SA 4.0</a>.
   </p>
 </footer>
