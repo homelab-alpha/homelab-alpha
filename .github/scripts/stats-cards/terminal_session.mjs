@@ -204,6 +204,80 @@ export function renderSession(data, theme, { compact = false } = {}) {
     y += last;
   }
 
+  // The license line: one sentence with three links. The pieces are cut at the
+  // same share in both layouts, so the cuts sit between the links in both.
+  function sentence() {
+    const parts = config.footer;
+    const texts = (isCompact) => {
+      if (!isCompact) {
+        return parts.map((part) => part.text);
+      }
+
+      return [
+        parts[0].text.replace(/\.$/, ""),
+        parts[1].text.replace("Developed by ", "").replace(/\.$/, ""),
+        parts[2].text.replace("Licensed under ", "").replace(/\.$/, ""),
+      ];
+    };
+    const build = (isCompact) => {
+      const separator = isCompact ? " · " : " ";
+      const pieces = texts(isCompact);
+      const text = pieces.join(separator);
+      const links = parts.map((part, index) => {
+        const start = pieces.slice(0, index).join(separator).length + (index > 0 ? separator.length : 0) + pieces[index].indexOf(part.link);
+
+        return { start, end: start + part.link.length };
+      });
+
+      return { text, links };
+    };
+    const modes = [true, false].map((isCompact) => ({
+      isCompact,
+      layout: build(isCompact),
+      size: isCompact ? 12 : 13,
+      edge: (isCompact ? 16 : 24) + INSET,
+      unit: isCompact ? 1 : 0.5,
+    }));
+    const cuts = [0, 1].map((index) => {
+      const lower = Math.max(...modes.map((mode) => (mode.edge + mode.layout.links[index].end * mode.size * MONO_EM) * mode.unit)) + 2;
+      const upper = Math.min(...modes.map((mode) => (mode.edge + mode.layout.links[index + 1].start * mode.size * 0.6) * mode.unit)) - 2;
+
+      if (lower > upper) {
+        throw new Error(`The license links cannot be cut apart (${lower} > ${upper}).`);
+      }
+
+      return Math.round((lower + upper) / 2);
+    });
+    const shares = cuts.map((cut) => cut / (CARD_WIDTH.compact + INSET * 2));
+    const mine = modes.find((mode) => mode.isCompact === compact);
+    const { text, links } = mine.layout;
+    const segments = [];
+    let at = 0;
+
+    links.forEach((range, index) => {
+      segments.push({ t: text.slice(at, range.start) }, link(text.slice(range.start, range.end)));
+      at = range.end;
+    });
+    segments.push({ t: text.slice(at) });
+
+    const top = y;
+    const total = width + INSET * 2;
+
+    elements.push(segmentsText(pad, baseline(top, 0), segments, { size, color: theme.text }));
+
+    const bottom = top + 32;
+
+    add({
+      kind: "inline",
+      y0: top,
+      y1: bottom,
+      shares,
+      cells: parts.map((part) => ({ href: part.url, label: part.label, alt: part.text })),
+      cuts: shares.map((share) => Math.round(share * total) - INSET),
+    });
+    y = bottom + 16;
+  }
+
   // Output of `ls -lah` for the home directory (sizes follow the real content).
   function listing() {
     const bytes = (text) => Buffer.byteLength(text, "utf8");
@@ -237,6 +311,81 @@ export function renderSession(data, theme, { compact = false } = {}) {
     }
 
     staticLines(specs, `Home directory: ${entries.map(([name]) => name).join(", ")}.`);
+  }
+
+  // A vim window (read-only): numbered raw lines, `~` filler, status line and
+  // the command line. `paragraphs` are raw strings, so markdown shows as typed.
+  function vim(fileName, texts) {
+    const gutter = 4;
+    const columns = maxCharacters - gutter;
+    const top = y;
+    const rows = [];
+    let logical = 0;
+
+    texts.forEach((text, index) => {
+      const lines = wrapWords(text.split(/\s+/).filter(Boolean).map((word) => ({ word, bold: false })), columns);
+
+      logical += 1;
+      lines.forEach((line, lineIndex) => rows.push({ number: lineIndex === 0 ? logical : null, line }));
+
+      if (index < texts.length - 1) {
+        logical += 1;
+        rows.push({ number: logical, line: [] });
+      }
+    });
+
+    rows.forEach((row, index) => {
+      const segments = [{ t: row.number === null ? "    " : String(row.number).padStart(3) + " ", color: theme.gold }];
+
+      row.line.forEach((item, wordIndex) => {
+        segments.push({ t: wordIndex > 0 ? ` ${item.word}` : item.word, color: item.word.includes("**") ? theme.title : theme.text, bold: item.word.includes("**") });
+      });
+      elements.push(segmentsText(pad, baseline(top, index), segments, { size, color: theme.text }));
+    });
+
+    let row = rows.length;
+
+    for (let filler = 0; filler < 2; filler += 1) {
+      elements.push(segmentsText(pad, baseline(top, row), [{ t: "~", color: theme.blue }], { size, color: theme.text }));
+      row += 1;
+    }
+
+    const barTop = top + row * lineHeight + 4;
+
+    elements.push(
+      `<rect x="${pad - 8}" y="${barTop}" width="${width - pad * 2 + 16}" height="${lineHeight}" rx="3" fill="${theme.line}"/>`,
+      segmentsText(pad, barTop + 14, [{ t: `${fileName} [RO]`, color: theme.title }], { size, color: theme.title }),
+      segmentsText(width - pad, barTop + 14, [{ t: "1,1   All", color: theme.title }], { size, anchor: "end", color: theme.title }),
+      segmentsText(
+        pad,
+        barTop + lineHeight + 14,
+        [{ t: ":q", color: theme.title }],
+        { size, color: theme.title },
+      ),
+    );
+
+    y = barTop + lineHeight * 2 + 2;
+    add({ kind: "static", y0: top, y1: y, alt: texts.join(" ") });
+    y += 14;
+  }
+
+  // Output of `less`: the text and the reverse-video "(END)" bar.
+  function less(fileName, lines) {
+    const top = y;
+
+    lines.forEach((line, index) => {
+      elements.push(segmentsText(pad, baseline(top, index), [{ t: line.map((word) => word.word).join(" ") }], { size, color: theme.text }));
+    });
+
+    const barTop = top + lines.length * lineHeight + 4;
+
+    elements.push(
+      `<rect x="${pad - 8}" y="${barTop}" width="${n(charWidth * (fileName.length + 6) + 16)}" height="${lineHeight}" rx="3" fill="${theme.line}"/>`,
+      segmentsText(pad, barTop + 14, [{ t: `${fileName} (END)`, color: theme.title }], { size, color: theme.title }),
+    );
+    y = barTop + lineHeight + 2;
+    add({ kind: "static", y0: top, y1: y, alt: lines.map((line) => line.map((word) => word.word).join(" ")).join(" ") });
+    y += 14;
   }
 
   // A vim window (read-only): numbered raw lines, `~` filler, status line and
@@ -436,9 +585,6 @@ export function renderSession(data, theme, { compact = false } = {}) {
 
     staticLines([[muted(login)]], login, { last: 12 });
   }
-
-  prompt("neofetch");
-  neofetch();
 
   prompt("whoami");
   paragraphs([[[{ word: config.terminal.blocks[0].output, bold: false }]]]);
@@ -651,26 +797,7 @@ export function renderSession(data, theme, { compact = false } = {}) {
   less("DISCLAIMER", plain(`${config.disclaimer.title} ${config.disclaimer.text}`, maxCharacters));
 
   prompt("cat LICENSE");
-  inlineRow(
-    config.footer.map((item) => {
-      const lines = compact ? item.compactLines : [item.text];
-
-      return {
-        lines: lines.map((text) => {
-          const at = text.indexOf(item.link);
-
-          return at < 0
-            ? [{ t: text }]
-            : [{ t: text.slice(0, at) }, link(item.link), { t: text.slice(at + item.link.length) }];
-        }),
-        href: item.url,
-        label: item.label,
-        alt: item.text,
-      };
-    }),
-    THIRD_SHARES,
-    { anchors: true },
-  );
+  sentence();
 
   prompt("history | tail -n 5");
   {
@@ -752,7 +879,7 @@ export function renderSession(data, theme, { compact = false } = {}) {
 
     if (band.kind === "inline") {
       const edges = [-INSET, ...band.cuts, width + INSET];
-      const percentages = widthsOf(band.cells.length === 4 ? LINK_SHARES : THIRD_SHARES);
+      const percentages = widthsOf(band.shares ?? LINK_SHARES);
 
       return {
         pieces: band.cells.map((cell, cellIndex) => ({
