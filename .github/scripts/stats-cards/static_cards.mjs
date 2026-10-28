@@ -309,30 +309,16 @@ export function renderSkillGroupCard(group, icons, theme, themeName) {
   });
 }
 
-// Link card with a name and a one line description, both underlined like a link.
-// The compact layout is as wide as a half card, for one card per row.
-export function renderConnectCard(item, theme, { compact = false } = {}) {
-  return frame({
-    width: compact ? CARD_WIDTH.compact : CARD_WIDTH.third,
-    height: 96,
-    title: item.name,
-    description: `${item.name}. ${item.description}`,
-    theme,
-    fill: true,
-    body: [
-      text(20, 38, item.name, { size: 15, weight: 600, color: theme.title, decoration: "underline" }),
-      text(20, 74, item.description, { size: 12, color: theme.text, decoration: "underline" }),
-    ].join("\n  "),
-  });
-}
-
-// Project card with its logo, an underlined name and a short description. The
+// Project or link card with an optional logo, an underlined name and a short
+// description. The
 // compact layout is as wide as a half card and as high as its text needs.
-export function renderCommunityCard(item, logo, theme, { compact = false } = {}) {
+export function renderLinkCard(item, logo, theme, { compact = false } = {}) {
   const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.third;
   const innerWidth = width - 40;
   const lines = wrapText(item.description, innerWidth, 12, 4);
   const height = compact ? 56 + (lines.length - 1) * 18 + 24 : 128;
+  // Without a logo the name starts at the left padding.
+  const nameX = logo ? 44 : 20;
 
   return frame({
     width,
@@ -342,7 +328,7 @@ export function renderCommunityCard(item, logo, theme, { compact = false } = {})
     theme,
     body: [
       logo ? `<image x="20" y="16" width="16" height="16" href="${logo}"/>` : "",
-      text(44, 30, truncate(item.name, innerWidth - 24, 14, 600), {
+      text(nameX, 30, truncate(item.name, innerWidth - (nameX - 20), 14, 600), {
         size: 14,
         weight: 600,
         color: theme.blue,

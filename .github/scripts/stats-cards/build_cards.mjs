@@ -4,8 +4,7 @@ import { DEFAULT_LANGUAGE_COLOR, aggregateLanguages, computeWeeklyStreaks, slug 
 import { config as defaultConfig, themes } from "./config.mjs";
 import { renderActivitySideCard, renderGistCard, renderRepositoryCard, renderStatsCard } from "./svg_cards.mjs";
 import {
-  renderCommunityCard,
-  renderConnectCard,
+  renderLinkCard,
   renderDisclaimerCard,
   renderNotesCard,
   renderSectionHeading,
@@ -99,15 +98,15 @@ export function buildCards(data, config = defaultConfig) {
     }
 
     for (const item of config.connect) {
-      add(`connect_${slug(item.key)}`, renderConnectCard(item, theme));
-      add(`connect_${slug(item.key)}_compact`, renderConnectCard(item, theme, { compact: true }));
+      add(`connect_${slug(item.key)}`, renderLinkCard(item, null, theme));
+      add(`connect_${slug(item.key)}_compact`, renderLinkCard(item, null, theme, { compact: true }));
     }
 
     for (const item of config.community) {
-      add(`community_${slug(item.key)}`, renderCommunityCard(item, data.logos?.[item.logo], theme));
+      add(`community_${slug(item.key)}`, renderLinkCard(item, data.logos?.[item.logo], theme));
       add(
         `community_${slug(item.key)}_compact`,
-        renderCommunityCard(item, data.logos?.[item.logo], theme, { compact: true }),
+        renderLinkCard(item, data.logos?.[item.logo], theme, { compact: true }),
       );
     }
   }
