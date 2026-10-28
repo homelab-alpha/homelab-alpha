@@ -70,6 +70,7 @@ export function buildCards(data, config = defaultConfig) {
 
     for (const gist of data.gists) {
       add(`gist_${slug(gist.key)}`, renderGistCard(toGistItem(gist), theme));
+      add(`gist_${slug(gist.key)}_compact`, renderGistCard(toGistItem(gist), theme, { compact: true }));
     }
 
     add("stats", renderStatsCard(data.stats, theme, { title: config.statsTitle }));
@@ -79,11 +80,18 @@ export function buildCards(data, config = defaultConfig) {
       add(part.name, part.svg);
     }
 
+    for (const part of renderTerminalParts(config.terminal, theme, { compact: true })) {
+      add(`${part.name}_compact`, part.svg);
+    }
+
     add("notes", renderNotesCard(config.notes, theme));
+    add("notes_compact", renderNotesCard(config.notes, theme, { compact: true }));
     add("disclaimer", renderDisclaimerCard(config.disclaimer, theme));
+    add("disclaimer_compact", renderDisclaimerCard(config.disclaimer, theme, { compact: true }));
 
     for (const section of config.sections) {
       add(`section_${slug(section)}`, renderSectionHeading(section, theme));
+      add(`section_${slug(section)}_compact`, renderSectionHeading(section, theme, { compact: true }));
     }
 
     for (const group of config.skillGroups) {

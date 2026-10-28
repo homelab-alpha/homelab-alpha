@@ -32,16 +32,44 @@ function monoText(x, y, spans, size = 13) {
   return `<text x="${x}" y="${y}" font-family="${MONO}" font-size="${size}" xml:space="preserve">${spans.join("")}</text>`;
 }
 
-// Draws the Kali-style terminal window in card coordinates (0..800 wide) and
-// returns the SVG elements plus where the last line with links sits.
-function drawTerminal(terminal, theme) {
-  const width = CARD_WIDTH.full;
-  const paddingX = 24;
-  const size = 13;
+// Where the links of the terminal are cut apart, as a share of the whole image
+// width (including the margin). The regular and the compact terminal use the
+// same shares, so the README can give every piece the same percentage width and
+// both layouts line up. The links start 10 pixels after a cut.
+// The shares are whole numbers of pixels in the compact terminal (408 wide) and
+// exactly double that in the regular one, so no piece is scaled differently.
+export const LINK_SHARES = [78 / 408, 196 / 408, 253 / 408];
+
+// Splits text on spaces into lines of at most `maxCharacters` characters.
+function wrapMonospace(content, maxCharacters) {
+  const lines = [];
+  let line = "";
+
+  for (const word of String(content).split(" ")) {
+    if (line && `${line} ${word}`.length > maxCharacters) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = line ? `${line} ${word}` : word;
+    }
+  }
+
+  lines.push(line);
+
+  return lines;
+}
+
+// Draws the Kali-style terminal window in card coordinates and returns the SVG
+// elements plus where the last line with links sits.
+function drawTerminal(terminal, theme, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
+  const paddingX = compact ? 16 : 24;
+  const size = compact ? 12 : 13;
+  const maxCharacters = Math.floor((width - paddingX * 2) / (size * MONO_EM));
   const { user, host, directory } = terminal;
 
   const parts = [
-    `<rect x="0.5" y="0.5" width="${width - 1}" height="HEIGHT" rx="12" fill="${theme.tile}" stroke="${theme.line}"/>`,
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="HEIGHT" rx="14" fill="${theme.tile}" stroke="${theme.line}"/>`,
     `<line x1="0" y1="36.5" x2="${width}" y2="36.5" stroke="${theme.line}"/>`,
     ...[25, 43, 61].map((x) => `<circle cx="${x}" cy="18.5" r="5" stroke="${theme.muted}"/>`),
     text(79, 22, `${user}@${host}: ${directory}`, { size: 12, color: theme.muted, family: MONO }),
@@ -56,45 +84,69 @@ function drawTerminal(terminal, theme) {
     }
 
     parts.push(
-      monoText(paddingX, top + 11, [
-        tspan("┌──(", theme.red),
-        tspan(user, theme.title),
-        tspan("@", theme.gold),
-        tspan(host, theme.blue),
-        tspan(")-[", theme.red),
-        tspan(directory, theme.green),
-        tspan("]", theme.red),
-      ]),
-      monoText(paddingX, top + 27, [
-        tspan("└─", theme.red),
-        tspan("$", theme.gold),
-        tspan(` ${block.command}`, theme.title),
-      ]),
+      monoText(
+        paddingX,
+        top + 11,
+        [
+          tspan("┌──(", theme.red),
+          tspan(user, theme.title),
+          tspan("@", theme.gold),
+          tspan(host, theme.blue),
+          tspan(")-[", theme.red),
+          tspan(directory, theme.green),
+          tspan("]", theme.red),
+        ],
+        size,
+      ),
+      monoText(
+        paddingX,
+        top + 27,
+        [tspan("└─", theme.red), tspan("$", theme.gold), tspan(` ${block.command}`, theme.title)],
+        size,
+      ),
     );
 
-    const outputY = top + 14 + 2 + 14 + 6 + 15;
+    let outputY = top + 14 + 2 + 14 + 6 + 15;
 
     if (block.links) {
+      if (block.links.length !== LINK_SHARES.length + 1) {
+        throw new Error(`The terminal needs exactly ${LINK_SHARES.length + 1} links.`);
+      }
+
+      const total = width + INSET * 2;
       let x = paddingX;
 
-      links = { top: outputY - 15, items: [] };
+      links = { top: outputY - 15, items: [], cuts: [] };
 
-      for (const link of block.links) {
+      block.links.forEach((link, linkIndex) => {
+        if (linkIndex > 0) {
+          const cut = Math.round(LINK_SHARES[linkIndex - 1] * total - INSET);
+
+          links.cuts.push(cut);
+          x = cut + 10;
+        }
+
         parts.push(text(x, outputY, link.label, { size, color: theme.blue, family: MONO, decoration: "underline" }));
         links.items.push({ ...link, x });
-        x += link.label.length * size * MONO_EM + 20;
-      }
+      });
     } else {
-      parts.push(text(paddingX, outputY, block.output, { size, color: theme.text, family: MONO }));
+      wrapMonospace(block.output, maxCharacters).forEach((line, lineIndex, lines) => {
+        parts.push(text(paddingX, outputY, line, { size, color: theme.text, family: MONO }));
+
+        if (lineIndex < lines.length - 1) {
+          outputY += 18;
+        }
+      });
     }
 
     top = outputY - 15 + 20;
   });
 
-  // The window ends 22 pixels below the last line, with a minimum height.
-  const height = Math.max(top + 22, TERMINAL_MIN_HEIGHT);
+  // The window ends 42 pixels below the last line (room for the 40 pixel link
+  // pieces), with a minimum height.
+  const height = Math.max(top + 42, TERMINAL_MIN_HEIGHT);
 
-  return { body: parts.join("\n  ").replace("HEIGHT", String(height - 1)), height, links };
+  return { body: parts.join("\n  ").replace("HEIGHT", String(height - 1)), height, links, width };
 }
 
 // One cropped view of the terminal drawing. All views use the same drawing and
@@ -103,7 +155,7 @@ function terminalView(drawing, terminal, theme, { name, x0, y0, x1, y1, descript
   const width = x1 - x0;
   const height = y1 - y0;
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="${x0} ${y0} ${width} ${height}" fill="none" role="img" aria-labelledby="card-title card-description">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="${x0} ${y0} ${width} ${height}" preserveAspectRatio="none" fill="none" role="img" aria-labelledby="card-title card-description">
   <title id="card-title">${escapeXml(name)}</title>
   <desc id="card-description">${escapeXml(description)}</desc>
   ${drawing.body}
@@ -111,16 +163,18 @@ function terminalView(drawing, terminal, theme, { name, x0, y0, x1, y1, descript
 `;
 }
 
+// The link pieces are 40 pixels high, taller than a line of text in the README,
+// so the line the browser reserves for them never shows a gap.
 // The terminal is delivered in pieces: the window down to the last prompt, one
 // clickable piece per link, and the bottom edge. An SVG image cannot hold
 // links, so each link gets its own image that the README wraps in an anchor.
 // Returns [{ name, svg, link? }] with names relative to the card name prefix.
-export function renderTerminalParts(terminal, theme) {
-  const drawing = drawTerminal(terminal, theme);
+export function renderTerminalParts(terminal, theme, { compact = false } = {}) {
+  const drawing = drawTerminal(terminal, theme, { compact });
   const { height, links } = drawing;
   const edge = INSET;
   const left = -edge;
-  const right = CARD_WIDTH.full + edge;
+  const right = drawing.width + edge;
   const description = terminal.blocks
     .map(
       (block) => `${block.command}: ${block.links ? block.links.map((link) => link.label).join(", ") : block.output}`,
@@ -145,7 +199,7 @@ export function renderTerminalParts(terminal, theme) {
   }
 
   const linkTop = Math.round(links.top);
-  const lineHeight = 20;
+  const lineHeight = 40;
   const parts = [
     {
       name: "terminal_top",
@@ -160,12 +214,9 @@ export function renderTerminalParts(terminal, theme) {
     },
   ];
 
-  // Link pieces split halfway between two links.
-  const boundaries = links.items.map((item, index) => (index === 0 ? left : Math.round(item.x - 10)));
+  const boundaries = [left, ...links.cuts, right];
 
   links.items.forEach((item, index) => {
-    const x1 = index === links.items.length - 1 ? right : boundaries[index + 1];
-
     parts.push({
       name: `terminal_link_${slug(item.label)}`,
       link: item,
@@ -173,7 +224,7 @@ export function renderTerminalParts(terminal, theme) {
         name: item.label,
         x0: boundaries[index],
         y0: linkTop,
-        x1,
+        x1: boundaries[index + 1],
         y1: linkTop + lineHeight,
         description: `Link: ${item.label}`,
       }),
@@ -196,8 +247,8 @@ export function renderTerminalParts(terminal, theme) {
 }
 
 // Section heading: accent bar, uppercase label and a line to the right edge.
-export function renderSectionHeading(name, theme) {
-  const width = CARD_WIDTH.full;
+export function renderSectionHeading(name, theme, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
   const y = 28;
   const content = name.toUpperCase();
   const labelWidth = measureText(content, 12, 600) + content.length * 12 * 0.12;
@@ -298,29 +349,41 @@ export function renderCommunityCard(item, logo, theme) {
   });
 }
 
-// Card with one bullet per note.
-export function renderNotesCard(notes, theme) {
+// Card with one bullet per note. Long notes wrap in the compact layout.
+export function renderNotesCard(notes, theme, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
+  const textX = compact ? 32 : 40;
+  const maxWidth = width - textX - (compact ? 16 : 24);
+  const lineHeight = compact ? 20 : 24;
+  const body = [];
+  let y = compact ? 36 : 38;
+
+  for (const note of notes) {
+    const lines = compact ? wrapText(note, maxWidth, 14, 4) : [truncate(note, maxWidth, 14)];
+
+    body.push(
+      `<circle cx="${textX - 12}" cy="${y - 4}" r="2" fill="${theme.text}"/>`,
+      ...lines.map((line, index) => text(textX, y + index * lineHeight, line, { size: 14, color: theme.text })),
+    );
+    y += lines.length * lineHeight + (compact ? 8 : 0);
+  }
+
   return frame({
-    width: CARD_WIDTH.full,
-    height: 136,
+    width,
+    height: compact ? y - 8 + 20 - lineHeight + 4 : 136,
     title: "Notes",
     description: notes.join(" "),
     theme,
     fill: true,
-    body: notes
-      .map((note, index) => {
-        const y = 38 + index * 24;
-
-        return `<circle cx="28" cy="${y - 4}" r="2" fill="${theme.text}"/>\n  ${text(40, y, truncate(note, CARD_WIDTH.full - 64, 14), { size: 14, color: theme.text })}`;
-      })
-      .join("\n  "),
+    body: body.join("\n  "),
   });
 }
 
 // Disclaimer card: a bold title followed by wrapped text.
-export function renderDisclaimerCard(disclaimer, theme) {
-  const paddingX = 24;
-  const lines = wrapText(`${disclaimer.title} ${disclaimer.text}`, CARD_WIDTH.full - paddingX * 2, 12, 6);
+export function renderDisclaimerCard(disclaimer, theme, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
+  const paddingX = compact ? 16 : 24;
+  const lines = wrapText(`${disclaimer.title} ${disclaimer.text}`, width - paddingX * 2, 12, compact ? 16 : 6);
   const height = 32 + lines.length * 18;
 
   const body = lines.map((line, index) => {
@@ -336,7 +399,7 @@ export function renderDisclaimerCard(disclaimer, theme) {
   });
 
   return frame({
-    width: CARD_WIDTH.full,
+    width,
     height,
     title: disclaimer.title,
     description: `${disclaimer.title} ${disclaimer.text}`,

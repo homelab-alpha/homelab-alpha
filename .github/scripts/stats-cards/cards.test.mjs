@@ -186,6 +186,18 @@ describe("buildCards", () => {
       ...config.connect.map((item) => `connect_${slug(item.key)}`),
       ...config.community.map((item) => `community_${slug(item.key)}`),
     ];
+    const compact = [
+      "disclaimer",
+      "gist_notifications",
+      "notes",
+      "terminal_bottom",
+      "terminal_top",
+      ...config.terminal.blocks.flatMap((block) =>
+        (block.links ?? []).map((link) => `terminal_link_${slug(link.label)}`),
+      ),
+      ...config.sections.map((section) => `section_${slug(section)}`),
+    ].map((name) => `${name}_compact`);
+    names.push(...compact);
 
     assert.deepEqual(
       cards.map((card) => card.name).sort(),
@@ -266,9 +278,9 @@ describe("buildCards", () => {
       linkSizes.reduce((total, piece) => total + piece.width, 0),
       816,
     );
-    assert.ok(linkSizes.every((piece) => piece.height === 20));
+    assert.ok(linkSizes.every((piece) => piece.height === 40));
     assert.equal(
-      size("terminal_top_dark.svg").height + 20 + size("terminal_bottom_dark.svg").height,
+      size("terminal_top_dark.svg").height + 40 + size("terminal_bottom_dark.svg").height,
       Number(whole[1]) + 1 + 16,
     );
   });
