@@ -310,9 +310,10 @@ export function renderSkillGroupCard(group, icons, theme, themeName) {
 }
 
 // Link card with a name and a one line description, both underlined like a link.
-export function renderConnectCard(item, theme) {
+// The compact layout is as wide as a half card, for one card per row.
+export function renderConnectCard(item, theme, { compact = false } = {}) {
   return frame({
-    width: CARD_WIDTH.third,
+    width: compact ? CARD_WIDTH.compact : CARD_WIDTH.third,
     height: 96,
     title: item.name,
     description: `${item.name}. ${item.description}`,
@@ -325,14 +326,17 @@ export function renderConnectCard(item, theme) {
   });
 }
 
-// Project card with its logo, an underlined name and a short description.
-export function renderCommunityCard(item, logo, theme) {
-  const innerWidth = CARD_WIDTH.third - 40;
+// Project card with its logo, an underlined name and a short description. The
+// compact layout is as wide as a half card and as high as its text needs.
+export function renderCommunityCard(item, logo, theme, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.third;
+  const innerWidth = width - 40;
   const lines = wrapText(item.description, innerWidth, 12, 4);
+  const height = compact ? 56 + (lines.length - 1) * 18 + 24 : 128;
 
   return frame({
-    width: CARD_WIDTH.third,
-    height: 128,
+    width,
+    height,
     title: item.name,
     description: `${item.name}. ${item.description}`,
     theme,

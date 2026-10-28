@@ -196,6 +196,8 @@ describe("buildCards", () => {
         (block.links ?? []).map((link) => `terminal_link_${slug(link.label)}`),
       ),
       ...config.sections.map((section) => `section_${slug(section)}`),
+      ...config.connect.map((item) => `connect_${slug(item.key)}`),
+      ...config.community.map((item) => `community_${slug(item.key)}`),
     ].map((name) => `${name}_compact`);
     names.push(...compact);
 

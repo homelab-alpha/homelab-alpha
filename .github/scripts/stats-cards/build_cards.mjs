@@ -100,10 +100,15 @@ export function buildCards(data, config = defaultConfig) {
 
     for (const item of config.connect) {
       add(`connect_${slug(item.key)}`, renderConnectCard(item, theme));
+      add(`connect_${slug(item.key)}_compact`, renderConnectCard(item, theme, { compact: true }));
     }
 
     for (const item of config.community) {
       add(`community_${slug(item.key)}`, renderCommunityCard(item, data.logos?.[item.logo], theme));
+      add(
+        `community_${slug(item.key)}_compact`,
+        renderCommunityCard(item, data.logos?.[item.logo], theme, { compact: true }),
+      );
     }
   }
 
