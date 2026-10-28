@@ -302,7 +302,7 @@ describe("buildCards", () => {
     const card = withLogo.find((item) => item.name === "community_dozzle_dark.svg").svg;
 
     assert.match(card, /base64,CCCC/);
-    assert.match(card, /text-decoration="underline"/);
+    assert.doesNotMatch(card, /text-decoration="underline"/);
   });
 
   it("keeps the connect descriptions inside the card", () => {

@@ -309,16 +309,17 @@ export function renderSkillGroupCard(group, icons, theme, themeName) {
   });
 }
 
-// Project or link card with an optional logo, an underlined name and a short
-// description. The
-// compact layout is as wide as a half card and as high as its text needs.
+// Project or link card in the style of the repository cards: filled tile, bold
+// title, wrapped description and an optional logo before the title. The compact
+// layout is as wide as a half card and as high as its text needs.
 export function renderLinkCard(item, logo, theme, { compact = false } = {}) {
   const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.third;
-  const innerWidth = width - 40;
-  const lines = wrapText(item.description, innerWidth, 12, 4);
-  const height = compact ? 56 + (lines.length - 1) * 18 + 24 : 128;
-  // Without a logo the name starts at the left padding.
-  const nameX = logo ? 44 : 20;
+  const paddingX = compact ? 24 : 20;
+  const titleSize = compact ? 17 : 15;
+  const innerWidth = width - paddingX * 2;
+  const lines = wrapText(item.description, innerWidth, 13, 4);
+  const height = compact ? 66 + (lines.length - 1) * 18 + 28 : 140;
+  const titleX = logo ? paddingX + 24 : paddingX;
 
   return frame({
     width,
@@ -326,15 +327,15 @@ export function renderLinkCard(item, logo, theme, { compact = false } = {}) {
     title: item.name,
     description: `${item.name}. ${item.description}`,
     theme,
+    fill: true,
     body: [
-      logo ? `<image x="20" y="16" width="16" height="16" href="${logo}"/>` : "",
-      text(nameX, 30, truncate(item.name, innerWidth - (nameX - 20), 14, 600), {
-        size: 14,
+      logo ? `<image x="${paddingX}" y="25" width="16" height="16" href="${logo}"/>` : "",
+      text(titleX, 41, truncate(item.name, innerWidth - (titleX - paddingX), titleSize, 600), {
+        size: titleSize,
         weight: 600,
-        color: theme.blue,
-        decoration: "underline",
+        color: theme.title,
       }),
-      ...lines.map((line, index) => text(20, 56 + index * 18, line, { size: 12, color: theme.text })),
+      ...lines.map((line, index) => text(paddingX, 66 + index * 18, line, { size: 13, color: theme.text })),
     ].join("\n  "),
   });
 }
