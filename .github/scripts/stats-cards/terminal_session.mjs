@@ -1,0 +1,596 @@
+// The whole profile as one terminal session: a Kali-style window in which the
+// introduction, repositories, statistics, skills, links, community projects,
+// notes, disclaimer and license are the output of commands.
+//
+// The session is drawn once and cut into horizontal bands. A band that holds a
+// link is its own image, so the README can wrap it in an anchor (an SVG image
+// cannot hold links); the other lines are cut into bigger bands without a link.
+// The regular (800 pixels) and the compact (392 pixels) layout always have the
+// same bands, so the README can use one set of <img> tags for both.
+
+import { formatNumber } from "./calculations.mjs";
+import { CARD_WIDTH, INSET, MONO, escapeXml } from "./svg_cards.mjs";
+
+// Width of one monospace character in em; a little wide on purpose.
+const MONO_EM = 0.62;
+
+// A band is at least this high, so the line the browser reserves for an image
+// (about 24 pixels) never shows a gap between two bands.
+const MIN_BAND = 40;
+
+// Where the links of the first `ls` are cut apart, as a share of the whole
+// image width (including the margin): whole pixels in the compact layout (408
+// wide) and exactly double in the regular layout (816 wide).
+export const LINK_SHARES = [78 / 408, 196 / 408, 253 / 408];
+
+// Footer pieces: one third of the width each.
+export const THIRD_SHARES = [1 / 3, 2 / 3];
+
+// Percentages for a row of pieces that are cut at `shares`; they add up to 100.
+export function widthsOf(shares) {
+  const parts = [shares[0], ...shares.slice(1).map((share, index) => share - shares[index]), 1 - shares.at(-1)];
+  const floored = parts.map((part) => Math.floor(part * 10000) / 100);
+  const sum = floored.slice(0, -1).reduce((total, part) => total + part, 0);
+
+  floored[floored.length - 1] = Math.round((100 - sum) * 100) / 100;
+
+  return floored.map((part) => `${part}%`);
+}
+
+// Splits `**bold**` markup into words: [{ word, bold }].
+function toWords(content) {
+  const words = [];
+
+  String(content)
+    .split(/(\*\*[^*]+\*\*)/)
+    .forEach((part) => {
+      const bold = part.startsWith("**");
+
+      for (const word of (bold ? part.slice(2, -2) : part).split(/\s+/).filter(Boolean)) {
+        words.push({ word, bold });
+      }
+    });
+
+  return words;
+}
+
+// Wraps words into lines of at most `maxCharacters` characters.
+function wrapWords(words, maxCharacters, maxLines = Infinity) {
+  const lines = [];
+  let line = [];
+  let length = 0;
+
+  for (const item of words) {
+    const next = length + (line.length > 0 ? 1 : 0) + item.word.length;
+
+    if (line.length > 0 && next > maxCharacters) {
+      lines.push(line);
+      line = [item];
+      length = item.word.length;
+    } else {
+      line.push(item);
+      length = next;
+    }
+  }
+
+  if (line.length > 0) {
+    lines.push(line);
+  }
+
+  if (lines.length > maxLines) {
+    const kept = lines.slice(0, maxLines);
+    const last = kept[maxLines - 1];
+    const text = last.map((item) => item.word).join(" ");
+
+    kept[maxLines - 1] = [{ word: `${text.slice(0, Math.max(maxCharacters - 1, 1))}…`, bold: false }];
+
+    return kept;
+  }
+
+  return lines;
+}
+
+const plain = (content, maxCharacters, maxLines) =>
+  wrapWords(toWords(content.replaceAll("**", "")), maxCharacters, maxLines);
+
+// Segments: [{ t, color?, bold?, underline? }] drawn as one text element.
+function segmentsText(x, y, segments, { size, anchor = "start", color }) {
+  const anchorAttribute = anchor === "start" ? "" : ` text-anchor="${anchor}"`;
+  const spans = segments
+    .map((segment) => {
+      const attributes = [
+        segment.color ? ` fill="${segment.color}"` : "",
+        segment.bold ? ' font-weight="600"' : "",
+        segment.underline ? ' text-decoration="underline"' : "",
+      ].join("");
+
+      return attributes
+        ? `<tspan${attributes}>${escapeXml(segment.t)}</tspan>`
+        : escapeXml(segment.t);
+    })
+    .join("");
+
+  return `<text x="${x}" y="${y}" font-family="${MONO}" font-size="${size}" fill="${color}"${anchorAttribute} xml:space="preserve">${spans}</text>`;
+}
+
+// Words of a wrapped line as segments; bold words use the title color.
+const wordSegments = (line, theme, color) =>
+  line.flatMap((item, index) => [
+    ...(index > 0 ? [{ t: " " }] : []),
+    { t: item.word, bold: item.bold, color: item.bold ? theme.title : color },
+  ]);
+
+// data: { config, repositories, gists, stats, languages, streak }. Returns
+// { bands: [{ pieces: [{ name, svg, href?, label?, alt, width }] }] }.
+export function renderSession(data, theme, { compact = false } = {}) {
+  const { config } = data;
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
+  const pad = compact ? 16 : 24;
+  const size = compact ? 12 : 13;
+  const lineHeight = 19;
+  const charWidth = size * MONO_EM;
+  const maxCharacters = Math.floor((width - pad * 2) / charWidth);
+  const { user, host } = config.terminal;
+  const elements = [];
+  const items = [];
+  let y = 50;
+
+  const baseline = (top, index = 0) => top + 14 + index * lineHeight;
+  const add = (item) => {
+    items.push(item);
+  };
+
+  // ┌──(user@host)-[dir] and └─$ command; the output starts 36 pixels lower.
+  function prompt(command, directory = "~", cursor = false) {
+    const segment = (parts) => segmentsText(pad, 0, parts, { size, color: theme.text });
+    const upper = [
+      { t: "┌──(", color: theme.red },
+      { t: user, color: theme.title },
+      { t: "@", color: theme.gold },
+      { t: host, color: theme.blue },
+      { t: ")-[", color: theme.red },
+      { t: directory, color: theme.green },
+      { t: "]", color: theme.red },
+    ];
+    const lower = [
+      { t: "└─", color: theme.red },
+      { t: "$", color: theme.gold },
+      { t: command ? ` ${command}` : " ", color: theme.title },
+    ];
+
+    elements.push(segment(upper).replace('y="0"', `y="${y + 11}"`), segment(lower).replace('y="0"', `y="${y + 27}"`));
+
+    if (cursor) {
+      elements.push(
+        `<rect x="${pad + charWidth * 4}" y="${y + 15}" width="${n(charWidth * 0.9)}" height="15" fill="${theme.text}"/>`,
+      );
+    }
+
+    add({ kind: "static", y0: y, y1: y + 31, alt: `$ ${command}` });
+    y += 36;
+  }
+
+  // Wrapped paragraphs (each a list of word lines) without a link.
+  function paragraphs(list, { color = theme.text, gap = 12, last = 14 } = {}) {
+    const texts = [];
+    const top = y;
+
+    list.forEach((lines, index) => {
+      lines.forEach((line, lineIndex) => {
+        elements.push(segmentsText(pad, baseline(y, lineIndex), wordSegments(line, theme, color), { size, color }));
+      });
+      texts.push(lines.map((line) => line.map((item) => item.word).join(" ")).join(" "));
+      y += lines.length * lineHeight + (index < list.length - 1 ? gap : 0);
+    });
+
+    add({ kind: "static", y0: top, y1: y, alt: texts.join(" ") });
+    y += last;
+  }
+
+  // A block of lines that is one link. `lineSpecs` are segment lists.
+  function linkBlock(lineSpecs, { href, label, alt }) {
+    const top = y;
+
+    lineSpecs.forEach((segments, index) => {
+      elements.push(segmentsText(pad, baseline(top, index), segments, { size, color: theme.text }));
+    });
+
+    const bottom = top + Math.max(lineSpecs.length * lineHeight, 32);
+
+    add({ kind: "link", y0: top, y1: bottom, href, label, alt });
+    y = bottom + 16;
+  }
+
+  // A line with links at fixed shares of the width (cut into one piece each).
+  function inlineRow(cells, shares, { anchors = false } = {}) {
+    const top = y;
+    const total = width + INSET * 2;
+    const cuts = shares.map((share) => Math.round(share * total) - INSET);
+    const rows = Math.max(...cells.map((cell) => cell.lines.length));
+
+    cells.forEach((cell, index) => {
+      let x = pad;
+      let anchor = "start";
+
+      if (anchors) {
+        anchor = ["start", "middle", "end"][index];
+        x = [pad, width / 2, width - pad][index];
+      } else if (index > 0) {
+        x = cuts[index - 1] + 10;
+      }
+
+      cell.lines.forEach((segments, lineIndex) => {
+        elements.push(segmentsText(x, baseline(top, lineIndex), segments, { size, anchor, color: theme.text }));
+      });
+    });
+
+    const bottom = top + Math.max(rows * lineHeight, 32);
+
+    add({ kind: "inline", y0: top, y1: bottom, cells, cuts });
+    y = bottom + 16;
+  }
+
+  const link = (t) => ({ t, color: theme.blue, underline: true });
+  const muted = (t) => ({ t, color: theme.muted });
+  const bold = (t) => ({ t, color: theme.title, bold: true });
+
+  // --- the session -------------------------------------------------------
+  prompt("whoami");
+  paragraphs([[[{ word: config.terminal.blocks[0].output, bold: false }]]]);
+
+  prompt("cat about.txt");
+  paragraphs([plain(config.terminal.blocks[1].output, maxCharacters)]);
+
+  prompt("ls links/");
+  inlineRow(
+    config.terminal.blocks[2].links.map((item) => ({ lines: [[link(item.label)]], href: item.url, label: item.label })),
+    LINK_SHARES,
+  );
+
+  prompt("cat about.md");
+  paragraphs(config.intro.map((paragraph) => wrapWords(toWords(paragraph), maxCharacters)));
+
+  prompt("gh repo list --pinned", "~/repos");
+
+  for (const item of data.repositories) {
+    const description = plain(item.description?.trim() || "No description provided.", maxCharacters - 2, 3);
+
+    linkBlock(
+      [
+        [
+          bold(item.title),
+          muted(" · "),
+          { t: item.language ?? "n/a", color: item.languageColor ?? theme.text },
+          muted(` · ${formatNumber(item.stars)} stars · ${formatNumber(item.forks)} forks`),
+        ],
+        ...description.map((line) => [muted(`  ${line.map((word) => word.word).join(" ")}`)]),
+      ],
+      {
+        href: `https://github.com/${config.username}/${item.title}`,
+        label: `${item.title} repository`,
+        alt: `${item.title}. ${item.description ?? ""}`,
+      },
+    );
+  }
+
+  linkBlock([[muted("Code of conduct: "), link(config.codeOfConduct.label)]], {
+    href: config.codeOfConduct.url,
+    label: "Read the Contributor Covenant Code of Conduct",
+    alt: `Code of conduct: ${config.codeOfConduct.label}`,
+  });
+
+  prompt("gh gist list", "~/repos");
+
+  for (const item of data.gists) {
+    const description = plain(item.description?.trim() || "No description provided.", maxCharacters - 2, 3);
+
+    linkBlock(
+      [
+        [bold(item.title), muted(` · ${formatNumber(item.stars)} stars · ${formatNumber(item.forks)} forks`)],
+        ...description.map((line) => [muted(`  ${line.map((word) => word.word).join(" ")}`)]),
+      ],
+      { href: item.url, label: `Gist ${item.title}`, alt: `Gist ${item.title}. ${item.description ?? ""}` },
+    );
+  }
+
+  prompt(`gh stats --user ${config.username}`, "~/activity");
+
+  {
+    const { stats, streak, languages } = data;
+    const rows = [
+      ["Total Stars Earned", formatNumber(stats.stars)],
+      [`Total Commits (${stats.year})`, formatNumber(stats.commits)],
+      ["Total PRs", formatNumber(stats.pullRequests)],
+      ["Total Issues", formatNumber(stats.issues)],
+      ["Contributed to (last year)", formatNumber(stats.contributedTo)],
+      ["Current streak", `${streak.current.length} weeks`],
+      ["Longest streak", `${streak.longest.length} weeks`],
+    ];
+    const top = y;
+
+    rows.forEach(([name, value], index) => {
+      const rowY = baseline(top + index * 24);
+
+      elements.push(
+        segmentsText(pad, rowY, [{ t: name }], { size, color: theme.text }),
+        segmentsText(width - pad, rowY, [{ t: value, bold: true, color: theme.title }], {
+          size,
+          anchor: "end",
+          color: theme.text,
+        }),
+        `<line x1="${pad}" y1="${rowY + 6.5}" x2="${width - pad}" y2="${rowY + 6.5}" stroke="${theme.line}" stroke-dasharray="2 3"/>`,
+      );
+    });
+
+    y = top + rows.length * 24 + 6;
+
+    const barWidth = width - pad * 2;
+    let offset = pad;
+
+    elements.push(`<clipPath id="session-bar"><rect x="${pad}" y="${y}" width="${barWidth}" height="8" rx="4"/></clipPath>`);
+    elements.push(
+      `<g clip-path="url(#session-bar)">${languages
+        .map((language) => {
+          const segmentWidth = (language.percent / 100) * barWidth;
+          const rect = `<rect x="${n(offset)}" y="${y}" width="${n(segmentWidth)}" height="8" fill="${language.color}"/>`;
+
+          offset += segmentWidth;
+          return rect;
+        })
+        .join("")}</g>`,
+    );
+    y += 22;
+
+    // Legend: language names in their own color, wrapped over lines.
+    const entries = languages.map((language) => ({ text: `${language.name} ${language.percent.toFixed(0)}%`, color: language.color }));
+    const legendLines = [];
+    let current = [];
+    let length = 0;
+
+    for (const entry of entries) {
+      const next = length + (current.length > 0 ? 2 : 0) + entry.text.length;
+
+      if (current.length > 0 && next > maxCharacters) {
+        legendLines.push(current);
+        current = [entry];
+        length = entry.text.length;
+      } else {
+        current.push(entry);
+        length = next;
+      }
+    }
+
+    if (current.length > 0) {
+      legendLines.push(current);
+    }
+
+    legendLines.forEach((line, index) => {
+      elements.push(
+        segmentsText(
+          pad,
+          baseline(y, index),
+          line.flatMap((entry, entryIndex) => [...(entryIndex > 0 ? [{ t: "  " }] : []), { t: entry.text, color: entry.color }]),
+          { size, color: theme.text },
+        ),
+      );
+    });
+
+    const alt = `${rows.map(([name, value]) => `${name} ${value}`).join(". ")}. Languages: ${entries.map((entry) => entry.text).join(", ")}.`;
+
+    add({ kind: "static", y0: top, y1: y + legendLines.length * lineHeight, alt });
+    y += legendLines.length * lineHeight + 14;
+  }
+
+  prompt("ls skills/", "~/skills");
+
+  {
+    const top = y;
+    const alt = [];
+    let rowIndex = 0;
+
+    for (const group of config.skillGroups) {
+      elements.push(segmentsText(pad, baseline(top, rowIndex), [{ t: `${group.name.toLowerCase().replaceAll(" ", "-")}/`, color: theme.blue }], { size, color: theme.text }));
+      rowIndex += 1;
+
+      const lines = [];
+      let line = "";
+
+      for (const skill of group.skills) {
+        const candidate = line ? `${line}  ${skill.name}` : skill.name;
+
+        if (line && candidate.length > maxCharacters - 2) {
+          lines.push(line);
+          line = skill.name;
+        } else {
+          line = candidate;
+        }
+      }
+
+      lines.push(line);
+
+      for (const text of lines) {
+        elements.push(segmentsText(pad, baseline(top, rowIndex), [{ t: `  ${text}`, color: theme.title }], { size, color: theme.text }));
+        rowIndex += 1;
+      }
+
+      alt.push(`${group.name}: ${group.skills.map((skill) => skill.name).join(", ")}`);
+      rowIndex += 0.5;
+    }
+
+    add({ kind: "static", y0: top, y1: top + Math.ceil(rowIndex) * lineHeight, alt: alt.join(". ") });
+    y = top + Math.ceil(rowIndex) * lineHeight + 14;
+  }
+
+  prompt("ls connect/", "~/connect");
+
+  for (const item of config.connect) {
+    linkBlock(
+      [
+        [link(item.name)],
+        ...plain(item.description, maxCharacters - 2).map((line) => [muted(`  ${line.map((word) => word.word).join(" ")}`)]),
+      ],
+      { href: item.url, label: item.name, alt: `${item.name}. ${item.description}` },
+    );
+  }
+
+  prompt("cat community.md", "~/community");
+  paragraphs([plain(config.communityText[0], maxCharacters)]);
+
+  for (const item of config.community) {
+    linkBlock(
+      [
+        [link(item.name)],
+        ...plain(item.description, maxCharacters - 2, 4).map((line) => [muted(`  ${line.map((word) => word.word).join(" ")}`)]),
+      ],
+      { href: item.url, label: `${item.name} repository page`, alt: `${item.name}. ${item.description}` },
+    );
+  }
+
+  {
+    const lines = plain(config.communityText[1], maxCharacters - 2);
+    const top = y;
+
+    elements.push(
+      `<path transform="translate(${pad} ${top + 3})" d="M5 0 6.5 3.5 10 3.8 7.3 6.2 8.2 10 5 8 1.8 10 2.7 6.2 0 3.8 3.5 3.5Z" fill="${theme.gold}"/>`,
+    );
+    lines.forEach((line, index) => {
+      elements.push(
+        segmentsText(pad + 16, baseline(top, index), [{ t: line.map((word) => word.word).join(" "), color: theme.muted }], { size, color: theme.text }),
+      );
+    });
+    add({ kind: "static", y0: top, y1: top + lines.length * lineHeight, alt: config.communityText[1] });
+    y = top + lines.length * lineHeight + 14;
+  }
+
+  prompt("cat notes.txt", "~");
+  paragraphs(config.notes.map((note) => plain(`- ${note}`, maxCharacters)), { gap: 4 });
+
+  prompt("cat DISCLAIMER");
+  paragraphs([plain(`${config.disclaimer.title} ${config.disclaimer.text}`, maxCharacters)]);
+
+  prompt("cat LICENSE");
+  inlineRow(
+    config.footer.map((item) => {
+      const lines = compact ? item.compactLines : [item.text];
+
+      return {
+        lines: lines.map((text) => {
+          const at = text.indexOf(item.link);
+
+          return at < 0
+            ? [{ t: text }]
+            : [{ t: text.slice(0, at) }, link(item.link), { t: text.slice(at + item.link.length) }];
+        }),
+        href: item.url,
+        label: item.label,
+        alt: item.text,
+      };
+    }),
+    THIRD_SHARES,
+    { anchors: true },
+  );
+
+  prompt("", "~", true);
+
+  const height = y + 4;
+
+  // --- cut the drawing into bands ----------------------------------------
+  const middle = (first, second) => Math.round((first.y1 + second.y0) / 2);
+  const bands = [];
+  let start = -INSET;
+  let index = 0;
+
+  while (index < items.length) {
+    const item = items[index];
+
+    if (item.kind === "static") {
+      let last = index;
+
+      while (last + 1 < items.length && items[last + 1].kind === "static") {
+        last += 1;
+      }
+
+      const end = last + 1 < items.length ? middle(items[last], items[last + 1]) : height + INSET;
+
+      bands.push({
+        kind: "static",
+        y0: start,
+        y1: end,
+        alt: items
+          .slice(index, last + 1)
+          .map((entry) => entry.alt)
+          .join(" "),
+      });
+      start = end;
+      index = last + 1;
+    } else {
+      const end = index + 1 < items.length ? middle(item, items[index + 1]) : height + INSET;
+
+      bands.push({ ...item, y0: start, y1: end });
+      start = end;
+      index += 1;
+    }
+  }
+
+  const frame = [
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" fill="${theme.tile}" stroke="${theme.line}"/>`,
+    `<line x1="0" y1="36.5" x2="${width}" y2="36.5" stroke="${theme.line}"/>`,
+    ...[25, 43, 61].map((x) => `<circle cx="${x}" cy="18.5" r="5" stroke="${theme.muted}"/>`),
+    segmentsText(79, 22, [{ t: `${user}@${host}: ~`, color: theme.muted }], { size: 12, color: theme.muted }),
+  ];
+  const drawing = [...frame, ...elements].join("\n  ");
+  const view = (title, description, x0, y0, x1, y1) => {
+    const viewWidth = x1 - x0;
+    const viewHeight = y1 - y0;
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${viewWidth}" height="${viewHeight}" viewBox="${x0} ${y0} ${viewWidth} ${viewHeight}" preserveAspectRatio="none" fill="none" role="img" aria-labelledby="card-title card-description">
+  <title id="card-title">${escapeXml(title)}</title>
+  <desc id="card-description">${escapeXml(description)}</desc>
+  ${drawing}
+</svg>
+`;
+  };
+
+  const result = bands.map((band, bandIndex) => {
+    if (band.y1 - band.y0 < MIN_BAND) {
+      throw new Error(`Terminal band ${bandIndex} is only ${band.y1 - band.y0} pixels high.`);
+    }
+
+    const name = `session_${bandIndex + 1}`;
+
+    if (band.kind === "inline") {
+      const edges = [-INSET, ...band.cuts, width + INSET];
+      const percentages = widthsOf(band.cells.length === 4 ? LINK_SHARES : THIRD_SHARES);
+
+      return {
+        pieces: band.cells.map((cell, cellIndex) => ({
+          name: `${name}_${cellIndex + 1}`,
+          svg: view(cell.label, cell.alt ?? cell.label, edges[cellIndex], band.y0, edges[cellIndex + 1], band.y1),
+          href: cell.href,
+          label: cell.label,
+          alt: cell.alt ?? cell.label,
+          width: percentages[cellIndex],
+        })),
+      };
+    }
+
+    return {
+      pieces: [
+        {
+          name,
+          svg: view(band.alt ?? name, band.alt ?? name, -INSET, band.y0, width + INSET, band.y1),
+          href: band.href,
+          label: band.label,
+          alt: band.alt ?? "",
+          width: "100%",
+        },
+      ],
+    };
+  });
+
+  return { bands: result, height };
+}
+
+function n(value) {
+  return Number(value.toFixed(2));
+}

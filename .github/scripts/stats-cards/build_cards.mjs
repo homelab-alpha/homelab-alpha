@@ -2,6 +2,7 @@
 
 import { DEFAULT_LANGUAGE_COLOR, aggregateLanguages, computeWeeklyStreaks, slug } from "./calculations.mjs";
 import { config as defaultConfig, themes } from "./config.mjs";
+import { renderSession } from "./terminal_session.mjs";
 import { renderActivitySideCard, renderGistCard, renderRepositoryCard, renderStatsCard } from "./svg_cards.mjs";
 import {
   renderLinkCard,
@@ -52,6 +53,31 @@ function toGistItem(gist) {
   };
 }
 
+// The terminal session for one color scheme and layout; see terminal_session.mjs.
+export function buildSession(data, config, theme, { compact = false } = {}) {
+  const languages = aggregateLanguages(data.repositories, {
+    excludedRepositories: config.excludedRepositories,
+    excludedLanguages: config.excludedLanguages,
+    limit: config.languagesCount,
+  });
+
+  return renderSession(
+    {
+      config,
+      repositories: data.pins.map(toRepositoryItem),
+      gists: data.gists.map((gist) => ({
+        ...toGistItem(gist),
+        url: `https://gist.github.com/${config.username}/${config.gists.find((item) => item.key === gist.key)?.id ?? ""}`,
+      })),
+      stats: data.stats,
+      languages,
+      streak: computeWeeklyStreaks(data.days),
+    },
+    theme,
+    { compact },
+  );
+}
+
 // data: { stats, repositories, pins, gists, days, icons, logos }. Returns
 // [{ name, svg }].
 export function buildCards(data, config = defaultConfig) {
@@ -97,6 +123,14 @@ export function buildCards(data, config = defaultConfig) {
 
       for (const part of renderFooterParts(config.footer, theme, { compact })) {
         add(`${part.name}${suffix}`, part.svg);
+      }
+    }
+
+    for (const compact of [false, true]) {
+      for (const band of buildSession(data, config, theme, { compact }).bands) {
+        for (const piece of band.pieces) {
+          add(`${piece.name}${compact ? "_compact" : ""}`, piece.svg);
+        }
       }
     }
 

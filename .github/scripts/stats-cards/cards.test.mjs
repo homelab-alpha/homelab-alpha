@@ -214,9 +214,31 @@ describe("buildCards", () => {
     names.push(...compact);
 
     assert.deepEqual(
-      cards.map((card) => card.name).sort(),
+      cards
+        .map((card) => card.name)
+        .filter((name) => !name.startsWith("session_"))
+        .sort(),
       names.flatMap((name) => [`${name}_dark.svg`, `${name}_light.svg`]).sort(),
     );
+  });
+
+  it("builds the terminal session with identical bands in both layouts", () => {
+    const pieces = (suffix) =>
+      cards
+        .map((card) => card.name)
+        .filter((name) => name.startsWith("session_"))
+        .filter((name) => name.includes("_compact_") === (suffix === "compact"))
+        .map((name) => name.replace("_compact", ""))
+        .sort();
+
+    assert.ok(pieces("regular").length > 0);
+    assert.deepEqual(pieces("compact"), pieces("regular"));
+
+    for (const card of cards.filter((item) => item.name.startsWith("session_"))) {
+      const [, height] = card.svg.match(/<svg [^>]*height="(\d+)"/) ?? [];
+
+      assert.ok(Number(height) >= 40, card.name);
+    }
   });
 
   it("keeps a transparent margin of 8 pixels around every card", () => {

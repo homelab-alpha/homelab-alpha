@@ -8,7 +8,7 @@ export const config = {
   username: "homelab-alpha",
 
   // Branch that receives the generated SVG files, and the folder inside it.
-  branch: "stats",
+  branch: "stats-terminal",
   outputDirectory: "cards",
 
   // Folders with the technology icons and the community project logos,
