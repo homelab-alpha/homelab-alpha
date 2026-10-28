@@ -1,8 +1,9 @@
 // SVG renderers for the parts of the profile that do not come from the GitHub
-// API: terminal, section headings, skills, connect, community and notes. The
+// API: terminal, section headings, skills, connect and community cards. The
 // content is read from config.mjs.
 
-import { CARD_WIDTH, MONO, escapeXml, frame, measureText, text, truncate, wrapText } from "./svg_cards.mjs";
+import { slug } from "./calculations.mjs";
+import { CARD_WIDTH, INSET, MONO, escapeXml, frame, measureText, text, truncate, wrapText } from "./svg_cards.mjs";
 
 // Width of one monospace character in em; a little wide on purpose.
 const MONO_EM = 0.62;
@@ -15,20 +16,23 @@ function monoText(x, y, spans, size = 13) {
   return `<text x="${x}" y="${y}" font-family="${MONO}" font-size="${size}" xml:space="preserve">${spans.join("")}</text>`;
 }
 
-// Kali-style terminal window.
-export function renderTerminalCard(terminal, theme) {
+// Draws the Kali-style terminal window in card coordinates (0..800 wide) and
+// returns the SVG elements plus where the last line with links sits.
+function drawTerminal(terminal, theme) {
   const width = CARD_WIDTH.full;
   const paddingX = 24;
   const size = 13;
   const { user, host, directory } = terminal;
 
   const parts = [
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="HEIGHT" rx="12" fill="${theme.tile}" stroke="${theme.line}"/>`,
     `<line x1="0" y1="36.5" x2="${width}" y2="36.5" stroke="${theme.line}"/>`,
     ...[25, 43, 61].map((x) => `<circle cx="${x}" cy="18.5" r="5" stroke="${theme.muted}"/>`),
     text(79, 22, `${user}@${host}: ${directory}`, { size: 12, color: theme.muted, family: MONO }),
   ];
 
   let top = 50;
+  let links = null;
 
   terminal.blocks.forEach((block, index) => {
     if (index > 0) {
@@ -57,8 +61,11 @@ export function renderTerminalCard(terminal, theme) {
     if (block.links) {
       let x = paddingX;
 
+      links = { top: outputY - 15, items: [] };
+
       for (const link of block.links) {
         parts.push(text(x, outputY, link.label, { size, color: theme.blue, family: MONO, decoration: "underline" }));
+        links.items.push({ ...link, x });
         x += link.label.length * size * MONO_EM + 20;
       }
     } else {
@@ -71,19 +78,105 @@ export function renderTerminalCard(terminal, theme) {
   // The window ends 22 pixels below the last line.
   const height = top + 22;
 
-  return frame({
-    width,
-    height,
-    title: `${user}@${host}`,
-    description: terminal.blocks
-      .map(
-        (block) => `${block.command}: ${block.links ? block.links.map((link) => link.label).join(", ") : block.output}`,
-      )
-      .join(". "),
-    theme,
-    body: parts.join("\n  "),
-    fill: true,
+  return { body: parts.join("\n  ").replace("HEIGHT", String(height - 1)), height, links };
+}
+
+// One cropped view of the terminal drawing. All views use the same drawing and
+// the same integer coordinates, so they line up without gaps in the README.
+function terminalView(drawing, terminal, theme, { name, x0, y0, x1, y1, description }) {
+  const width = x1 - x0;
+  const height = y1 - y0;
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="${x0} ${y0} ${width} ${height}" fill="none" role="img" aria-labelledby="card-title card-description">
+  <title id="card-title">${escapeXml(name)}</title>
+  <desc id="card-description">${escapeXml(description)}</desc>
+  ${drawing.body}
+</svg>
+`;
+}
+
+// The terminal is delivered in pieces: the window down to the last prompt, one
+// clickable piece per link, and the bottom edge. An SVG image cannot hold
+// links, so each link gets its own image that the README wraps in an anchor.
+// Returns [{ name, svg, link? }] with names relative to the card name prefix.
+export function renderTerminalParts(terminal, theme) {
+  const drawing = drawTerminal(terminal, theme);
+  const { height, links } = drawing;
+  const edge = INSET;
+  const left = -edge;
+  const right = CARD_WIDTH.full + edge;
+  const description = terminal.blocks
+    .map(
+      (block) => `${block.command}: ${block.links ? block.links.map((link) => link.label).join(", ") : block.output}`,
+    )
+    .join(". ");
+  const title = `${terminal.user}@${terminal.host}`;
+
+  if (!links) {
+    return [
+      {
+        name: "terminal_top",
+        svg: terminalView(drawing, terminal, theme, {
+          name: title,
+          x0: left,
+          y0: -edge,
+          x1: right,
+          y1: height + edge,
+          description,
+        }),
+      },
+    ];
+  }
+
+  const linkTop = Math.round(links.top);
+  const lineHeight = 20;
+  const parts = [
+    {
+      name: "terminal_top",
+      svg: terminalView(drawing, terminal, theme, {
+        name: title,
+        x0: left,
+        y0: -edge,
+        x1: right,
+        y1: linkTop,
+        description,
+      }),
+    },
+  ];
+
+  // Link pieces split halfway between two links.
+  const boundaries = links.items.map((item, index) => (index === 0 ? left : Math.round(item.x - 10)));
+
+  links.items.forEach((item, index) => {
+    const x1 = index === links.items.length - 1 ? right : boundaries[index + 1];
+
+    parts.push({
+      name: `terminal_link_${slug(item.label)}`,
+      link: item,
+      svg: terminalView(drawing, terminal, theme, {
+        name: item.label,
+        x0: boundaries[index],
+        y0: linkTop,
+        x1,
+        y1: linkTop + lineHeight,
+        description: `Link: ${item.label}`,
+      }),
+    });
   });
+
+  parts.push({
+    name: "terminal_bottom",
+    svg: terminalView(drawing, terminal, theme, {
+      name: title,
+      x0: left,
+      y0: linkTop + lineHeight,
+      x1: right,
+      y1: height + edge,
+      description: "Bottom edge of the terminal window",
+    }),
+  });
+
+  return parts;
 }
 
 // Section heading: accent bar, uppercase label and a line to the right edge.
@@ -171,21 +264,5 @@ export function renderCommunityCard(item, theme) {
       text(20, 36, truncate(item.name, innerWidth, 14, 600), { size: 14, weight: 600, color: theme.blue }),
       ...lines.map((line, index) => text(20, 62 + index * 18, line, { size: 12, color: theme.text })),
     ].join("\n  "),
-  });
-}
-
-export function renderNotesCard(notes, theme) {
-  return frame({
-    width: CARD_WIDTH.full,
-    height: 136,
-    title: "Notes",
-    description: notes.join(" "),
-    theme,
-    fill: true,
-    body: notes
-      .map((note, index) =>
-        text(24, 38 + index * 24, truncate(note, CARD_WIDTH.full - 48, 14), { size: 14, color: theme.text }),
-      )
-      .join("\n  "),
   });
 }

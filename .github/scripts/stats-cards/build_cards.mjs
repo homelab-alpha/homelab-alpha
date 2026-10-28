@@ -1,32 +1,19 @@
 // Turns collected GitHub data into SVG files. Pure: no network, no file system.
 
-import { DEFAULT_LANGUAGE_COLOR, aggregateLanguages, computeWeeklyStreaks } from "./calculations.mjs";
+import { DEFAULT_LANGUAGE_COLOR, aggregateLanguages, computeWeeklyStreaks, slug } from "./calculations.mjs";
+
+export { slug };
 import { config as defaultConfig, themes } from "./config.mjs";
 import { pickIcon } from "./icons.mjs";
-import {
-  renderActivitySideCard,
-  renderGistCard,
-  renderRepositoryCard,
-  renderStatsCard,
-  renderTilesCard,
-} from "./svg_cards.mjs";
+import { renderActivitySideCard, renderGistCard, renderRepositoryCard, renderStatsCard } from "./svg_cards.mjs";
 import {
   renderCommunityCard,
   renderConnectCard,
-  renderNotesCard,
   renderSectionHeading,
   renderSkillChip,
   renderSkillGroupLabel,
-  renderTerminalCard,
+  renderTerminalParts,
 } from "./static_cards.mjs";
-
-// "shell-script" -> "shell_script", used for file names.
-export function slug(value) {
-  return String(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "_")
-    .replace(/^_+|_+$/g, "");
-}
 
 function toRepositoryItem(repository) {
   let badge = "Public";
@@ -85,11 +72,12 @@ export function buildCards(data, config = defaultConfig) {
       add(`gist_${slug(gist.key)}`, renderGistCard(toGistItem(gist), theme));
     }
 
-    add("tiles", renderTilesCard(data.stats, streak, theme));
     add("stats", renderStatsCard(data.stats, theme, { title: config.statsTitle }));
     add("activity_side", renderActivitySideCard(streak, languages, theme, { title: config.languagesTitle }));
-    add("terminal", renderTerminalCard(config.terminal, theme));
-    add("notes", renderNotesCard(config.notes, theme));
+
+    for (const part of renderTerminalParts(config.terminal, theme)) {
+      add(part.name, part.svg);
+    }
 
     for (const section of config.sections) {
       add(`section_${slug(section)}`, renderSectionHeading(section, theme));

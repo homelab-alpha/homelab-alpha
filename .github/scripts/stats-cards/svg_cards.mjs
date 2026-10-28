@@ -246,39 +246,6 @@ export function renderGistCard(item, theme) {
   });
 }
 
-// Row of four tiles: stars, commits, pull requests and the weekly streak.
-export function renderTilesCard(stats, streak, theme) {
-  const tiles = [
-    ["Stars earned", stats.stars],
-    ["Commits", stats.commits],
-    ["Pull requests", stats.pullRequests],
-    ["Weekly streak", streak.current.length],
-  ];
-  const tileWidth = CARD_WIDTH.quarter;
-  const height = 96;
-  const parts = [];
-
-  tiles.forEach(([name, value], index) => {
-    const x = index * (tileWidth + 16);
-
-    parts.push(
-      `<rect x="${x + 0.5}" y="0.5" width="${tileWidth - 1}" height="${height - 1}" rx="12" fill="${theme.tile}" stroke="${theme.line}"/>`,
-      label(x + 20, 32, name, { color: theme.muted, spacing: 0.1 }),
-      text(x + 20, 72, formatNumber(value), { size: 28, weight: 600, color: theme.title }),
-    );
-  });
-
-  return frame({
-    width: CARD_WIDTH.full,
-    height,
-    title: "Profile numbers",
-    description: tiles.map(([name, value]) => `${name}: ${formatNumber(value)}`).join(". "),
-    theme,
-    body: parts.join("\n  "),
-    box: false,
-  });
-}
-
 export function renderStatsCard(stats, theme, { title }) {
   const width = CARD_WIDTH.half;
   const height = 316;

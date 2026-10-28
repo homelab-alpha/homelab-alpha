@@ -169,14 +169,16 @@ describe("buildCards", () => {
     const names = [
       "activity_side",
       "gist_notifications",
-      "notes",
       "pin_docker",
       "pin_kairos",
       "pin_openssl",
       "pin_shell_script",
       "stats",
-      "terminal",
-      "tiles",
+      "terminal_bottom",
+      "terminal_top",
+      ...config.terminal.blocks.flatMap((block) =>
+        (block.links ?? []).map((link) => `terminal_link_${slug(link.label)}`),
+      ),
       ...config.sections.map((section) => `section_${slug(section)}`),
       ...config.skillGroups.map((group) => `skills_${slug(group.name)}`),
       ...config.skillGroups.flatMap((group) => group.skills.map((skill) => `skill_${slug(skill.name)}`)),
@@ -205,8 +207,8 @@ describe("buildCards", () => {
     assert.equal(widths.get("stats") + widths.get("activity_side"), 816);
     assert.equal(widths.get("connect_github") * 3, 816);
     assert.equal(widths.get("community_dozzle") * 3, 816);
-    assert.equal(widths.get("terminal"), 816);
-    assert.equal(widths.get("tiles"), 816);
+    assert.equal(widths.get("terminal_top"), 816);
+    assert.equal(widths.get("terminal_bottom"), 816);
   });
 
   it("uses only lowercase file names with underscores", () => {
@@ -234,17 +236,40 @@ describe("buildCards", () => {
   it("uses the color scheme of the theme", () => {
     assert.match(svgOf("stats_dark.svg"), /#DFE2E6/);
     assert.match(svgOf("stats_light.svg"), /#3D4255/);
-    assert.match(svgOf("terminal_dark.svg"), /#151b23/);
-    assert.match(svgOf("terminal_light.svg"), /#f6f8fa/);
+    assert.match(svgOf("terminal_top_dark.svg"), /#151b23/);
+    assert.match(svgOf("terminal_top_light.svg"), /#f6f8fa/);
   });
 
   it("draws the terminal prompt and underlined links from the config", () => {
-    const terminal = svgOf("terminal_dark.svg");
+    const terminal = svgOf("terminal_top_dark.svg");
 
     assert.match(terminal, /┌──\(/);
     assert.match(terminal, /github-server/);
     assert.match(terminal, /whoami/);
     assert.equal((terminal.match(/text-decoration="underline"/g) ?? []).length, 4);
+  });
+
+  it("cuts the terminal into pieces that fit together without gaps", () => {
+    const size = (name) => {
+      const [, width, height] = svgOf(name).match(/<svg [^>]*width="(\d+)" height="(\d+)"/);
+
+      return { width: Number(width), height: Number(height) };
+    };
+    const links = config.terminal.blocks.flatMap((block) => block.links ?? []);
+    const linkSizes = links.map((link) => size(`terminal_link_${slug(link.label)}_dark.svg`));
+    const whole = svgOf("terminal_top_dark.svg").match(
+      /height="HEIGHT"|rect x="0.5" y="0.5" width="799" height="(\d+)"/,
+    );
+
+    assert.equal(
+      linkSizes.reduce((total, piece) => total + piece.width, 0),
+      816,
+    );
+    assert.ok(linkSizes.every((piece) => piece.height === 20));
+    assert.equal(
+      size("terminal_top_dark.svg").height + 20 + size("terminal_bottom_dark.svg").height,
+      Number(whole[1]) + 1 + 16,
+    );
   });
 
   it("embeds the icon for the color scheme and falls back to the shared icon", () => {

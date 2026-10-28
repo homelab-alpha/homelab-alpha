@@ -159,14 +159,6 @@ export const config = {
       url: "https://github.com/alexjustesen/speedtest-tracker",
     },
   ],
-
-  // Lines in the "Notes" card.
-  notes: [
-    "I'm always open to contributing to open-source projects. Feel free to reach out!",
-    "Having issues with one of my repositories? Don't hesitate to ask for help!",
-    "Follow me for more exciting projects and updates!",
-    "Remember to enjoy the process and have fun along the way!",
-  ],
 };
 
 // Colors per color scheme. The cards have no page background, so they blend in
