@@ -9,8 +9,14 @@ import { extname, join } from "node:path";
 export async function loadIcons(rootDirectory, config) {
   const icons = {};
 
-  for (const group of config.skillGroups) {
-    for (const skill of group.skills) {
+  const skills = config.skillGroups.flatMap((group) => group.skills);
+
+  if (config.codeOfConduct) {
+    skills.push({ icon: config.codeOfConduct.icon });
+  }
+
+  {
+    for (const skill of skills) {
       for (const suffix of ["", "_dark", "_light"]) {
         const fileName = `${skill.icon}${suffix}.svg`;
 

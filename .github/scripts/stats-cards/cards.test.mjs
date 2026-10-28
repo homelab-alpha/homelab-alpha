@@ -185,6 +185,7 @@ describe("buildCards", () => {
       ...config.skillGroups.map((group) => `skills_${slug(group.name)}`),
       ...config.connect.map((item) => `connect_${slug(item.key)}`),
       ...config.community.map((item) => `community_${slug(item.key)}`),
+      "badge_code_of_conduct",
     ];
     const compact = [
       "disclaimer",
@@ -198,6 +199,7 @@ describe("buildCards", () => {
       ...config.sections.map((section) => `section_${slug(section)}`),
       ...config.connect.map((item) => `connect_${slug(item.key)}`),
       ...config.community.map((item) => `community_${slug(item.key)}`),
+      "badge_code_of_conduct",
     ].map((name) => `${name}_compact`);
     names.push(...compact);
 

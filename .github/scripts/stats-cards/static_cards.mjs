@@ -268,6 +268,55 @@ export function renderSectionHeading(name, theme, { compact = false } = {}) {
   });
 }
 
+// The "Repositories" heading with a badge that links to the code of conduct.
+// It is drawn once and cut into a heading piece and a clickable badge piece,
+// like the terminal. The pieces are 260 + 148 pixels wide in the compact layout
+// and exactly double in the regular one, so the README can give both layouts
+// the same percentages (see BADGE_SHARES).
+export const BADGE_SHARES = [260 / 408, 148 / 408];
+
+export function renderBadgeHeading(name, badge, icons, theme, themeName, { compact = false } = {}) {
+  const width = compact ? CARD_WIDTH.compact : CARD_WIDTH.full;
+  const y = 28;
+  const content = name.toUpperCase();
+  const labelWidth = measureText(content, 12, 600) + content.length * 12 * 0.12;
+  const label = compact ? badge.compactLabel : badge.label;
+  const pillHeight = 28;
+  const pillWidth = Math.ceil(10 + 14 + 8 + measureText(label, 12) + 12);
+  const pillX = width - pillWidth;
+  const cut = Math.round(BADGE_SHARES[0] * (width + INSET * 2)) - INSET;
+  const iconData = pickIcon(icons, badge.icon, themeName);
+
+  if (pillX < cut + 4) {
+    throw new Error(`The badge "${label}" does not fit in the heading.`);
+  }
+
+  const body = [
+    `<rect x="0" y="${y - 2}" width="24" height="4" rx="2" fill="${theme.accent}"/>`,
+    text(36, y + 4, content, { size: 12, weight: 600, color: theme.title, spacing: 1.44 }),
+    `<line x1="${Math.ceil(36 + labelWidth + 12)}" y1="${y + 0.5}" x2="${pillX - 12}" y2="${y + 0.5}" stroke="${theme.line}"/>`,
+    `<rect x="${pillX + 0.5}" y="${y + 0.5 - pillHeight / 2}" width="${pillWidth - 1}" height="${pillHeight - 1}" rx="14" fill="${theme.tile}" stroke="${theme.line}"/>`,
+    iconData ? `<image x="${pillX + 10}" y="${y - 6.5}" width="14" height="14" href="${iconData}"/>` : "",
+    text(pillX + 32, y + 4, label, { size: 12, color: theme.title }),
+  ].join("\n  ");
+  const view = (title, description, x0, x1) => {
+    const viewWidth = x1 - x0;
+    const height = 48 + INSET * 2;
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${viewWidth}" height="${height}" viewBox="${x0} ${-INSET} ${viewWidth} ${height}" preserveAspectRatio="none" fill="none" role="img" aria-labelledby="card-title card-description">
+  <title id="card-title">${escapeXml(title)}</title>
+  <desc id="card-description">${escapeXml(description)}</desc>
+  ${body}
+</svg>
+`;
+  };
+
+  return [
+    { name: `section_${slug(name)}`, svg: view(name, `Section: ${name}`, -INSET, cut) },
+    { name: "badge_code_of_conduct", svg: view(badge.label, "Link to the code of conduct", cut, width + INSET) },
+  ];
+}
+
 // Card with the technologies of one group as chips. `icons` holds data URIs.
 export function renderSkillGroupCard(group, icons, theme, themeName) {
   const width = CARD_WIDTH.half;

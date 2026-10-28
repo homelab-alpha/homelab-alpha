@@ -55,6 +55,16 @@ export const config = {
     ],
   },
 
+  // Badge in the "Repositories" heading that links to the code of conduct.
+  // The compact label is used on narrow screens.
+  codeOfConduct: {
+    section: "Repositories",
+    label: "Contributor Covenant 3.0",
+    compactLabel: "Covenant 3.0",
+    icon: "contributorcovenant",
+    url: "https://github.com/homelab-alpha/homelab-alpha/blob/main/CODE_OF_CONDUCT.md",
+  },
+
   // Section headings, in the order they appear in the README.
   sections: ["Repositories", "Activity", "Skills", "Connect", "Community projects", "Notes"],
 

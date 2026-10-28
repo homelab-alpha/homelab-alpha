@@ -7,6 +7,7 @@ import {
   renderLinkCard,
   renderDisclaimerCard,
   renderNotesCard,
+  renderBadgeHeading,
   renderSectionHeading,
   renderSkillGroupCard,
   renderTerminalParts,
@@ -89,6 +90,18 @@ export function buildCards(data, config = defaultConfig) {
     add("disclaimer_compact", renderDisclaimerCard(config.disclaimer, theme, { compact: true }));
 
     for (const section of config.sections) {
+      if (section === config.codeOfConduct?.section) {
+        for (const compact of [false, true]) {
+          const options = { compact };
+
+          for (const part of renderBadgeHeading(section, config.codeOfConduct, data.icons ?? {}, theme, themeName, options)) {
+            add(compact ? `${part.name}_compact` : part.name, part.svg);
+          }
+        }
+
+        continue;
+      }
+
       add(`section_${slug(section)}`, renderSectionHeading(section, theme));
       add(`section_${slug(section)}_compact`, renderSectionHeading(section, theme, { compact: true }));
     }
