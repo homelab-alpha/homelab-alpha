@@ -126,7 +126,7 @@ export function text(
 
 // Wraps a card of width x height pixels (without margin) in an SVG document.
 // `box` draws the card border, `fill` also fills it with the tile color.
-export function frame({ width, height, title, description, theme, body, box = true, fill = false, radius = 14 }) {
+export function frame({ width, height, title, description, theme, body, box = true, fill = true, radius = 14 }) {
   const outerWidth = width + INSET * 2;
   const outerHeight = height + INSET * 2;
   const border = box
@@ -328,7 +328,7 @@ function streakBody(streak, theme) {
   ];
 
   return [
-    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" stroke="${theme.line}"/>`,
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" fill="${theme.tile}" stroke="${theme.line}"/>`,
     `<line x1="${columnWidth}" y1="0.5" x2="${columnWidth}" y2="${height - 0.5}" stroke="${theme.line}"/>`,
     `<circle cx="${leftX}" cy="52" r="29.5" stroke="${theme.text}" stroke-width="5"/>`,
     text(leftX, 60, String(streak.current.length), { size: 22, weight: 700, color: theme.title, anchor: "middle" }),
@@ -347,7 +347,7 @@ function languagesBody(languages, theme, title) {
   const columnWidth = (barWidth - 20) / 3 + 10;
 
   const parts = [
-    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" stroke="${theme.line}"/>`,
+    `<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="14" fill="${theme.tile}" stroke="${theme.line}"/>`,
     text(paddingX, 36, truncate(title, barWidth, 14, 600), { size: 14, weight: 600, color: theme.title }),
     `<clipPath id="bar-clip"><rect x="${paddingX}" y="50" width="${barWidth}" height="8" rx="4"/></clipPath>`,
   ];
