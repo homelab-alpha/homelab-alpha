@@ -1,0 +1,56 @@
+---
+name: 📊 Update Stats Cards
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/scripts/stats-cards/**"
+      - ".github/workflows/stats_cards.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stats-cards-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: 📊 Generate and publish cards
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    if: |
+      github.event.sender.type != 'Bot' &&
+      !contains(github.actor, '[bot]')
+
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: 🏁 Checkout repository source
+        uses: actions/checkout@v7.0.1
+        with:
+          sparse-checkout: .github/scripts/stats-cards
+          persist-credentials: false
+
+      - name: 🧪 Run unit tests
+        run: |
+          echo "::group::ℹ️ Node.js version"
+          node --version
+          echo "::endgroup::"
+
+          node --test .github/scripts/stats-cards/cards.test.mjs
+
+      - name: 🎨 Generate and publish cards
+        run: |
+          node .github/scripts/stats-cards/generate_cards.mjs \
+            --out "$RUNNER_TEMP/cards" \
+            --publish
