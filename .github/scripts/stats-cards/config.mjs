@@ -38,7 +38,7 @@ export const config = {
   // underlined links, any other block prints its `output`.
   terminal: {
     user: "homelab-alpha",
-    host: "github-server",
+    host: "github",
     directory: "~",
     blocks: [
       { command: "whoami", output: "GJS" },
@@ -56,6 +56,9 @@ export const config = {
   },
 
   // Introduction below the terminal. Text between ** is printed bold.
+  // The motto is shown as a file in the terminal session.
+  motto: { file: "motto.js", text: "eat(); sleep(); code(); repeat();" },
+
   intro: [
     "Welcome to **Homelab-Alpha**! I'm GJS, a tech enthusiast who loves automation, infrastructure, and creative problem solving. My homelab is my playground: a place to test emerging technologies, fine-tune configurations, and keep finding ways to make my setup smarter and more efficient.",
     "I'm a strong believer in open source and self-hosting. My goal is to make technology more accessible and more robust for everyone. Whether I'm streamlining deployments, hardening environments, or squeezing out a little more performance, I'm always chasing a better solution.",
@@ -250,11 +253,11 @@ export const themes = {
     blue: "#398cfe",
   },
   light: {
-    line: "#CFD4D9",
-    tile: "#f6f8fa",
+    line: "#C3C9CF",
+    tile: "#eaeef2",
     title: "#3D4255",
     text: "#59636e",
-    muted: "#6E757C",
+    muted: "#656C73",
     accent: "#3955CD",
     red: "#c4231f",
     gold: "#8a6a2e",

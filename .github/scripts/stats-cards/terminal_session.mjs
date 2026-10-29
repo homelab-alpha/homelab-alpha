@@ -293,6 +293,7 @@ export function renderSession(data, theme, { compact = false } = {}) {
       ["gists", "d", 4096],
       ["LICENSE", "f", bytes(config.footer.map((item) => item.text).join("\n"))],
       ["links", "d", 4096],
+      [config.motto.file, "f", bytes(`${config.motto.text}\n`)],
       ["notes.txt", "f", bytes(config.notes.join("\n"))],
       ["repos", "d", 4096],
       ["skills", "d", 4096],
@@ -579,9 +580,8 @@ export function renderSession(data, theme, { compact = false } = {}) {
 
   // --- the session -------------------------------------------------------
   {
-    const first = new Date(Date.UTC(data.stats.year, 0, 1));
-    const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][first.getUTCDay()];
-    const login = `Last login: ${weekday} Jan  1 08:00:00 ${data.stats.year}${compact ? "" : " from 192.168.1.10"}`;
+    // The Unix epoch: Thursday, January 1, 1970, at 00:00:00 UTC.
+    const login = `Last login: Thu Jan  1 00:00:00 1970${compact ? "" : " from 192.168.1.1"}`;
 
     staticLines([[muted(login)]], login, { last: 12 });
   }
@@ -589,8 +589,8 @@ export function renderSession(data, theme, { compact = false } = {}) {
   prompt("whoami");
   paragraphs([[[{ word: config.terminal.blocks[0].output, bold: false }]]]);
 
-  prompt("cat about.txt");
-  paragraphs([plain(config.terminal.blocks[1].output, maxCharacters)]);
+  prompt(`cat ${config.motto.file}`);
+  paragraphs([plain(config.motto.text, maxCharacters)]);
 
   prompt("ls -lah");
   listing();
