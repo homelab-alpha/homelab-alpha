@@ -18,14 +18,6 @@ const MONO_EM = 0.62;
 // (about 24 pixels) never shows a gap between two bands.
 const MIN_BAND = 40;
 
-// Where the links of the first `ls` are cut apart, as a share of the whole
-// image width (including the margin): whole pixels in the compact layout (408
-// wide) and exactly double in the regular layout (816 wide).
-export const LINK_SHARES = [78 / 408, 196 / 408, 253 / 408];
-
-// Footer pieces: one third of the width each.
-export const THIRD_SHARES = [1 / 3, 2 / 3];
-
 // Percentages for a row of pieces that are cut at `shares`; they add up to 100.
 export function widthsOf(shares) {
   const parts = [shares[0], ...shares.slice(1).map((share, index) => share - shares[index]), 1 - shares.at(-1)];
@@ -292,7 +284,6 @@ export function renderSession(data, theme, { compact = false } = {}) {
       ["DISCLAIMER", "f", bytes(`${config.disclaimer.title} ${config.disclaimer.text}`)],
       ["gists", "d", 4096],
       ["LICENSE", "f", bytes(config.footer.map((item) => item.text).join("\n"))],
-      ["links", "d", 4096],
       [config.motto.file, "f", bytes(`${config.motto.text}\n`)],
       ["notes.txt", "f", bytes(config.notes.join("\n"))],
       ["repos", "d", 4096],
@@ -545,35 +536,6 @@ export function renderSession(data, theme, { compact = false } = {}) {
     y = bottom + 16;
   }
 
-  // A line with links at fixed shares of the width (cut into one piece each).
-  function inlineRow(cells, shares, { anchors = false } = {}) {
-    const top = y;
-    const total = width + INSET * 2;
-    const cuts = shares.map((share) => Math.round(share * total) - INSET);
-    const rows = Math.max(...cells.map((cell) => cell.lines.length));
-
-    cells.forEach((cell, index) => {
-      let x = pad;
-      let anchor = "start";
-
-      if (anchors) {
-        anchor = ["start", "middle", "end"][index];
-        x = [pad, width / 2, width - pad][index];
-      } else if (index > 0) {
-        x = cuts[index - 1] + 10;
-      }
-
-      cell.lines.forEach((segments, lineIndex) => {
-        elements.push(segmentsText(x, baseline(top, lineIndex), segments, { size, anchor, color: theme.text }));
-      });
-    });
-
-    const bottom = top + Math.max(rows * lineHeight, 32);
-
-    add({ kind: "inline", y0: top, y1: bottom, cells, cuts });
-    y = bottom + 16;
-  }
-
   const link = (t) => ({ t, color: theme.blue, underline: true });
   const muted = (t) => ({ t, color: theme.muted });
   const bold = (t) => ({ t, color: theme.title, bold: true });
@@ -594,12 +556,6 @@ export function renderSession(data, theme, { compact = false } = {}) {
 
   prompt("ls -lah");
   listing();
-
-  prompt("ls links/");
-  inlineRow(
-    config.terminal.blocks[2].links.map((item) => ({ lines: [[link(item.label)]], href: item.url, label: item.label })),
-    LINK_SHARES,
-  );
 
   prompt("vim -R about.md");
   vim("about.md", config.intro);
@@ -879,7 +835,7 @@ export function renderSession(data, theme, { compact = false } = {}) {
 
     if (band.kind === "inline") {
       const edges = [-INSET, ...band.cuts, width + INSET];
-      const percentages = widthsOf(band.shares ?? LINK_SHARES);
+      const percentages = widthsOf(band.shares);
 
       return {
         pieces: band.cells.map((cell, cellIndex) => ({
