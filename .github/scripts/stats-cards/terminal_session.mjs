@@ -293,6 +293,7 @@ export function renderSession(data, theme, { compact = false } = {}) {
       ["gists", "d", 4096],
       ["LICENSE", "f", bytes(config.footer.map((item) => item.text).join("\n"))],
       ["links", "d", 4096],
+      [config.motto.file, "f", bytes(`${config.motto.text}\n`)],
       ["notes.txt", "f", bytes(config.notes.join("\n"))],
       ["repos", "d", 4096],
       ["skills", "d", 4096],
@@ -589,8 +590,8 @@ export function renderSession(data, theme, { compact = false } = {}) {
   prompt("whoami");
   paragraphs([[[{ word: config.terminal.blocks[0].output, bold: false }]]]);
 
-  prompt("cat about.txt");
-  paragraphs([plain(config.terminal.blocks[1].output, maxCharacters)]);
+  prompt(`cat ${config.motto.file}`);
+  paragraphs([plain(config.motto.text, maxCharacters)]);
 
   prompt("ls -lah");
   listing();

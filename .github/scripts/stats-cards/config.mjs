@@ -56,6 +56,9 @@ export const config = {
   },
 
   // Introduction below the terminal. Text between ** is printed bold.
+  // The motto is shown as a file in the terminal session.
+  motto: { file: "motto.js", text: "eat(); sleep(); code(); repeat();" },
+
   intro: [
     "Welcome to **Homelab-Alpha**! I'm GJS, a tech enthusiast who loves automation, infrastructure, and creative problem solving. My homelab is my playground: a place to test emerging technologies, fine-tune configurations, and keep finding ways to make my setup smarter and more efficient.",
     "I'm a strong believer in open source and self-hosting. My goal is to make technology more accessible and more robust for everyone. Whether I'm streamlining deployments, hardening environments, or squeezing out a little more performance, I'm always chasing a better solution.",
