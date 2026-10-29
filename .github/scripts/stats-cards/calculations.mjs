@@ -4,8 +4,6 @@
 export const DEFAULT_LANGUAGE_COLOR = "#8B949E";
 
 const numberFormat = new Intl.NumberFormat("en-US");
-const shortDate = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
-const longDate = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
 
 export function formatNumber(value) {
   return numberFormat.format(value ?? 0);
@@ -21,25 +19,6 @@ export function addDays(dateString, amount) {
 export function startOfWeek(dateString) {
   const date = new Date(`${dateString}T00:00:00Z`);
   return addDays(dateString, -date.getUTCDay());
-}
-
-export function formatDateRange(start, end) {
-  if (!start || !end) {
-    return "No streak yet";
-  }
-
-  const startDate = new Date(`${start}T00:00:00Z`);
-  const endDate = new Date(`${end}T00:00:00Z`);
-
-  if (start === end) {
-    return longDate.format(startDate);
-  }
-
-  if (startDate.getUTCFullYear() === endDate.getUTCFullYear()) {
-    return `${shortDate.format(startDate)} – ${longDate.format(endDate)}`;
-  }
-
-  return `${longDate.format(startDate)} – ${longDate.format(endDate)}`;
 }
 
 function emptyStreak() {
@@ -169,12 +148,4 @@ export function aggregateLanguages(
   const total = top.reduce((sum, language) => sum + language.size, 0);
 
   return top.map((language) => ({ ...language, percent: total > 0 ? (language.size / total) * 100 : 0 }));
-}
-
-// "shell-script" -> "shell_script", used for file names.
-export function slug(value) {
-  return String(value)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "_")
-    .replace(/^_+|_+$/g, "");
 }

@@ -9,7 +9,7 @@
 // same bands, so the README can use one set of <img> tags for both.
 
 import { formatNumber } from "./calculations.mjs";
-import { CARD_WIDTH, INSET, MONO, escapeXml } from "./svg_cards.mjs";
+import { CARD_WIDTH, INSET, MONO, escapeXml } from "./svg_helpers.mjs";
 
 // Width of one monospace character in em; a little wide on purpose.
 const MONO_EM = 0.62;
