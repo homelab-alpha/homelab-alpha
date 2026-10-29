@@ -286,14 +286,14 @@ describe("buildCards", () => {
     assert.match(svgOf("stats_dark.svg"), /#DFE2E6/);
     assert.match(svgOf("stats_light.svg"), /#3D4255/);
     assert.match(svgOf("terminal_top_dark.svg"), /#151b23/);
-    assert.match(svgOf("terminal_top_light.svg"), /#f6f8fa/);
+    assert.match(svgOf("terminal_top_light.svg"), /#eaeef2/);
   });
 
   it("draws the terminal prompt and underlined links from the config", () => {
     const terminal = svgOf("terminal_top_dark.svg");
 
     assert.match(terminal, /┌──\(/);
-    assert.match(terminal, /github-server/);
+    assert.match(terminal, /@github/);
     assert.match(terminal, /whoami/);
     assert.equal((terminal.match(/text-decoration="underline"/g) ?? []).length, 4);
   });

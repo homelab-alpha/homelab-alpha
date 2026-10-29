@@ -38,7 +38,7 @@ export const config = {
   // underlined links, any other block prints its `output`.
   terminal: {
     user: "homelab-alpha",
-    host: "github-server",
+    host: "github",
     directory: "~",
     blocks: [
       { command: "whoami", output: "GJS" },
@@ -253,11 +253,11 @@ export const themes = {
     blue: "#398cfe",
   },
   light: {
-    line: "#CFD4D9",
-    tile: "#f6f8fa",
+    line: "#C3C9CF",
+    tile: "#eaeef2",
     title: "#3D4255",
     text: "#59636e",
-    muted: "#6E757C",
+    muted: "#656C73",
     accent: "#3955CD",
     red: "#c4231f",
     gold: "#8a6a2e",
