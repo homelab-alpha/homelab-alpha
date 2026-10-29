@@ -584,12 +584,6 @@ export function renderSession(data, theme, { compact = false } = {}) {
     );
   }
 
-  linkBlock([[muted("Code of conduct: "), link(config.codeOfConduct.label)]], {
-    href: config.codeOfConduct.url,
-    label: "Read the Contributor Covenant Code of Conduct",
-    alt: `Code of conduct: ${config.codeOfConduct.label}`,
-  });
-
   prompt("cd ../gists", "~/repos");
   prompt("gh gist list", "~/gists");
 
