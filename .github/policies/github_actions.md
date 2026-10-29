@@ -129,12 +129,15 @@ jobs:
 
 ### Pinned Action Versions
 
-- All external actions **must** use a pinned, tagged version (e.g.,
-  `actions/checkout@v6.0.2`).
-- Do not use floating tags such as `@main`, `@latest`, or `@v4` without a patch
-  version, as these are mutable and can introduce breaking changes or
-  supply-chain vulnerabilities.
-- Version updates are managed automatically by Renovate.
+- All external actions **must** be pinned to the full commit SHA of a release,
+  followed by a comment with the version (e.g.,
+  `actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1`).
+- Do not use tags or branches such as `@main`, `@latest`, `@v4`, or `@v7.0.1`,
+  as these are mutable and can introduce breaking changes or supply-chain
+  vulnerabilities.
+- Version updates are managed automatically by Renovate
+  (`helpers:pinGitHubActionDigests`), which keeps the SHA and the comment in
+  sync.
 
 ### Bot Filtering
 

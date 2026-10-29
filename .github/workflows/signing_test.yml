@@ -30,6 +30,7 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       REPO: ${{ github.repository }}
+      DRY_RUN: ${{ github.event.inputs.dry_run }}
 
     steps:
       - name: 🏁 Notify start of process
@@ -37,12 +38,12 @@ jobs:
           echo "::notice title=Workflow started::🔏 API signing test initiated"
           echo "::group::ℹ️ Execution context"
           echo "Repository: $REPO"
-          echo "Dry run:    ${{ github.event.inputs.dry_run }}"
+          echo "Dry run:    $DRY_RUN"
           echo "Runner OS:  ${{ runner.os }}"
           echo "::endgroup::"
 
       - name: 📥 Checkout repository
-        uses: actions/checkout@v7.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
@@ -205,8 +206,6 @@ jobs:
         run: |
           set -Eeuo pipefail
           echo "::group::📊 Generating Summary Report"
-
-          DRY_RUN="${{ github.event.inputs.dry_run }}"
 
           if [[ "$DRY_RUN" == "true" ]]; then
             COMMIT_STATUS="⏭️ Skipped (dry run)"
