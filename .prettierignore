@@ -76,3 +76,6 @@ playwright-report/
 public/
 resources/
 test-results/
+
+# --- Generated Files ---
+CONTRIBUTORS.md

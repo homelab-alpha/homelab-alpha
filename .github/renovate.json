@@ -1,8 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":semanticCommits", ":rebaseStalePrs"],
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests",
+    ":semanticCommits",
+    ":rebaseStalePrs"
+  ],
   "dependencyDashboard": true,
   "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "addLabels": ["security"]
+  },
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
   "timezone": "Europe/Amsterdam",
@@ -13,8 +21,15 @@
   "assignees": ["homelab-alpha"],
   "reviewers": ["homelab-alpha"],
   "automergeSchedule": [],
-  "automergeType": "squash",
+  "automergeType": "pr",
+  "automergeStrategy": "squash",
   "packageRules": [
+    {
+      "description": "Pin npm dependencies to exact versions, but not the engines range",
+      "matchManagers": ["npm"],
+      "rangeStrategy": "pin",
+      "matchDepTypes": ["dependencies", "devDependencies"]
+    },
     {
       "description": "Never automerge major/minor",
       "matchUpdateTypes": ["major", "minor"],
@@ -29,15 +44,16 @@
     },
     {
       "description": "Prioritize security updates",
-      "matchUpdateTypes": ["vulnerability"],
-      "addLabels": ["security"],
-      "prPriority": 100
+      "matchPackageNames": ["*"],
+      "isVulnerabilityAlert": true,
+      "prPriority": 100,
+      "minimumReleaseAge": "0 days"
     },
     {
-      "description": "Keep Node.js on major version 22",
+      "description": "Keep Node.js on major version 24 (LTS)",
       "matchPackageNames": ["node", "@types/node"],
       "matchManagers": ["npm", "nodenv", "dockerfile"],
-      "allowedVersions": "^22.0.0"
+      "allowedVersions": "^24.0.0"
     },
     {
       "description": "General labeling for all updates",
@@ -66,16 +82,6 @@
       "addLabels": ["dev dependencies"]
     }
   ],
-  "customManagers": [
-    {
-      "description": "Track Hugo version in GitHub Actions workflows",
-      "customType": "regex",
-      "managerFilePatterns": ["/.github/workflows/.*\\.ya?ml$/"],
-      "matchStrings": ["HUGO_VERSION:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
-      "depNameTemplate": "hugo",
-      "datasourceTemplate": "github-releases",
-      "versioningTemplate": "semver",
-      "packageNameTemplate": "gohugoio/hugo"
-    }
-  ]
+  "internalChecksFilter": "strict",
+  "minimumReleaseAge": "7 days"
 }

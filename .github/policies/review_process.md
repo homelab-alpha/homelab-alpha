@@ -83,12 +83,14 @@ the pull request to communicate the delay and an estimated timeline.
 
 ### 1. Automated Checks
 
-Every pull request targeting `main` triggers the following automated checks:
+Every pull request targeting `main` triggers the following automated checks. The
+full Super Linter (`super_linter.yml`) runs on `main` after the merge and adds
+actionlint, Gitleaks, Checkov, and the other linters.
 
-| Check               | Workflow           | Purpose                                                                                      |
-| :------------------ | :----------------- | :------------------------------------------------------------------------------------------- |
-| Linting             | `super_linter.yml` | Validates code style, YAML, Markdown, grammar, secrets, and workflow syntax via Super Linter |
-| Concurrency control | All workflows      | Cancels duplicate runs for the same branch or pull request                                   |
+| Check               | Workflow                | Purpose                                                                                              |
+| :------------------ | :---------------------- | :--------------------------------------------------------------------------------------------------- |
+| Linting             | `lint_pull_request.yml` | Runs `npm run lint` on the changed files: Prettier, textlint terminology, and merge conflict markers |
+| Concurrency control | All workflows           | Cancels duplicate runs for the same branch or pull request                                           |
 
 All automated checks must pass before a human review is requested or a merge is
 performed. If a check fails:

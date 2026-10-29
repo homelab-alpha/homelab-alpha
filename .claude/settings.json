@@ -9,6 +9,7 @@
     "allow": [
       "Bash(node --check *)",
       "Bash(node --test .github/scripts/stats-cards/*)",
+      "Bash(npm run lint*)",
       "Bash(npx prettier@3 *)",
       "Bash(git status*)",
       "Bash(git diff*)",
