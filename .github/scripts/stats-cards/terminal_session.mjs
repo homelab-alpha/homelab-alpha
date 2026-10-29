@@ -581,7 +581,7 @@ export function renderSession(data, theme, { compact = false } = {}) {
   // --- the session -------------------------------------------------------
   {
     // The Unix epoch: Thursday, January 1, 1970, at 00:00:00 UTC.
-    const login = `Last login: Thu Jan  1 00:00:00 1970${compact ? "" : " from 192.168.1.10"}`;
+    const login = `Last login: Thu Jan  1 00:00:00 1970${compact ? "" : " from 192.168.1.1"}`;
 
     staticLines([[muted(login)]], login, { last: 12 });
   }
