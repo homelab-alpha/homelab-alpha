@@ -15,7 +15,6 @@ import { parseArgs } from "node:util";
 
 import { buildCards } from "./build_cards.mjs";
 import { config } from "./config.mjs";
-import { loadIcons, loadLogos } from "./icons.mjs";
 import { fetchContributionDays, fetchGists, fetchRepositories, fetchStats } from "./github_api.mjs";
 import { publishCards } from "./publish_branch.mjs";
 import { sampleData } from "./sample_data.mjs";
@@ -52,9 +51,7 @@ async function main() {
     throw new Error("Refusing to publish sample data. Use either --sample or --publish.");
   }
 
-  const icons = await loadIcons(process.cwd(), config);
-  const logos = await loadLogos(process.cwd(), config);
-  const data = { ...(values.sample ? sampleData : await collectData()), icons, logos };
+  const data = values.sample ? sampleData : await collectData();
   const cards = buildCards(data, config);
 
   await mkdir(values.out, { recursive: true });

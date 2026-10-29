@@ -5,21 +5,13 @@
 import assert from "node:assert/strict";
 import { afterEach, beforeEach, describe, it } from "node:test";
 
-import { buildCards, slug } from "./build_cards.mjs";
+import { buildCards } from "./build_cards.mjs";
 import { config } from "./config.mjs";
-import { pickIcon } from "./icons.mjs";
-import {
-  addDays,
-  aggregateLanguages,
-  computeWeeklyStreaks,
-  formatDateRange,
-  formatNumber,
-  startOfWeek,
-} from "./calculations.mjs";
+import { addDays, aggregateLanguages, computeWeeklyStreaks, formatNumber, startOfWeek } from "./calculations.mjs";
 import { fetchContributionDays, fetchGists, fetchRepositories, graphql, request } from "./github_api.mjs";
 import { gitBlobSha, publishCards } from "./publish_branch.mjs";
 import { sampleData } from "./sample_data.mjs";
-import { escapeXml, measureText, truncate, wrapText } from "./svg_cards.mjs";
+import { escapeXml } from "./svg_helpers.mjs";
 
 // Builds a week of days (Sunday to Saturday) with one contribution on Tuesday
 // when the week is active.
@@ -42,11 +34,8 @@ describe("dates and numbers", () => {
     assert.equal(startOfWeek("2026-10-31"), "2026-10-25");
   });
 
-  it("formats numbers and date ranges", () => {
+  it("formats numbers", () => {
     assert.equal(formatNumber(1280), "1,280");
-    assert.equal(formatDateRange("2026-03-03", "2026-10-24"), "Mar 3 – Oct 24, 2026");
-    assert.equal(formatDateRange("2025-12-30", "2026-01-06"), "Dec 30, 2025 – Jan 6, 2026");
-    assert.equal(formatDateRange(null, null), "No streak yet");
   });
 });
 
@@ -134,130 +123,59 @@ describe("aggregateLanguages", () => {
   });
 });
 
-describe("text helpers", () => {
+describe("escapeXml", () => {
   it("escapes XML", () => {
     assert.equal(
       escapeXml(`<a href="x">Tom & 'Jerry'</a>`),
       "&lt;a href=&quot;x&quot;&gt;Tom &amp; &#39;Jerry&#39;&lt;/a&gt;",
     );
   });
-
-  it("wraps text and ends the last line with an ellipsis", () => {
-    const lines = wrapText("one two three four five six seven eight nine ten eleven twelve", 120, 13, 2);
-
-    assert.equal(lines.length, 2);
-    assert.ok(lines[1].endsWith("…"));
-  });
-
-  it("keeps short text on one line and truncates long words", () => {
-    assert.deepEqual(wrapText("short text", 300, 13, 3), ["short text"]);
-    assert.ok(truncate("a".repeat(200), 100, 13).endsWith("…"));
-  });
-
-  it("creates file name slugs", () => {
-    assert.equal(slug("shell-script"), "shell_script");
-    assert.equal(slug("Notifications"), "notifications");
-  });
 });
 
 describe("buildCards", () => {
-  const icons = { "bash_dark.svg": "data:image/svg+xml;base64,AAAA", "docker.svg": "data:image/svg+xml;base64,BBBB" };
-  const cards = buildCards({ ...sampleData, icons });
+  const cards = buildCards(sampleData);
+  const sessionOf = (compact) =>
+    cards.filter((card) => card.name.startsWith("session_") && card.name.includes("_compact_") === compact);
   const svgOf = (name) => cards.find((card) => card.name === name).svg;
+  const sizeOf = (card) => {
+    const [, width, height] = card.svg.match(/<svg [^>]*width="(\d+)" height="(\d+)"/);
 
-  it("creates a dark and a light version of every card", () => {
-    const names = [
-      "activity_side",
-      "disclaimer",
-      "gist_notifications",
-      "notes",
-      "pin_docker",
-      "pin_kairos",
-      "pin_openssl",
-      "pin_shell_script",
-      "stats",
-      "terminal_bottom",
-      "terminal_top",
-      ...config.terminal.blocks.flatMap((block) =>
-        (block.links ?? []).map((link) => `terminal_link_${slug(link.label)}`),
-      ),
-      ...config.sections.map((section) => `section_${slug(section)}`),
-      ...config.skillGroups.map((group) => `skills_${slug(group.name)}`),
-      ...config.connect.map((item) => `connect_${slug(item.key)}`),
-      ...config.community.map((item) => `community_${slug(item.key)}`),
-      "badge_code_of_conduct",
-      "community_text",
-      "footer_1",
-      "footer_2",
-      "footer_3",
-      "intro",
-    ];
-    const compact = [
-      "disclaimer",
-      "gist_notifications",
-      "notes",
-      "terminal_bottom",
-      "terminal_top",
-      ...config.terminal.blocks.flatMap((block) =>
-        (block.links ?? []).map((link) => `terminal_link_${slug(link.label)}`),
-      ),
-      ...config.sections.map((section) => `section_${slug(section)}`),
-      ...config.connect.map((item) => `connect_${slug(item.key)}`),
-      ...config.community.map((item) => `community_${slug(item.key)}`),
-      "badge_code_of_conduct",
-      "community_text",
-      "footer_1",
-      "footer_2",
-      "footer_3",
-      "intro",
-    ].map((name) => `${name}_compact`);
-    names.push(...compact);
+    return { width: Number(width), height: Number(height) };
+  };
 
-    assert.deepEqual(
-      cards
-        .map((card) => card.name)
-        .filter((name) => !name.startsWith("session_"))
-        .sort(),
-      names.flatMap((name) => [`${name}_dark.svg`, `${name}_light.svg`]).sort(),
-    );
+  it("only creates the pieces of the terminal session, in both layouts and color schemes", () => {
+    assert.ok(cards.length > 0);
+    assert.ok(cards.every((card) => card.name.startsWith("session_")));
+
+    for (const suffix of ["dark", "light", "compact_dark", "compact_light"]) {
+      assert.ok(
+        cards.some((card) => card.name.endsWith(`_${suffix}.svg`)),
+        suffix,
+      );
+    }
   });
 
   it("builds the terminal session with identical bands in both layouts", () => {
-    const pieces = (suffix) =>
-      cards
-        .map((card) => card.name)
-        .filter((name) => name.startsWith("session_"))
-        .filter((name) => name.includes("_compact_") === (suffix === "compact"))
-        .map((name) => name.replace("_compact", ""))
+    const pieces = (compact) =>
+      sessionOf(compact)
+        .map((card) => card.name.replace("_compact", ""))
         .sort();
 
-    assert.ok(pieces("regular").length > 0);
-    assert.deepEqual(pieces("compact"), pieces("regular"));
+    assert.ok(pieces(false).length > 0);
+    assert.deepEqual(pieces(true), pieces(false));
 
-    for (const card of cards.filter((item) => item.name.startsWith("session_"))) {
-      const [, height] = card.svg.match(/<svg [^>]*height="(\d+)"/) ?? [];
-
-      assert.ok(Number(height) >= 40, card.name);
+    for (const card of cards) {
+      assert.ok(sizeOf(card).height >= 40, card.name);
     }
   });
 
-  it("keeps a transparent margin of 8 pixels around every card", () => {
-    const widths = new Map();
+  it("keeps a transparent margin of 8 pixels around the full width pieces", () => {
+    const first = (compact) =>
+      sizeOf(cards.find((card) => card.name === `session_1${compact ? "_compact" : ""}_dark.svg`));
 
-    for (const card of cards) {
-      const [, width, height] = card.svg.match(/<svg [^>]*width="(\d+)" height="(\d+)"/);
-
-      widths.set(card.name.replace(/_(dark|light)\.svg$/, ""), Number(width));
-      assert.ok(Number(height) > 16, card.name);
-    }
-
-    // Two half cards or three third cards fill one 816 pixel row.
-    assert.equal(widths.get("pin_docker") * 2, 816);
-    assert.equal(widths.get("stats") + widths.get("activity_side"), 816);
-    assert.equal(widths.get("connect_github") * 3, 816);
-    assert.equal(widths.get("community_dozzle") * 3, 816);
-    assert.equal(widths.get("terminal_top"), 816);
-    assert.equal(widths.get("terminal_bottom"), 816);
+    assert.equal(first(false).width, 800 + 16);
+    assert.equal(first(true).width, 392 + 16);
+    assert.match(svgOf("session_1_dark.svg"), /viewBox="-8 -8 816 \d+"/);
   });
 
   it("uses only lowercase file names with underscores", () => {
@@ -275,75 +193,28 @@ describe("buildCards", () => {
     }
   });
 
-  it("escapes descriptions from the API", () => {
-    const kairos = svgOf("pin_kairos_dark.svg");
-
-    assert.match(kairos, /&amp;/);
-    assert.doesNotMatch(kairos, /<off>/);
-  });
-
   it("uses the color scheme of the theme", () => {
-    assert.match(svgOf("stats_dark.svg"), /#DFE2E6/);
-    assert.match(svgOf("stats_light.svg"), /#3D4255/);
-    assert.match(svgOf("terminal_top_dark.svg"), /#151b23/);
-    assert.match(svgOf("terminal_top_light.svg"), /#eaeef2/);
+    assert.match(svgOf("session_1_dark.svg"), /#151b23/);
+    assert.match(svgOf("session_1_light.svg"), /#eaeef2/);
   });
 
-  it("draws the terminal prompt and underlined links from the config", () => {
-    const terminal = svgOf("terminal_top_dark.svg");
+  it("draws the terminal prompt from the config and underlines the links", () => {
+    const session = svgOf("session_1_dark.svg");
 
-    assert.match(terminal, /┌──\(/);
-    assert.match(terminal, /@github/);
-    assert.match(terminal, /whoami/);
-    assert.equal((terminal.match(/text-decoration="underline"/g) ?? []).length, 4);
+    assert.match(session, /┌──\(/);
+    assert.match(session, new RegExp(`>${config.terminal.user}<`));
+    assert.match(session, new RegExp(config.terminal.blocks[0].command));
+    assert.ok(cards.some((card) => /text-decoration="underline"/.test(card.svg)));
   });
 
-  it("cuts the terminal into pieces that fit together without gaps", () => {
-    const size = (name) => {
-      const [, width, height] = svgOf(name).match(/<svg [^>]*width="(\d+)" height="(\d+)"/);
+  it("escapes descriptions from the API", () => {
+    const session = cards
+      .filter((card) => card.name.endsWith("_dark.svg") && !card.name.includes("_compact_"))
+      .map((card) => card.svg)
+      .join("\n");
 
-      return { width: Number(width), height: Number(height) };
-    };
-    const links = config.terminal.blocks.flatMap((block) => block.links ?? []);
-    const linkSizes = links.map((link) => size(`terminal_link_${slug(link.label)}_dark.svg`));
-    const whole = svgOf("terminal_top_dark.svg").match(
-      /height="HEIGHT"|rect x="0.5" y="0.5" width="799" height="(\d+)"/,
-    );
-
-    assert.equal(
-      linkSizes.reduce((total, piece) => total + piece.width, 0),
-      816,
-    );
-    assert.ok(linkSizes.every((piece) => piece.height === 40));
-    assert.equal(
-      size("terminal_top_dark.svg").height + 40 + size("terminal_bottom_dark.svg").height,
-      Number(whole[1]) + 1 + 16,
-    );
-  });
-
-  it("embeds the icon for the color scheme and falls back to the shared icon", () => {
-    const group = svgOf("skills_containers_and_automation_dark.svg");
-
-    assert.match(group, /base64,AAAA/);
-    assert.match(group, /base64,BBBB/);
-    assert.doesNotMatch(svgOf("skills_containers_and_automation_light.svg"), /base64,AAAA/);
-    assert.match(svgOf("skills_containers_and_automation_light.svg"), /base64,BBBB/);
-    assert.equal(pickIcon(icons, "docker", "dark"), icons["docker.svg"]);
-  });
-
-  it("embeds the logo of a community project", () => {
-    const withLogo = buildCards({ ...sampleData, icons, logos: { "dozzle.svg": "data:image/svg+xml;base64,CCCC" } });
-    const card = withLogo.find((item) => item.name === "community_dozzle_dark.svg").svg;
-
-    assert.match(card, /base64,CCCC/);
-    assert.doesNotMatch(card, /text-decoration="underline"/);
-  });
-
-  it("keeps the connect descriptions inside the card", () => {
-    for (const item of config.connect) {
-      // The estimate is conservative, so real text is narrower than this.
-      assert.ok(measureText(item.description, 12) < (256 - 40) * 1.25, item.name);
-    }
+    assert.match(session, /&amp;/);
+    assert.doesNotMatch(session, /<off>/);
   });
 });
 
