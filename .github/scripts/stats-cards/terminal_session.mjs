@@ -580,9 +580,8 @@ export function renderSession(data, theme, { compact = false } = {}) {
 
   // --- the session -------------------------------------------------------
   {
-    const first = new Date(Date.UTC(data.stats.year, 0, 1));
-    const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][first.getUTCDay()];
-    const login = `Last login: ${weekday} Jan  1 08:00:00 ${data.stats.year}${compact ? "" : " from 192.168.1.10"}`;
+    // The Unix epoch: Thursday, January 1, 1970, at 00:00:00 UTC.
+    const login = `Last login: Thu Jan  1 00:00:00 1970${compact ? "" : " from 192.168.1.10"}`;
 
     staticLines([[muted(login)]], login, { last: 12 });
   }
