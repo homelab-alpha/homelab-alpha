@@ -46,7 +46,6 @@
 /.github/policies/                    @homelab-alpha
 /.github/pull_request_template.md     @homelab-alpha
 /CHANGELOG.md                         @homelab-alpha
-/CODE_STYLE_AND_STANDARDS_GUIDES.md   @homelab-alpha
 /CONTRIBUTING.md                      @homelab-alpha
 /CONTRIBUTORS.md                      @homelab-alpha
 /docs/                                @homelab-alpha
