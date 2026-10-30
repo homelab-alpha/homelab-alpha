@@ -96,9 +96,7 @@ function segmentsText(x, y, segments, { size, anchor = "start", color }) {
         segment.underline ? ' text-decoration="underline"' : "",
       ].join("");
 
-      return attributes
-        ? `<tspan${attributes}>${escapeXml(segment.t)}</tspan>`
-        : escapeXml(segment.t);
+      return attributes ? `<tspan${attributes}>${escapeXml(segment.t)}</tspan>` : escapeXml(segment.t);
     })
     .join("");
 
@@ -216,7 +214,10 @@ export function renderSession(data, theme, { compact = false } = {}) {
       const pieces = texts(isCompact);
       const text = pieces.join(separator);
       const links = parts.map((part, index) => {
-        const start = pieces.slice(0, index).join(separator).length + (index > 0 ? separator.length : 0) + pieces[index].indexOf(part.link);
+        const start =
+          pieces.slice(0, index).join(separator).length +
+          (index > 0 ? separator.length : 0) +
+          pieces[index].indexOf(part.link);
 
         return { start, end: start + part.link.length };
       });
@@ -231,8 +232,13 @@ export function renderSession(data, theme, { compact = false } = {}) {
       unit: isCompact ? 1 : 0.5,
     }));
     const cuts = [0, 1].map((index) => {
-      const lower = Math.max(...modes.map((mode) => (mode.edge + mode.layout.links[index].end * mode.size * MONO_EM) * mode.unit)) + 2;
-      const upper = Math.min(...modes.map((mode) => (mode.edge + mode.layout.links[index + 1].start * mode.size * 0.6) * mode.unit)) - 2;
+      const lower =
+        Math.max(...modes.map((mode) => (mode.edge + mode.layout.links[index].end * mode.size * MONO_EM) * mode.unit)) +
+        2;
+      const upper =
+        Math.min(
+          ...modes.map((mode) => (mode.edge + mode.layout.links[index + 1].start * mode.size * 0.6) * mode.unit),
+        ) - 2;
 
       if (lower > upper) {
         throw new Error(`The license links cannot be cut apart (${lower} > ${upper}).`);
@@ -297,7 +303,9 @@ export function renderSession(data, theme, { compact = false } = {}) {
       const date = compact ? "" : " Jan  1";
 
       specs.push([
-        muted(`${directory ? "drwxr-xr-x" : "-rw-r--r--"} ${directory ? 2 : 1} ${user}${group} ${human(value)}${date} `),
+        muted(
+          `${directory ? "drwxr-xr-x" : "-rw-r--r--"} ${directory ? 2 : 1} ${user}${group} ${human(value)}${date} `,
+        ),
         directory ? { t: name, color: theme.blue, bold: true } : { t: name, color: theme.title },
       ]);
     }
@@ -315,7 +323,13 @@ export function renderSession(data, theme, { compact = false } = {}) {
     let logical = 0;
 
     texts.forEach((text, index) => {
-      const lines = wrapWords(text.split(/\s+/).filter(Boolean).map((word) => ({ word, bold: false })), columns);
+      const lines = wrapWords(
+        text
+          .split(/\s+/)
+          .filter(Boolean)
+          .map((word) => ({ word, bold: false })),
+        columns,
+      );
 
       logical += 1;
       lines.forEach((line, lineIndex) => rows.push({ number: lineIndex === 0 ? logical : null, line }));
@@ -330,7 +344,11 @@ export function renderSession(data, theme, { compact = false } = {}) {
       const segments = [{ t: row.number === null ? "    " : String(row.number).padStart(3) + " ", color: theme.gold }];
 
       row.line.forEach((item, wordIndex) => {
-        segments.push({ t: wordIndex > 0 ? ` ${item.word}` : item.word, color: item.word.includes("**") ? theme.title : theme.text, bold: item.word.includes("**") });
+        segments.push({
+          t: wordIndex > 0 ? ` ${item.word}` : item.word,
+          color: item.word.includes("**") ? theme.title : theme.text,
+          bold: item.word.includes("**"),
+        });
       });
       elements.push(segmentsText(pad, baseline(top, index), segments, { size, color: theme.text }));
     });
@@ -338,7 +356,9 @@ export function renderSession(data, theme, { compact = false } = {}) {
     let row = rows.length;
 
     for (let filler = 0; filler < 2; filler += 1) {
-      elements.push(segmentsText(pad, baseline(top, row), [{ t: "~", color: theme.blue }], { size, color: theme.text }));
+      elements.push(
+        segmentsText(pad, baseline(top, row), [{ t: "~", color: theme.blue }], { size, color: theme.text }),
+      );
       row += 1;
     }
 
@@ -347,13 +367,12 @@ export function renderSession(data, theme, { compact = false } = {}) {
     elements.push(
       `<rect x="${pad - 8}" y="${barTop}" width="${width - pad * 2 + 16}" height="${lineHeight}" rx="3" fill="${theme.line}"/>`,
       segmentsText(pad, barTop + 14, [{ t: `${fileName} [RO]`, color: theme.title }], { size, color: theme.title }),
-      segmentsText(width - pad, barTop + 14, [{ t: "1,1   All", color: theme.title }], { size, anchor: "end", color: theme.title }),
-      segmentsText(
-        pad,
-        barTop + lineHeight + 14,
-        [{ t: ":q", color: theme.title }],
-        { size, color: theme.title },
-      ),
+      segmentsText(width - pad, barTop + 14, [{ t: "1,1   All", color: theme.title }], {
+        size,
+        anchor: "end",
+        color: theme.title,
+      }),
+      segmentsText(pad, barTop + lineHeight + 14, [{ t: ":q", color: theme.title }], { size, color: theme.title }),
     );
 
     y = barTop + lineHeight * 2 + 2;
@@ -366,7 +385,12 @@ export function renderSession(data, theme, { compact = false } = {}) {
     const top = y;
 
     lines.forEach((line, index) => {
-      elements.push(segmentsText(pad, baseline(top, index), [{ t: line.map((word) => word.word).join(" ") }], { size, color: theme.text }));
+      elements.push(
+        segmentsText(pad, baseline(top, index), [{ t: line.map((word) => word.word).join(" ") }], {
+          size,
+          color: theme.text,
+        }),
+      );
     });
 
     const barTop = top + lines.length * lineHeight + 4;
@@ -376,7 +400,12 @@ export function renderSession(data, theme, { compact = false } = {}) {
       segmentsText(pad, barTop + 14, [{ t: `${fileName} (END)`, color: theme.title }], { size, color: theme.title }),
     );
     y = barTop + lineHeight + 2;
-    add({ kind: "static", y0: top, y1: y, alt: lines.map((line) => line.map((word) => word.word).join(" ")).join(" ") });
+    add({
+      kind: "static",
+      y0: top,
+      y1: y,
+      alt: lines.map((line) => line.map((word) => word.word).join(" ")).join(" "),
+    });
     y += 14;
   }
 
@@ -390,7 +419,13 @@ export function renderSession(data, theme, { compact = false } = {}) {
     let logical = 0;
 
     texts.forEach((text, index) => {
-      const lines = wrapWords(text.split(/\s+/).filter(Boolean).map((word) => ({ word, bold: false })), columns);
+      const lines = wrapWords(
+        text
+          .split(/\s+/)
+          .filter(Boolean)
+          .map((word) => ({ word, bold: false })),
+        columns,
+      );
 
       logical += 1;
       lines.forEach((line, lineIndex) => rows.push({ number: lineIndex === 0 ? logical : null, line }));
@@ -405,7 +440,11 @@ export function renderSession(data, theme, { compact = false } = {}) {
       const segments = [{ t: row.number === null ? "    " : String(row.number).padStart(3) + " ", color: theme.gold }];
 
       row.line.forEach((item, wordIndex) => {
-        segments.push({ t: wordIndex > 0 ? ` ${item.word}` : item.word, color: item.word.includes("**") ? theme.title : theme.text, bold: item.word.includes("**") });
+        segments.push({
+          t: wordIndex > 0 ? ` ${item.word}` : item.word,
+          color: item.word.includes("**") ? theme.title : theme.text,
+          bold: item.word.includes("**"),
+        });
       });
       elements.push(segmentsText(pad, baseline(top, index), segments, { size, color: theme.text }));
     });
@@ -413,7 +452,9 @@ export function renderSession(data, theme, { compact = false } = {}) {
     let row = rows.length;
 
     for (let filler = 0; filler < 2; filler += 1) {
-      elements.push(segmentsText(pad, baseline(top, row), [{ t: "~", color: theme.blue }], { size, color: theme.text }));
+      elements.push(
+        segmentsText(pad, baseline(top, row), [{ t: "~", color: theme.blue }], { size, color: theme.text }),
+      );
       row += 1;
     }
 
@@ -422,13 +463,12 @@ export function renderSession(data, theme, { compact = false } = {}) {
     elements.push(
       `<rect x="${pad - 8}" y="${barTop}" width="${width - pad * 2 + 16}" height="${lineHeight}" rx="3" fill="${theme.line}"/>`,
       segmentsText(pad, barTop + 14, [{ t: `${fileName} [RO]`, color: theme.title }], { size, color: theme.title }),
-      segmentsText(width - pad, barTop + 14, [{ t: "1,1   All", color: theme.title }], { size, anchor: "end", color: theme.title }),
-      segmentsText(
-        pad,
-        barTop + lineHeight + 14,
-        [{ t: ":q", color: theme.title }],
-        { size, color: theme.title },
-      ),
+      segmentsText(width - pad, barTop + 14, [{ t: "1,1   All", color: theme.title }], {
+        size,
+        anchor: "end",
+        color: theme.title,
+      }),
+      segmentsText(pad, barTop + lineHeight + 14, [{ t: ":q", color: theme.title }], { size, color: theme.title }),
     );
 
     y = barTop + lineHeight * 2 + 2;
@@ -441,7 +481,12 @@ export function renderSession(data, theme, { compact = false } = {}) {
     const top = y;
 
     lines.forEach((line, index) => {
-      elements.push(segmentsText(pad, baseline(top, index), [{ t: line.map((word) => word.word).join(" ") }], { size, color: theme.text }));
+      elements.push(
+        segmentsText(pad, baseline(top, index), [{ t: line.map((word) => word.word).join(" ") }], {
+          size,
+          color: theme.text,
+        }),
+      );
     });
 
     const barTop = top + lines.length * lineHeight + 4;
@@ -451,7 +496,12 @@ export function renderSession(data, theme, { compact = false } = {}) {
       segmentsText(pad, barTop + 14, [{ t: `${fileName} (END)`, color: theme.title }], { size, color: theme.title }),
     );
     y = barTop + lineHeight + 2;
-    add({ kind: "static", y0: top, y1: y, alt: lines.map((line) => line.map((word) => word.word).join(" ")).join(" ") });
+    add({
+      kind: "static",
+      y0: top,
+      y1: y,
+      alt: lines.map((line) => line.map((word) => word.word).join(" ")).join(" "),
+    });
     y += 14;
   }
 
@@ -464,14 +514,27 @@ export function renderSession(data, theme, { compact = false } = {}) {
       ["Role", config.terminal.blocks[1].output.split("|")[0].trim()],
       ["Repos", `${data.repositories.length} pinned`],
       ["Stars", formatNumber(stats.stars)],
-      ["Languages", languages.slice(0, 3).map((language) => language.name).join(", ")],
+      [
+        "Languages",
+        languages
+          .slice(0, 3)
+          .map((language) => language.name)
+          .join(", "),
+      ],
       ["Shell", "zsh"],
       ["Editor", "vim"],
     ];
     const specs = [
-      [{ t: user, color: theme.title, bold: true }, { t: "@", color: theme.gold }, { t: host, color: theme.blue, bold: true }],
+      [
+        { t: user, color: theme.title, bold: true },
+        { t: "@", color: theme.gold },
+        { t: host, color: theme.blue, bold: true },
+      ],
       [muted("-".repeat(user.length + host.length + 1))],
-      ...rows.map(([key, value]) => [{ t: key, color: theme.blue, bold: true }, { t: `: ${value}`, color: theme.text }]),
+      ...rows.map(([key, value]) => [
+        { t: key, color: theme.blue, bold: true },
+        { t: `: ${value}`, color: theme.text },
+      ]),
     ];
 
     specs.forEach((segments, index) => {
@@ -485,7 +548,12 @@ export function renderSession(data, theme, { compact = false } = {}) {
     });
 
     y = paletteTop + 14;
-    add({ kind: "static", y0: top, y1: y, alt: `${user}@${host}. ${rows.map(([key, value]) => `${key}: ${value}`).join(". ")}.` });
+    add({
+      kind: "static",
+      y0: top,
+      y1: y,
+      alt: `${user}@${host}. ${rows.map(([key, value]) => `${key}: ${value}`).join(". ")}.`,
+    });
     y += 14;
   }
 
@@ -518,7 +586,9 @@ export function renderSession(data, theme, { compact = false } = {}) {
 
     staticLines(
       specs,
-      config.skillGroups.map((group) => `${group.name}: ${group.skills.map((skill) => skill.name).join(", ")}`).join(". "),
+      config.skillGroups
+        .map((group) => `${group.name}: ${group.skills.map((skill) => skill.name).join(", ")}`)
+        .join(". "),
     );
   }
 
@@ -634,7 +704,9 @@ export function renderSession(data, theme, { compact = false } = {}) {
     const barWidth = width - pad * 2;
     let offset = pad;
 
-    elements.push(`<clipPath id="session-bar"><rect x="${pad}" y="${y}" width="${barWidth}" height="8" rx="4"/></clipPath>`);
+    elements.push(
+      `<clipPath id="session-bar"><rect x="${pad}" y="${y}" width="${barWidth}" height="8" rx="4"/></clipPath>`,
+    );
     elements.push(
       `<g clip-path="url(#session-bar)">${languages
         .map((language) => {
@@ -649,7 +721,10 @@ export function renderSession(data, theme, { compact = false } = {}) {
     y += 22;
 
     // Legend: language names in their own color, wrapped over lines.
-    const entries = languages.map((language) => ({ text: `${language.name} ${language.percent.toFixed(0)}%`, color: language.color }));
+    const entries = languages.map((language) => ({
+      text: `${language.name} ${language.percent.toFixed(0)}%`,
+      color: language.color,
+    }));
     const legendLines = [];
     let current = [];
     let length = 0;
@@ -676,7 +751,10 @@ export function renderSession(data, theme, { compact = false } = {}) {
         segmentsText(
           pad,
           baseline(y, index),
-          line.flatMap((entry, entryIndex) => [...(entryIndex > 0 ? [{ t: "  " }] : []), { t: entry.text, color: entry.color }]),
+          line.flatMap((entry, entryIndex) => [
+            ...(entryIndex > 0 ? [{ t: "  " }] : []),
+            { t: entry.text, color: entry.color },
+          ]),
           { size, color: theme.text },
         ),
       );
@@ -732,7 +810,12 @@ export function renderSession(data, theme, { compact = false } = {}) {
     );
     lines.forEach((line, index) => {
       elements.push(
-        segmentsText(pad + 16, baseline(top, index), [{ t: line.map((word) => word.word).join(" "), color: theme.muted }], { size, color: theme.text }),
+        segmentsText(
+          pad + 16,
+          baseline(top, index),
+          [{ t: line.map((word) => word.word).join(" "), color: theme.muted }],
+          { size, color: theme.text },
+        ),
       );
     });
     add({ kind: "static", y0: top, y1: top + lines.length * lineHeight, alt: config.communityText[1] });
@@ -741,7 +824,10 @@ export function renderSession(data, theme, { compact = false } = {}) {
 
   prompt("cd ~", "~/community");
   prompt("cat -n notes.txt", "~");
-  paragraphs(config.notes.map((note, index) => plain(`${index + 1}  ${note}`, maxCharacters)), { gap: 4 });
+  paragraphs(
+    config.notes.map((note, index) => plain(`${index + 1}  ${note}`, maxCharacters)),
+    { gap: 4 },
+  );
 
   prompt("less DISCLAIMER");
   less("DISCLAIMER", plain(`${config.disclaimer.title} ${config.disclaimer.text}`, maxCharacters));
@@ -754,7 +840,10 @@ export function renderSession(data, theme, { compact = false } = {}) {
     const list = commands.slice(-5);
 
     staticLines(
-      list.map((command, index) => [muted(`${String(1000 + commands.length - list.length + index + 1).padStart(5)}  `), { t: command, color: theme.text }]),
+      list.map((command, index) => [
+        muted(`${String(1000 + commands.length - list.length + index + 1).padStart(5)}  `),
+        { t: command, color: theme.text },
+      ]),
       `History: ${list.join(", ")}.`,
     );
   }
