@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Describe the two lint stages (pull requests and pushes to `main`) in
+  `docs/code_style_and_standards_guides.md`
+- Explain in `codeql.yml` when to add a language
+- Ignore `notes.md`, `super_linter.log`, and Python cache files in `.gitignore`
+
 ### Deprecated
 
 ### Removed
