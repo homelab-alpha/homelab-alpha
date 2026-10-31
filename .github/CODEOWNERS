@@ -20,6 +20,7 @@
 /.editorconfig                        @homelab-alpha
 /.github/CODEOWNERS                   @homelab-alpha
 /.github/DISCUSSION_TEMPLATE/         @homelab-alpha
+/.github/docs/                        @homelab-alpha
 /.github/ISSUE_TEMPLATE/              @homelab-alpha
 /.github/labels.yml                   @homelab-alpha
 /.github/linters/                     @homelab-alpha
@@ -49,7 +50,6 @@
 /CLAUDE.md                            @homelab-alpha
 /CONTRIBUTING.md                      @homelab-alpha
 /CONTRIBUTORS.md                      @homelab-alpha
-/docs/                                @homelab-alpha
 /GOVERNANCE.md                        @homelab-alpha
 /MAINTAINERS.md                       @homelab-alpha
 /README.md                            @homelab-alpha
@@ -59,7 +59,6 @@
 # Profile Content and Automation
 # Ownership for the profile assets, the stats cards generator, and scripts
 /.github/scripts/                     @homelab-alpha
+/.github/scripts/setup_gpg.sh         @homelab-alpha
+/.github/scripts/verify_signatures.sh @homelab-alpha
 /assets/                              @homelab-alpha
-/scripts/                             @homelab-alpha
-/scripts/setup_gpg.sh                 @homelab-alpha
-/scripts/verify_signatures.sh         @homelab-alpha
