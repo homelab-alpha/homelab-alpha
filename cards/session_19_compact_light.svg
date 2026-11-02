@@ -103,7 +103,7 @@
   <text x="376" y="1908" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#59636e" text-anchor="end" xml:space="preserve"><tspan fill="#3D4255" font-weight="600">26</tspan></text>
   <line x1="16" y1="1914.5" x2="376" y2="1914.5" stroke="#C3C9CF" stroke-dasharray="2 3"/>
   <text x="16" y="1932" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#59636e" xml:space="preserve">Total Commits (2026)</text>
-  <text x="376" y="1932" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#59636e" text-anchor="end" xml:space="preserve"><tspan fill="#3D4255" font-weight="600">2,067</tspan></text>
+  <text x="376" y="1932" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#59636e" text-anchor="end" xml:space="preserve"><tspan fill="#3D4255" font-weight="600">2,111</tspan></text>
   <line x1="16" y1="1938.5" x2="376" y2="1938.5" stroke="#C3C9CF" stroke-dasharray="2 3"/>
   <text x="16" y="1956" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#59636e" xml:space="preserve">Total PRs</text>
   <text x="376" y="1956" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#59636e" text-anchor="end" xml:space="preserve"><tspan fill="#3D4255" font-weight="600">406</tspan></text>
