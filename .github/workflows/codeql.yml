@@ -54,9 +54,10 @@ jobs:
           - language: actions
             build-mode: none
           # Add a language only when the repository has source code for it,
-          # because CodeQL fails when it finds no code to analyze. For example:
-          # - language: javascript-typescript
-          #   build-mode: none
+          # because CodeQL fails when it finds no code to analyze.
+          # javascript-typescript covers the stats cards generator.
+          - language: javascript-typescript
+            build-mode: none
 
     steps:
       - name: 🏁 Notify start of analysis
