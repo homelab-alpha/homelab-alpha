@@ -83,5 +83,17 @@
     }
   ],
   "internalChecksFilter": "strict",
-  "minimumReleaseAge": "7 days"
+  "minimumReleaseAge": "7 days",
+  "customManagers": [
+    {
+      "description": "Track Hugo version in GitHub Actions workflows",
+      "customType": "regex",
+      "managerFilePatterns": ["/.github/workflows/.*\\.ya?ml$/"],
+      "matchStrings": ["HUGO_VERSION:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "depNameTemplate": "hugo",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver",
+      "packageNameTemplate": "gohugoio/hugo"
+    }
+  ]
 }
