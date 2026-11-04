@@ -59,6 +59,6 @@
 # Profile Content and Automation
 # Ownership for the profile assets, the stats cards generator, and scripts
 /.github/scripts/                     @homelab-alpha
-/.github/scripts/setup_gpg.sh         @homelab-alpha
+/.github/scripts/setup_signing.sh     @homelab-alpha
 /.github/scripts/verify_signatures.sh @homelab-alpha
 /assets/                              @homelab-alpha
