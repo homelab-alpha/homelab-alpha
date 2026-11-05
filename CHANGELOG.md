@@ -50,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix(labels): skip unchanged labels and retry failed writes [f2f2b80](https://github.com/homelab-alpha/homelab-alpha/commit/f2f2b80fabd910d1ea58a07f53092a9b6aed328f) by [@homelab-alpha](https://github.com/homelab-alpha)
 - fix(changelog): remove the date from Unreleased [cf765ec](https://github.com/homelab-alpha/homelab-alpha/commit/cf765ec3509a51f23b5aa790cd7727c689b2e0b5) by [@homelab-alpha](https://github.com/homelab-alpha)
 - fix(scripts): restore pull_request_body.py logic [5282812](https://github.com/homelab-alpha/homelab-alpha/commit/5282812009b470718bb6357f04e7a33dddf2a183) by [@homelab-alpha](https://github.com/homelab-alpha)
+- fix(changelog): remove the Unreleased link [895ef5f](https://github.com/homelab-alpha/homelab-alpha/commit/895ef5f754343e81ed768d10f08b450095e5eb3f) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Security
 
