@@ -24,7 +24,7 @@ concurrency:
 jobs:
   update:
     name: 📊 Generate and publish cards
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     if: |
