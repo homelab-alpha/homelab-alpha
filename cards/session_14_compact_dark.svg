@@ -103,10 +103,10 @@
   <text x="376" y="1908" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">26</tspan></text>
   <line x1="16" y1="1914.5" x2="376" y2="1914.5" stroke="#353A3F" stroke-dasharray="2 3"/>
   <text x="16" y="1932" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve">Total Commits (2026)</text>
-  <text x="376" y="1932" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">2,264</tspan></text>
+  <text x="376" y="1932" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">2,286</tspan></text>
   <line x1="16" y1="1938.5" x2="376" y2="1938.5" stroke="#353A3F" stroke-dasharray="2 3"/>
   <text x="16" y="1956" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve">Total PRs</text>
-  <text x="376" y="1956" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">537</tspan></text>
+  <text x="376" y="1956" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">554</tspan></text>
   <line x1="16" y1="1962.5" x2="376" y2="1962.5" stroke="#353A3F" stroke-dasharray="2 3"/>
   <text x="16" y="1980" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve">Total Issues</text>
   <text x="376" y="1980" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">21</tspan></text>
