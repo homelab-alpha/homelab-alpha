@@ -46,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore(labels): add dependency update labels [e074762](https://github.com/homelab-alpha/homelab-alpha/commit/e0747620555113fcb96cc43a43bea442c7964b9f) by [@homelab-alpha](https://github.com/homelab-alpha)
 - chore(renovate): remove default assignees [fa69aa4](https://github.com/homelab-alpha/homelab-alpha/commit/fa69aa4125a2f93a21179fc5eb569a17f3926907) by [@homelab-alpha](https://github.com/homelab-alpha)
 - chore(renovate): group and automerge updates [702f784](https://github.com/homelab-alpha/homelab-alpha/commit/702f7840c48d9f27f75bd1677b57d2dd6714d315) by [@homelab-alpha](https://github.com/homelab-alpha)
+- chore(sync): sync shared files with blueprint [1073e71](https://github.com/homelab-alpha/homelab-alpha/commit/1073e710f90029da28aa8f6a263d12a07c5aa9ed) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Deprecated
 
