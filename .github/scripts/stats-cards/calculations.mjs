@@ -9,6 +9,28 @@ export function formatNumber(value) {
   return numberFormat.format(value ?? 0);
 }
 
+// Formats a date like the `Last login:` line of a terminal, in the given time
+// zone: "Sat Nov 21 04:17:42 2026". The day is padded with a space.
+export function formatLoginTime(date, timeZone = "UTC") {
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-US", {
+      timeZone,
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      year: "numeric",
+      hourCycle: "h23",
+    })
+      .formatToParts(date)
+      .map((part) => [part.type, part.value]),
+  );
+
+  return `${parts.weekday} ${parts.month} ${parts.day.padStart(2, " ")} ${parts.hour}:${parts.minute}:${parts.second} ${parts.year}`;
+}
+
 export function addDays(dateString, amount) {
   const date = new Date(`${dateString}T00:00:00Z`);
   date.setUTCDate(date.getUTCDate() + amount);

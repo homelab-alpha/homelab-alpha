@@ -8,7 +8,7 @@
 // The regular (800 pixels) and the compact (392 pixels) layout always have the
 // same bands, so the README can use one set of <img> tags for both.
 
-import { formatNumber } from "./calculations.mjs";
+import { formatLoginTime, formatNumber } from "./calculations.mjs";
 import { CARD_WIDTH, INSET, MONO, escapeXml } from "./svg_helpers.mjs";
 
 // Width of one monospace character in em; a little wide on purpose.
@@ -612,8 +612,11 @@ export function renderSession(data, theme, { compact = false } = {}) {
 
   // --- the session -------------------------------------------------------
   {
-    // The Unix epoch: Thursday, January 1, 1970, at 00:00:00 UTC.
-    const login = `Last login: Thu Jan  1 00:00:00 1970${compact ? "" : " from 192.168.1.1"}`;
+    // The time the cards were generated, in the time zone of the config.
+    // Without a generation time (unit tests), the Unix epoch keeps the output
+    // stable.
+    const time = formatLoginTime(data.generatedAt ?? new Date(0), data.generatedAt ? config.terminal.timeZone : "UTC");
+    const login = `Last login: ${time}${compact ? "" : ` from ${config.terminal.loginFrom}`}`;
 
     staticLines([[muted(login)]], login, { last: 12 });
   }

@@ -51,7 +51,7 @@ async function main() {
     throw new Error("Refusing to publish sample data. Use either --sample or --publish.");
   }
 
-  const data = values.sample ? sampleData : await collectData();
+  const data = { ...(values.sample ? sampleData : await collectData()), generatedAt: new Date() };
   const cards = buildCards(data, config);
 
   await mkdir(values.out, { recursive: true });

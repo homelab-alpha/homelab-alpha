@@ -57,13 +57,14 @@ export function buildSession(data, config, theme, { compact = false } = {}) {
       stats: data.stats,
       languages,
       streak: computeWeeklyStreaks(data.days),
+      generatedAt: data.generatedAt,
     },
     theme,
     { compact },
   );
 }
 
-// data: { stats, repositories, pins, gists, days }. Returns [{ name, svg }]:
+// data: { stats, repositories, pins, gists, days, generatedAt? }. Returns [{ name, svg }]:
 // every piece of the terminal session, in both layouts and both color schemes.
 export function buildCards(data, config = defaultConfig) {
   const cards = [];
