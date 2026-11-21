@@ -7,7 +7,14 @@ import { afterEach, beforeEach, describe, it } from "node:test";
 
 import { buildCards } from "./build_cards.mjs";
 import { config } from "./config.mjs";
-import { addDays, aggregateLanguages, computeWeeklyStreaks, formatNumber, startOfWeek } from "./calculations.mjs";
+import {
+  addDays,
+  aggregateLanguages,
+  computeWeeklyStreaks,
+  formatLoginTime,
+  formatNumber,
+  startOfWeek,
+} from "./calculations.mjs";
 import { fetchContributionDays, fetchGists, fetchRepositories, graphql, request } from "./github_api.mjs";
 import { gitBlobSha, publishCards } from "./publish_branch.mjs";
 import { sampleData } from "./sample_data.mjs";
@@ -32,6 +39,14 @@ describe("dates and numbers", () => {
     assert.equal(startOfWeek("2026-10-28"), "2026-10-25");
     assert.equal(startOfWeek("2026-10-25"), "2026-10-25");
     assert.equal(startOfWeek("2026-10-31"), "2026-10-25");
+  });
+
+  it("formats the login time in the given time zone", () => {
+    const date = new Date("2026-11-21T03:17:42Z");
+
+    assert.equal(formatLoginTime(date, "Europe/Amsterdam"), "Sat Nov 21 04:17:42 2026");
+    assert.equal(formatLoginTime(new Date("2026-07-05T23:05:09Z"), "Europe/Amsterdam"), "Mon Jul  6 01:05:09 2026");
+    assert.equal(formatLoginTime(new Date(0)), "Thu Jan  1 00:00:00 1970");
   });
 
   it("formats numbers", () => {
@@ -205,6 +220,18 @@ describe("buildCards", () => {
     assert.match(session, new RegExp(`>${config.terminal.user}<`));
     assert.match(session, new RegExp(config.terminal.blocks[0].command));
     assert.ok(cards.some((card) => /text-decoration="underline"/.test(card.svg)));
+  });
+
+  it("shows the generation time as the last login", () => {
+    const generatedAt = new Date("2026-11-21T03:17:42Z");
+    const svg = buildCards({ ...sampleData, generatedAt }).find((card) => card.name === "session_1_dark.svg").svg;
+    const compact = buildCards({ ...sampleData, generatedAt }).find(
+      (card) => card.name === "session_1_compact_dark.svg",
+    ).svg;
+
+    assert.match(svg, /Last login: Sat Nov 21 04:17:42 2026 from 192\.168\.1\.2/);
+    assert.match(compact, /Last login: Sat Nov 21 04:17:42 2026</);
+    assert.match(buildCards(sampleData)[0].svg, /Last login: Thu Jan {2}1 00:00:00 1970/);
   });
 
   it("escapes descriptions from the API", () => {

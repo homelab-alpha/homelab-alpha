@@ -28,6 +28,11 @@ export const config = {
   terminal: {
     user: "homelab-alpha",
     host: "github",
+    // Time zone of the `Last login:` line, which shows when the cards were
+    // generated.
+    timeZone: "Europe/Amsterdam",
+    // Address of the `Last login:` line (not the gateway, 192.168.1.1).
+    loginFrom: "192.168.1.2",
     blocks: [
       { command: "whoami", output: "GJS" },
       { command: "cat about.txt", output: "Tech Enthusiast | Open-Source Advocate | Homelab | 🇳🇱" },
