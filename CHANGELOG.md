@@ -71,6 +71,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix(workflow): do not draft Renovate PRs [2f8f092](https://github.com/homelab-alpha/homelab-alpha/commit/2f8f092b97666bc7ffb41ceaaba3c145adee0a56) by [@homelab-alpha](https://github.com/homelab-alpha)
 - fix(renovate): remove invalid security rule that disabled grouping [a311f61](https://github.com/homelab-alpha/homelab-alpha/commit/a311f6122ea1e8cf8c80d705cfd4991a50b7111a) by [@homelab-alpha](https://github.com/homelab-alpha)
 - fix(renovate): label all updates in a group [e9199eb](https://github.com/homelab-alpha/homelab-alpha/commit/e9199ebb1f214469ec5f54eec445e6f715234d05) by [@homelab-alpha](https://github.com/homelab-alpha)
+- fix(readme): show the motto after the listing [789376f](https://github.com/homelab-alpha/homelab-alpha/commit/789376fc00e5c2a08b0065fd6ac3d2569dde34cc) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Security
 
