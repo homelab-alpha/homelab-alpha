@@ -624,11 +624,11 @@ export function renderSession(data, theme, { compact = false } = {}) {
   prompt("whoami");
   paragraphs([[[{ word: config.terminal.blocks[0].output, bold: false }]]]);
 
-  prompt(`cat ${config.motto.file}`);
-  paragraphs([plain(config.motto.text, maxCharacters)]);
-
   prompt("ls -lah");
   listing();
+
+  prompt(`cat ${config.motto.file}`);
+  paragraphs([plain(config.motto.text, maxCharacters)]);
 
   prompt("vim -R about.md");
   vim("about.md", config.intro);
