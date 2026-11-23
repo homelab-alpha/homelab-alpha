@@ -117,6 +117,15 @@ export const sampleData = {
       forks: { totalCount: 1 },
       files: [{ name: "clear_github_notifications.md", language: { name: "Markdown", color: "#083fa1" } }],
     },
+    {
+      key: "conventional-commits",
+      name: "1be7e1f886d063c60493f1cf216c87fc",
+      description: "Conventional Commits 1.0.0 cheatsheet with a flowchart to choose the commit type",
+      isPublic: true,
+      stargazerCount: 0,
+      forks: { totalCount: 0 },
+      files: [{ name: "conventional_commits_cheatsheet.md", language: { name: "Markdown", color: "#083fa1" } }],
+    },
   ],
   days: sampleDays(),
 };

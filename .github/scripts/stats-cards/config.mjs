@@ -16,7 +16,10 @@ export const config = {
   pinnedRepositories: ["docker", "openssl", "shell-script", "kairos"],
 
   // Gists listed in the session. The id is used for the link.
-  gists: [{ key: "notifications", id: "e0f265a9c9b20ca786bce2327ce87060" }],
+  gists: [
+    { key: "notifications", id: "e0f265a9c9b20ca786bce2327ce87060" },
+    { key: "conventional-commits", id: "1be7e1f886d063c60493f1cf216c87fc" },
+  ],
 
   // Languages shown in the activity output.
   languagesCount: 6,
