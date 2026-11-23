@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat(readme): remove ls links from the terminal session [027f302](https://github.com/homelab-alpha/homelab-alpha/commit/027f30211bc6cf3636b40ae1fb09d2d05616189a) by [@homelab-alpha](https://github.com/homelab-alpha)
 - feat(readme): remove the code of conduct from the pinned repositories [877fb38](https://github.com/homelab-alpha/homelab-alpha/commit/877fb38adf7a2de3f46a2ad90b10a2e75e770adb) by [@homelab-alpha](https://github.com/homelab-alpha)
 - feat(stats): show generation time as last login [b6b4dc8](https://github.com/homelab-alpha/homelab-alpha/commit/b6b4dc8ba76d3410dc6778ddd00a99903430a3f1) by [@homelab-alpha](https://github.com/homelab-alpha)
+- feat(stats): add the conventional commits gist [b27c3a1](https://github.com/homelab-alpha/homelab-alpha/commit/b27c3a160076a64c48ee2c182787ac966fb00eaa) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Changed
 
@@ -55,6 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore(renovate): group npm updates in one pr [a4f109c](https://github.com/homelab-alpha/homelab-alpha/commit/a4f109c0f1c9d64c38cb1f068ef0394e63e7a073) by [@homelab-alpha](https://github.com/homelab-alpha)
 - chore(renovate): group docker compose images [e60d468](https://github.com/homelab-alpha/homelab-alpha/commit/e60d4688a6a6a77a5dc2a3338ebed71965f05d12) by [@homelab-alpha](https://github.com/homelab-alpha)
 - chore(labels): add renovate dependency labels [b79ecd1](https://github.com/homelab-alpha/homelab-alpha/commit/b79ecd1bae777b4dbf1b7cf6f7e5f88dd9382d81) by [@homelab-alpha](https://github.com/homelab-alpha)
+- docs: add conventional commits cheatsheet [cf69acd](https://github.com/homelab-alpha/homelab-alpha/commit/cf69acd54e84c33d636c66ab00f92e365e4408d3) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Deprecated
 
