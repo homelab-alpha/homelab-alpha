@@ -7,7 +7,7 @@
   <circle cx="43" cy="18.5" r="5" stroke="#8b949e"/>
   <circle cx="61" cy="18.5" r="5" stroke="#8b949e"/>
   <text x="79" y="22" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8b949e" xml:space="preserve"><tspan fill="#8b949e">homelab-alpha@github: ~</tspan></text>
-  <text x="24" y="64" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" xml:space="preserve"><tspan fill="#8b949e">Last login: Fri Nov 27 09:54:41 2026 from 192.168.1.2</tspan></text>
+  <text x="24" y="64" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" xml:space="preserve"><tspan fill="#8b949e">Last login: Fri Nov 27 11:09:09 2026 from 192.168.1.2</tspan></text>
   <text x="24" y="92" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" xml:space="preserve"><tspan fill="#df3733">┌──(</tspan><tspan fill="#DFE2E6">homelab-alpha</tspan><tspan fill="#bb935a">@</tspan><tspan fill="#398cfe">github</tspan><tspan fill="#df3733">)-[</tspan><tspan fill="#3fbc51">~</tspan><tspan fill="#df3733">]</tspan></text>
   <text x="24" y="108" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" xml:space="preserve"><tspan fill="#df3733">└─</tspan><tspan fill="#bb935a">$</tspan><tspan fill="#DFE2E6"> whoami</tspan></text>
   <text x="24" y="131" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" xml:space="preserve"><tspan fill="#AEB5BC">GJS</tspan></text>
@@ -88,10 +88,10 @@
   <text x="776" y="1639" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">29</tspan></text>
   <line x1="24" y1="1645.5" x2="776" y2="1645.5" stroke="#353A3F" stroke-dasharray="2 3"/>
   <text x="24" y="1663" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" xml:space="preserve">Total Commits (2026)</text>
-  <text x="776" y="1663" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">2,587</tspan></text>
+  <text x="776" y="1663" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">2,599</tspan></text>
   <line x1="24" y1="1669.5" x2="776" y2="1669.5" stroke="#353A3F" stroke-dasharray="2 3"/>
   <text x="24" y="1687" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" xml:space="preserve">Total PRs</text>
-  <text x="776" y="1687" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">750</tspan></text>
+  <text x="776" y="1687" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">760</tspan></text>
   <line x1="24" y1="1693.5" x2="776" y2="1693.5" stroke="#353A3F" stroke-dasharray="2 3"/>
   <text x="24" y="1711" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" xml:space="preserve">Total Issues</text>
   <text x="776" y="1711" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">21</tspan></text>
