@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - feat(readme): remove the code of conduct from the pinned repositories [877fb38](https://github.com/homelab-alpha/homelab-alpha/commit/877fb38adf7a2de3f46a2ad90b10a2e75e770adb) by [@homelab-alpha](https://github.com/homelab-alpha)
 - feat(stats): show generation time as last login [b6b4dc8](https://github.com/homelab-alpha/homelab-alpha/commit/b6b4dc8ba76d3410dc6778ddd00a99903430a3f1) by [@homelab-alpha](https://github.com/homelab-alpha)
 - feat(stats): add the conventional commits gist [b27c3a1](https://github.com/homelab-alpha/homelab-alpha/commit/b27c3a160076a64c48ee2c182787ac966fb00eaa) by [@homelab-alpha](https://github.com/homelab-alpha)
+- feat(github): add accessibility checks [e35cd56](https://github.com/homelab-alpha/homelab-alpha/commit/e35cd56b66ca008865ae838f738ca63231dd8039) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Changed
 
@@ -57,6 +58,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore(renovate): group docker compose images [e60d468](https://github.com/homelab-alpha/homelab-alpha/commit/e60d4688a6a6a77a5dc2a3338ebed71965f05d12) by [@homelab-alpha](https://github.com/homelab-alpha)
 - chore(labels): add renovate dependency labels [b79ecd1](https://github.com/homelab-alpha/homelab-alpha/commit/b79ecd1bae777b4dbf1b7cf6f7e5f88dd9382d81) by [@homelab-alpha](https://github.com/homelab-alpha)
 - docs: add conventional commits cheatsheet [cf69acd](https://github.com/homelab-alpha/homelab-alpha/commit/cf69acd54e84c33d636c66ab00f92e365e4408d3) by [@homelab-alpha](https://github.com/homelab-alpha)
+- docs: add accessibility statement [c1e0ed7](https://github.com/homelab-alpha/homelab-alpha/commit/c1e0ed75a5e4f4962ce174bbe7f7094fbe385c45) by [@homelab-alpha](https://github.com/homelab-alpha)
+- docs: link the accessibility statement [a2848d9](https://github.com/homelab-alpha/homelab-alpha/commit/a2848d98f64617c1da535339ef67310a849a83f6) by [@homelab-alpha](https://github.com/homelab-alpha)
+- docs: document NO_COLOR support [1c8855f](https://github.com/homelab-alpha/homelab-alpha/commit/1c8855ff2daf1e6741baff8ea3b481717c95e30e) by [@homelab-alpha](https://github.com/homelab-alpha)
+- docs: update the accessibility statement [46aaac9](https://github.com/homelab-alpha/homelab-alpha/commit/46aaac9269c355133b865f053a830e7a190aac73) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Deprecated
 
@@ -74,6 +79,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix(renovate): remove invalid security rule that disabled grouping [a311f61](https://github.com/homelab-alpha/homelab-alpha/commit/a311f6122ea1e8cf8c80d705cfd4991a50b7111a) by [@homelab-alpha](https://github.com/homelab-alpha)
 - fix(renovate): label all updates in a group [e9199eb](https://github.com/homelab-alpha/homelab-alpha/commit/e9199ebb1f214469ec5f54eec445e6f715234d05) by [@homelab-alpha](https://github.com/homelab-alpha)
 - fix(readme): show the motto after the listing [789376f](https://github.com/homelab-alpha/homelab-alpha/commit/789376fc00e5c2a08b0065fd6ac3d2569dde34cc) by [@homelab-alpha](https://github.com/homelab-alpha)
+- fix(profile): improve alt text and add text view [ec0ec27](https://github.com/homelab-alpha/homelab-alpha/commit/ec0ec2748ec5a79a6be10a2d8bffb57a9f1ac71e) by [@homelab-alpha](https://github.com/homelab-alpha)
+- fix(profile): move text version link to bottom [a759d28](https://github.com/homelab-alpha/homelab-alpha/commit/a759d28752d77639836afbc117566a5eb8f203f4) by [@homelab-alpha](https://github.com/homelab-alpha)
 
 ### Security
 
