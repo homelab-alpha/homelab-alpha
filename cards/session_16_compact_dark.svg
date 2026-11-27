@@ -7,7 +7,7 @@
   <circle cx="43" cy="18.5" r="5" stroke="#8b949e"/>
   <circle cx="61" cy="18.5" r="5" stroke="#8b949e"/>
   <text x="79" y="22" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8b949e" xml:space="preserve"><tspan fill="#8b949e">homelab-alpha@github: ~</tspan></text>
-  <text x="16" y="64" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve"><tspan fill="#8b949e">Last login: Thu Nov 26 13:35:05 2026</tspan></text>
+  <text x="16" y="64" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve"><tspan fill="#8b949e">Last login: Fri Nov 27 08:35:22 2026</tspan></text>
   <text x="16" y="92" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve"><tspan fill="#df3733">┌──(</tspan><tspan fill="#DFE2E6">homelab-alpha</tspan><tspan fill="#bb935a">@</tspan><tspan fill="#398cfe">github</tspan><tspan fill="#df3733">)-[</tspan><tspan fill="#3fbc51">~</tspan><tspan fill="#df3733">]</tspan></text>
   <text x="16" y="108" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve"><tspan fill="#df3733">└─</tspan><tspan fill="#bb935a">$</tspan><tspan fill="#DFE2E6"> whoami</tspan></text>
   <text x="16" y="131" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve"><tspan fill="#AEB5BC">GJS</tspan></text>
@@ -106,10 +106,10 @@
   <text x="376" y="1981" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">29</tspan></text>
   <line x1="16" y1="1987.5" x2="376" y2="1987.5" stroke="#353A3F" stroke-dasharray="2 3"/>
   <text x="16" y="2005" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve">Total Commits (2026)</text>
-  <text x="376" y="2005" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">2,537</tspan></text>
+  <text x="376" y="2005" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">2,539</tspan></text>
   <line x1="16" y1="2011.5" x2="376" y2="2011.5" stroke="#353A3F" stroke-dasharray="2 3"/>
   <text x="16" y="2029" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve">Total PRs</text>
-  <text x="376" y="2029" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">706</tspan></text>
+  <text x="376" y="2029" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">707</tspan></text>
   <line x1="16" y1="2035.5" x2="376" y2="2035.5" stroke="#353A3F" stroke-dasharray="2 3"/>
   <text x="16" y="2053" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" xml:space="preserve">Total Issues</text>
   <text x="376" y="2053" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#AEB5BC" text-anchor="end" xml:space="preserve"><tspan fill="#DFE2E6" font-weight="600">21</tspan></text>
