@@ -81,3 +81,21 @@ export function buildCards(data, config = defaultConfig) {
 
   return cards;
 }
+
+// The profile as Markdown, taken from the alt texts of the cards, for readers
+// who cannot use the images.
+export function buildTextVersion(data, config = defaultConfig) {
+  const { bands } = buildSession(data, config, Object.values(themes)[0]);
+  const blocks = bands
+    .flatMap((band) => band.pieces)
+    .filter((piece) => piece.alt)
+    .map((piece) => {
+      // Escape characters that Markdown or HTML would otherwise interpret.
+      const text = piece.alt.replace(/\*\*/g, "").replace(/[\\`*_[\]<>|~#$]/g, "\\$&");
+
+      // One paragraph per terminal command.
+      return piece.href ? `[${text}](${piece.href})` : text.replace(/ (?=\\\$ )/g, "\n\n");
+    });
+
+  return `# Homelab-Alpha profile\n\n${blocks.join("\n\n")}\n`;
+}
