@@ -5,7 +5,7 @@
 import assert from "node:assert/strict";
 import { afterEach, beforeEach, describe, it } from "node:test";
 
-import { buildCards } from "./build_cards.mjs";
+import { buildCards, buildTextVersion } from "./build_cards.mjs";
 import { config } from "./config.mjs";
 import {
   addDays,
@@ -242,6 +242,17 @@ describe("buildCards", () => {
 
     assert.match(session, /&amp;/);
     assert.doesNotMatch(session, /<off>/);
+  });
+});
+
+describe("buildTextVersion", () => {
+  it("lists the current figures and escapes markup", () => {
+    const text = buildTextVersion({ ...sampleData, generatedAt: new Date("2026-10-28T12:00:00Z") }, config);
+
+    assert.match(text, /^# Homelab-Alpha profile\n/);
+    assert.match(text, /Total Stars Earned 1,280/);
+    assert.ok(text.includes("\\<off\\>"));
+    assert.ok(text.includes("](https://github.com/homelab-alpha/docker)"));
   });
 });
 

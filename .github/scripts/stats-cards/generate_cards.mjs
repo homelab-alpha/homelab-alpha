@@ -13,7 +13,7 @@ import { appendFile, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
 
-import { buildCards } from "./build_cards.mjs";
+import { buildCards, buildTextVersion } from "./build_cards.mjs";
 import { config } from "./config.mjs";
 import { fetchContributionDays, fetchGists, fetchRepositories, fetchStats } from "./github_api.mjs";
 import { publishCards } from "./publish_branch.mjs";
@@ -54,9 +54,12 @@ async function main() {
   const data = { ...(values.sample ? sampleData : await collectData()), generatedAt: new Date() };
   const cards = buildCards(data, config);
 
+  // Published next to the cards; publishCards reads the content from `svg`.
+  const files = [...cards, { name: "profile_text.md", svg: buildTextVersion(data, config) }];
+
   await mkdir(values.out, { recursive: true });
 
-  for (const card of cards) {
+  for (const card of files) {
     await writeFile(path.join(values.out, card.name), card.svg);
   }
 
@@ -75,7 +78,7 @@ async function main() {
       repository,
       branch: config.branch,
       directory: config.outputDirectory,
-      cards,
+      cards: files,
     });
 
     if (result.createdBranch) {
